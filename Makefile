@@ -25,4 +25,4 @@ noServiceChargeCheckingType.o: noServiceChargeCheckingType.cpp noServiceChargeCh
 checkingAccountType.o: checkingAccountType.cpp checkingAccountType.h bankAccountType.o
 
 clean:
-	rm -f run-tests *.o *~
+	rm -f run *.o *~
