@@ -28,7 +28,7 @@ int main(){
 		switch(choice)
 		{
    	   case '1':
-      	   //createMenu();
+      	   createMenu();
          	break;
 	      case '2':
    	    	/* if(->accountNumb ==0)
