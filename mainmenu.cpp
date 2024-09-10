@@ -1,5 +1,5 @@
 using namespace std;
-#include "menu.h";
+#include "menu.h"
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -12,7 +12,7 @@ using namespace std;
 #include "certificateOfDepositType.h"
 #include "checkingAccountType.h"
 int main(){
- bankAccountType accountList [ARRAYSIZE];
+ 
  char choice;
  bool inputValidate;
  inputValidate = true;
@@ -23,34 +23,34 @@ int main(){
   cout<<"3. Edit"<<endl;
   cout<<"4. Remove"<<endl;
   cout<<"5. Exit"<<endl;
-  cout<<"Enter Number: <<endl;
+  cout<<"Enter Number: "<<endl;
   cin>>choice;
    	
 	while(inputValidate == true)
 	 switch(choice){
         case '1':
-            createmenu(accountList,);
+            createMenu();
             break;
         case '2':
-         if(accountList->accountNumb ==0)
+       /* if(->accountNumb ==0)
          cout<<"No accounts to view. Please create an account";
-        else 
-          viewMenu(accountList);
+        else */
+          viewMenu();
           break;
         case '3':
-		    if(accountList->accountNumb ==0)
+		   /* if(->accountNumb ==0)
          cout<<"No accounts to edit. Please create an account";
-	     else
-            editMenu(accountList);
+	     else*/
+            editMenu();
             break;
         case '4':
-		   if(accountList->accountNumb ==0)
+		/*   if(->accountNumb ==0)
          cout<<"No accounts to remove.";
-	     else
-            removeMenu(accountList);
+	     else */
+            removeMenu();
             break;
         case '5':           
-           inputValidate = false
+           inputValidate = false;
            break;
         default:
            cout<<"Not a valid option please input correct number: "<<endl;

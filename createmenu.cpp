@@ -1,8 +1,17 @@
 #include "menu.h"
 using namespace std;
-
-createmenu(bankAccountType accountList[ARRAYSIZE], int accountCount){
+#include "bankAccountType.h"
+#include "savingsAccountType.h"
+#include "highInterestSavingsType.h"
+#include "noServiceChargeCheckingType.h"
+#include "serviceChargeCheckingType.h"
+#include "highInterestCheckingType.h"
+#include "certificateOfDepositType.h"
+#include "checkingAccountType.h"
+createmenu(){
 	char choice;
+  
+   bool exit == true;
 	cout<<""\033[2J\033[1;1H"<<endl;
 	cout<<"What Type of Account would you like to make."<<endl;
 	cout<<"1.Bank Account"<<endl<<"------------"<<endl;
@@ -15,32 +24,31 @@ createmenu(bankAccountType accountList[ARRAYSIZE], int accountCount){
 	cout<<"8.Exit"<<endl;
 	cout<<"Please enter a choice"<<endl;
 	cin>> choice;
-	
+	while( exit = true){
 	switch(choice){
-		case '1': cout<<"Creating Bank Account"<<endl;
-		          cin>>choice;
+		case '1': cout<<"Creating Bank Account"<<endl;		          
 		break;
 		case '2':
-		     cout<<"Creating Savings Account"<<endl;
-			  cin>>choice;
+		     cout<<"Creating Savings Account"<<endl;	  
 		break;
 		case '3':
-		   cout<<"Creating High Interest Savings Account"<<endl;
-		    cin>>choice;
+		   cout<<"Creating High Interest Savings Account"<<endl;		    
 		break;
 		case'4':
-		  cout<<"Creating Checking Account"<<endl;
-		    cin>>choice;
+		  cout<<"Creating Checking Account"<<endl;		      
 		break;
-		case'5':
+		case'5':  cout<<"Creating High Interest Savings Account"<<endl; 
 		break;
-		case'6':
+		case'6': cout<<" No service Charge Checking"<<endl;
 		break;
-		case'7':
+		case'7':cout<<" Certificate of Deposit"<<endl;
 		break;
-		case'8':
+		case'8': cout<<"Exit"<<endl;
+			exit ==false;
 		break;
 		default:
-		
-		
-	
+		 cout<<"option not available please select a valid option"<<endl;
+       cin>>choice;
+	}
+     return ;
+    }
