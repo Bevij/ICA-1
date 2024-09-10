@@ -1,12 +1,20 @@
 CFLAGS = -Wall -Werror -Wpedantic -std=c++20 -O0 -g
 CC = g++
 
-OBJECTS = mainmenu.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
+OBJECTS = mainmenu.o viewmenu.o createmenu.o editmenu.o removemenu.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-mainmenu.o: mainmenu.cpp bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o mainmenu.cpp menu.h viewmenu.cpp editmenu.cpp removemenu.cpp
+mainmenu.o: mainmenu.cpp createmenu.o viewmenu.o editmenu.o removemenu.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o mainmenu.cpp menu.h viewmenu.cpp editmenu.cpp removemenu.cpp
+
+viewmenu.o: viewmenu.cpp menu.h
+
+createmenu.o: createmenu.cpp menu.h
+
+editmenu.o: editmenu.cpp menu.h
+
+removemenu.o: removemenu.cpp menu.h
 
 highInterestSavingsType.o: highInterestSavingsType.cpp highInterestSavingsType.h bankAccountType.o savingsAccountType.o
 
