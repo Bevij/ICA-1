@@ -12,7 +12,7 @@
 
 using namespace std;
 
-// note that these need to be in order of inheritance (ex: bankAccountType should be ABOVE checkingAccountType) (NEVERMIND)
+// inclusion of all classes, for use in general menu and other CPP files
 #include "bankAccountType.h"
 
 #include "checkingAccountType.h"
@@ -25,8 +25,6 @@ using namespace std;
 #include "savingsAccountType.h"
 #include "highInterestSavingsType.h"
 
-
-//     END OF INITIALIZATIONS
 
 
 
