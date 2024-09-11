@@ -10,13 +10,13 @@ mainmenu.o: mainmenu.cpp *.o
 
 
 
-viewmenu.o: viewmenu.cpp *o
+viewmenu.o: viewmenu.cpp *.o
 
-createmenu.o: createmenu.cpp *o
+createmenu.o: createmenu.cpp *.o
 
-editmenu.o: editmenu.cpp *o
+editmenu.o: editmenu.cpp *.o
 
-removemenu.o: removemenu.cpp *o
+removemenu.o: removemenu.cpp *.o
 
 
 highInterestSavingsType.o: highInterestSavingsType.cpp highInterestSavingsType.h savingsAccountType.o
