@@ -1,10 +1,9 @@
 #ifndef noServiceChargeCheckingType_H
 #define noServiceChargeCheckingType_H
 
-#include <string>
 #include "checkingAccountType.h"
 
-using namespace std;
+
 
 class noServiceChargeCheckingType: public checkingAccountType
 {

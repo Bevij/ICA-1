@@ -6,31 +6,37 @@ OBJECTS = mainmenu.o viewmenu.o createmenu.o editmenu.o removemenu.o bankAccount
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-mainmenu.o: mainmenu.cpp createmenu.o viewmenu.o editmenu.o removemenu.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o mainmenu.cpp menu.h viewmenu.cpp editmenu.cpp removemenu.cpp
+mainmenu.o: mainmenu.cpp *.o
 
-viewmenu.o: viewmenu.cpp menu.h
 
-createmenu.o: createmenu.cpp menu.h
 
-editmenu.o: editmenu.cpp menu.h
+viewmenu.o: viewmenu.cpp *o
 
-removemenu.o: removemenu.cpp menu.h
+createmenu.o: createmenu.cpp *o
 
-highInterestSavingsType.o: highInterestSavingsType.cpp highInterestSavingsType.h bankAccountType.o savingsAccountType.o
+editmenu.o: editmenu.cpp *o
+
+removemenu.o: removemenu.cpp *o
+
+
+highInterestSavingsType.o: highInterestSavingsType.cpp highInterestSavingsType.h savingsAccountType.o
 
 savingsAccountType.o: savingsAccountType.cpp savingsAccountType.h bankAccountType.o
 
+
 certificateOfDepositType.o: certificateOfDepositType.cpp certificateOfDepositType.h bankAccountType.o
 
-bankAccountType.o: bankAccountType.cpp bankAccountType.h
-
-serviceChargeCheckingType.o: serviceChargeCheckingType.cpp serviceChargeCheckingType.h checkingAccountType.o
 
 highInterestCheckingType.o: highInterestCheckingType.cpp highInterestCheckingType.h noServiceChargeCheckingType.o
 
 noServiceChargeCheckingType.o: noServiceChargeCheckingType.cpp noServiceChargeCheckingType.h checkingAccountType.o
 
+serviceChargeCheckingType.o: serviceChargeCheckingType.cpp serviceChargeCheckingType.h checkingAccountType.o
+
 checkingAccountType.o: checkingAccountType.cpp checkingAccountType.h bankAccountType.o
+
+
+bankAccountType.o: bankAccountType.cpp bankAccountType.h header.h
 
 
 

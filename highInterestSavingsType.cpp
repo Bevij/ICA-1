@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "highInterestSavingsType.h"
 
-using namespace std;
+
 
 const double highInterestSavingsType::MINIMUM_BALANCE = 2500.00;
 const double highInterestSavingsType::INTEREST_RATE = 0.05;

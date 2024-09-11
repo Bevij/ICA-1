@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "savingsAccountType.h"
 
-using namespace std;
+
 
 const double savingsAccountType::INTEREST_RATE = 0.03;
 

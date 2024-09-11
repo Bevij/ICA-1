@@ -1,10 +1,9 @@
 #ifndef highInterestCheckingType_H
 #define highInterestCheckingType_H
 
-#include <string>
 #include "noServiceChargeCheckingType.h"
 
-using namespace std;
+
 
 class highInterestCheckingType: public noServiceChargeCheckingType
 {

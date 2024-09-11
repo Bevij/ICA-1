@@ -1,11 +1,15 @@
 #ifndef checkingAccountType_H
 #define checkingAccountType_H
 
-#include <string>
-
 #include "bankAccountType.h"
 
-using namespace std;
+
+
+class dummy
+{
+	public:
+		dummy();
+};
 
 class checkingAccountType: public bankAccountType
 {

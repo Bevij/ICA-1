@@ -1,9 +1,9 @@
 #ifndef highInterestSavingsType_H
 #define highInterestSavingsType_H
 
-#include <string>
 #include "savingsAccountType.h"
-using namespace std;
+
+
 
 class highInterestSavingsType: public savingsAccountType
 {

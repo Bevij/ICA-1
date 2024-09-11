@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "bankAccountType.h"
 
-using namespace std;
+
 
 bankAccountType::bankAccountType(string n, int acctNumber, double bal)
 {

@@ -2,9 +2,8 @@
 #define certificateOfDepositType_H
 
 #include "bankAccountType.h"
-#include <string>
 
-using namespace std;
+
 
 class certificateOfDepositType: public bankAccountType
 {

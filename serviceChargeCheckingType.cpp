@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "serviceChargeCheckingType.h"
 
-using namespace std;
+
 
 const double serviceChargeCheckingType::ACCOUNT_SERVICE_CHARGE = 10.00;
 const int serviceChargeCheckingType::MAXIMUM_NUM_OF_CHECKS = 5;

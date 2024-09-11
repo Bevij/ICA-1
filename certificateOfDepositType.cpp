@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "certificateOfDepositType.h"
 
-using namespace std;
+
 
 const double certificateOfDepositType::INTEREST_RATE = 0.05;
 const int certificateOfDepositType::NUMBER_OF_MATURITY_MONTHS = 6;

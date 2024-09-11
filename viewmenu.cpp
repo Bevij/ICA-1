@@ -1,13 +1,7 @@
-using namespace std;
-#include "menu.h"
-#include "bankAccountType.h"
-#include "savingsAccountType.h"
-#include "highInterestSavingsType.h"
-#include "noServiceChargeCheckingType.h"
-#include "serviceChargeCheckingType.h"
-#include "highInterestCheckingType.h"
-#include "certificateOfDepositType.h"
-#include "checkingAccountType.h"
+#include "header.h"
+
+
+
 //basic view menu;
 void viewMenu(){
 

@@ -1,9 +1,5 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "noServiceChargeCheckingType.h"
 
-using namespace std;
 
 const double noServiceChargeCheckingType::MIN_BALANCE = 1000.00;
 const double noServiceChargeCheckingType::INTEREST_RATE = 0.02;

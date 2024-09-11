@@ -1,7 +1,10 @@
 #ifndef bankAccountType_H
 #define bankAccountType_H
 
+#include <iostream>
+#include <iomanip>
 #include <string>
+
 using namespace std;
 
 class bankAccountType

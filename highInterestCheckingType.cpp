@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "highInterestCheckingType.h"
 
-using namespace std;
+
 
 const double highInterestCheckingType::INTEREST_RATE = 0.05;
 const double highInterestCheckingType::MIN_BALANCE = 5000.00;

@@ -1,10 +1,9 @@
 #ifndef savingsAccountType_H
 #define savingsAccountType_H
 
-#include <string>
 #include "bankAccountType.h"
 
-using namespace std;
+
 
 class savingsAccountType: public bankAccountType
 {
