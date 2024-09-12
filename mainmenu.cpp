@@ -3,6 +3,7 @@
 
 int main(){
 
+	int num;
 	char choice;
 	bool inputValidate;
 	inputValidate = true;
@@ -15,6 +16,7 @@ int main(){
    	cout<<"3. Edit"<<endl;
    	cout<<"4. Remove"<<endl;
    	cout<<"5. Exit"<<endl;
+		cout << "6. Random Num Test" << endl;
    	cout<<"Enter Number: "<<endl;
    	cin>>choice;
 
@@ -44,6 +46,15 @@ int main(){
      	   case '5':
         	  	inputValidate = false;
            	break;
+			case '6':
+				//Temp testing of random function
+				num = randomNum();
+				cout << endl << endl << "Here is a random number : " << num << endl << endl;
+				cout << endl << "Press enter to continue : ";
+				cin.ignore();
+				cin.ignore();
+
+				break;
         	default:
            	cout<<"Not a valid option please input correct number: "<<endl;
            	cin>> choice;

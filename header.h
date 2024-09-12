@@ -9,6 +9,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <time.h>												// includes time in seconds from 1970, time_t = time(NULL);
+#include <cstdlib>
 
 using namespace std;
 
@@ -35,6 +37,7 @@ void createMenu();
 void viewMenu();
 void editMenu();
 void removeMenu();
+int randomNum();
 
 
 //     CONST/GLOBAL VARIABLE DECLARATIONS
