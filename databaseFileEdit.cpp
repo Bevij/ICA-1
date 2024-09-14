@@ -27,8 +27,8 @@ void viewAccountFile()
 
 	// Appends to one file name
 
-
-	string tempAccountNumber = "" + accountNumber;
+	// Issue with accountNumber being an int
+	string tempAccountNumber = "" + accountNumber; // Doesn't work
 	string fileName = accountHolderLastName + ", " + accountHolderFirstName + " - " + tempAccountNumber + ".txt";
 
 	// Specify directory

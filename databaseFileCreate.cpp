@@ -21,6 +21,7 @@ void createAccountFile() {
 
 	// Construct the filename
 
+	// Issue with accountNumber being an int
 	string fileName = accountHolderLastName + ", " + accountHolderFirstName + " - " + accountNumber + ".txt";
 
 	// Specify directory
