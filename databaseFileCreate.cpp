@@ -6,23 +6,33 @@ void createAccountFile() {
 
 	// Prompt the user to enter a name
 
-	string accountHolderLastName;
-	string accountHolderFirstName;
+	char accountHolderLastName[ARRAYSIZE] = {};
+	char accountHolderFirstName[ARRAYSIZE] = {};
 
 	cout << "Enter the LAST name of the account holder: ";
-	getline (cin, accountHolderLastName);
+	cin >> accountHolderLastName;
 	cout << "Enter the FIRST name of the account holder: ";
-	getline (cin, accountHolderFirstName);
+	cin >> accountHolderFirstName;
 
 	// Reference the account number generator
 
 	int randNum = randomNum();
-	const string accountNumber = "" + randNum;
+	char accountNumber[ARRAYSIZE] = {};
+	sprintf(accountNumber, "%d", randNum);
 
 	// Construct the filename
 
+	//const char[
+
 	// Issue with accountNumber being an int
-	string fileName = accountHolderLastName + ", " + accountHolderFirstName + " - " + accountNumber + ".txt";
+	char fileName[FILENAMESIZE] = {};
+	// = accountHolderLastName + ", " + accountHolderFirstName + " - " + accountNumber + ".txt";
+	strcat(fileName, accountHolderLastName);
+	strcat(fileName, ", ");
+	strcat(fileName, accountHolderFirstName);
+	strcat(fileName, " - ");
+	strcat(fileName, accountNumber);
+	strcat(fileName, ".txt");
 
 	// Specify directory
 

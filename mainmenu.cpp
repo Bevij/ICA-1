@@ -17,6 +17,9 @@ int main(){
    	cout<<"4. Remove"<<endl;
    	cout<<"5. Exit"<<endl;
 		cout << "6. Random Num Test" << endl;
+		cout << "7. Create file Test" << endl;
+		cout << "8. Delete file Test" << endl;
+		cout << "9. Edit file Test" << endl;
    	cout<<"Enter Number: "<<endl;
    	cin>>choice;
 
@@ -53,6 +56,24 @@ int main(){
 				cout << endl << "Press enter to continue : ";
 				cin.ignore();
 				cin.ignore();
+
+				break;
+
+			case '7':
+
+				createAccountFile();
+
+				break;
+
+			case '8':
+
+				deleteAccountFile();
+
+				break;
+
+			case '9':
+
+				viewAccountFile();
 
 				break;
         	default:

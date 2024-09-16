@@ -7,30 +7,35 @@ void deleteAccountFile()
 {
 	// Request last name
 
-	string accountHolderLastName;
+	char accountHolderLastName[ARRAYSIZE] = {};
 
 	cout << endl << "Enter the LAST name of the account holder: ";
-	getline (cin, accountHolderLastName);
+	cin >> accountHolderLastName;
 
 	// Request first name
 
-	string accountHolderFirstName;
+	char accountHolderFirstName[ARRAYSIZE] = {};
 
 	cout << endl << "Enter the FIRST name of the account holder: ";
-	getline (cin, accountHolderFirstName);
+	cin >> accountHolderFirstName;
 
 	// Request account number
 
-	int accountNumber = 0;
+	char accountNumber[ARRAYSIZE] = {};
 
 	cout << endl << "Enter the account number: ";
 	cin >> accountNumber;
 
 	// Appends to one file name
 
-	// Issue with account number being an int
-	string tempAccountNumber = "" + accountNumber; // Doesn't work
-	string fileName = accountHolderLastName + ", " + accountHolderFirstName + " - " + tempAccountNumber + ".txt";
+	char fileName[FILENAMESIZE] = {};
+	// = accountHolderLastName + ", " + accountHolderFirstName + " - " + tempAccountNumber + ".txt";
+	strcat(fileName, accountHolderLastName);
+	strcat(fileName, ", ");
+	strcat(fileName, accountHolderFirstName);
+	strcat(fileName, " - ");
+	strcat(fileName, accountNumber);
+	strcat(fileName, ".txt");
 
 	// Specify directory
 

@@ -12,6 +12,8 @@
 #include <time.h>												// includes time in seconds from 1970, time_t = time(NULL);
 #include <cstdlib>
 #include <filesystem>
+#include <cctype>
+#include <cstring>
 
 using namespace std;
 
@@ -36,10 +38,14 @@ void createMenu();
 void viewMenu();
 void editMenu();
 void removeMenu();
+void createAccountFile();
+void deleteAccountFile();
+void viewAccountFile();
 int randomNum();
 
 
 //     CONST/GLOBAL VARIABLE DECLARATIONS
-const int ARRAYSIZE = 20;
+const int ARRAYSIZE = 30;
+const int FILENAMESIZE = 70;
 
 #endif
