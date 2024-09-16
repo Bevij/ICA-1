@@ -30,9 +30,9 @@ void viewAccountFile()
 	// Issue with accountNumber being an int
 	char fileName[FILENAMESIZE] = {};
 	strcat(fileName, accountHolderLastName);
-	strcat(fileName, ", ");
+	strcat(fileName, "-");
 	strcat(fileName, accountHolderFirstName);
-	strcat(fileName, " - ");
+	strcat(fileName, "-");
 	strcat(fileName, accountNumber);
 	strcat(fileName, ".txt");
 
