@@ -14,8 +14,10 @@
 #include <filesystem>
 #include <cctype>
 #include <cstring>
+#include <cstdio>
 
 using namespace std;
+namespace fs = filesystem;
 
 // inclusion of all classes, for use in general menu and other CPP files
 #include "bankAccountType.h"
@@ -42,6 +44,7 @@ void createAccountFile();
 void deleteAccountFile();
 void viewAccountFile();
 int randomNum();
+void fileEdit(string, string, string);
 
 
 //     CONST/GLOBAL VARIABLE DECLARATIONS
