@@ -9,6 +9,7 @@ int main(){
 	inputValidate = true;
 
 	do{
+		choice == ' ';
 		cout << "\033c" << right << endl << endl;
 		cout << setw(15) << " " << "_______________________________________________" << endl;
 		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
@@ -25,10 +26,9 @@ int main(){
 
 
    	cout << endl << endl << endl << setw(15) << " " << "Selection: ";
-   	cin.get(choice);
-		cin.ignore(1000, '\n');
-
+   	cin >> choice;
 		switch(choice)
+
 		{
    	   case '1':
       	   createMenu();
