@@ -17,7 +17,7 @@ void viewMenu()
 		cout << setw(16) << "|" << setw(28) << "View Menu" << setw(18) << "|" << endl;
 		cout << setw(15) << " " << "|_____________________________________________|" << endl;
 		cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
-		cin >> filename;
+		getline(cin, filename);
 
 
 		ifstream filein(filename); // filein is now cin >> (stuff from filename)
@@ -26,8 +26,7 @@ void viewMenu()
 		{
 			cout << endl << endl << endl << endl << setw(15) << " " << "Error, account does not exist";
 			cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
-			cin.ignore();
-			cin.ignore();
+			waitforenter();
 		}
 		else
 		{
@@ -73,8 +72,7 @@ void viewMenu()
 				default:
 					cout << endl << endl << endl << endl << setw(15) << " " << "File structure invalid";
 					cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
-					cin.ignore();
-					cin.ignore();
+					waitforenter();
 					break;
 			}
 

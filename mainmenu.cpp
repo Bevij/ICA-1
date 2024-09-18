@@ -3,13 +3,10 @@
 
 int main(){
 
-	int num;
 	char choice;
-	bool inputValidate;
-	inputValidate = true;
+	bool leaving = false;
 
 	do{
-		choice == ' ';
 		cout << "\033c" << right << endl << endl;
 		cout << setw(15) << " " << "_______________________________________________" << endl;
 		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
@@ -21,12 +18,12 @@ int main(){
    	cout << setw(16) << "|" << setw(21) << "2.  View Account" << setw(25) << "|" << endl;
    	cout << setw(16) << "|" << setw(21) << "3.  Edit Account" << setw(25) << "|" << endl;
    	cout << setw(16) << "|" << setw(23) << "4.  Remove Account" << setw(23) << "|" << endl;
-   	cout << setw(16) << "|" << setw(13) << "5.  Exit" << setw(33) << "|" << endl;
+   	cout << setw(16) << "|" << setw(13) << "0.  Exit" << setw(33) << "|" << endl;
 		cout << setw(15) << " " << "|_____________________________________________|" << endl;
 
 
    	cout << endl << endl << endl << setw(15) << " " << "Selection: ";
-   	cin >> choice;
+   	getchar(choice);
 		switch(choice)
 
 		{
@@ -55,22 +52,21 @@ int main(){
            	removeMenu();
 
 				break;
-     	   case '5':
-        	  	inputValidate = false;
+     	   case '0':
+        	  	leaving = true;
            	break;
 
         	default:
 
 				cout << endl << endl << endl << endl << right;
            	//cout << setw(50) << "Error!" << endl << endl;
-				cout << setw(64) << "Error, Please enter a valid menu option [ 1 - 5 ]";
+				cout << setw(64) << "Error, Please enter a valid menu option [ 4 - 4 ]";
 
    			cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
-				cin.ignore();
-				cin.ignore();
+				waitforenter();
 				break;
 		}
-	} while(choice != '5');
+	} while(!leaving);
 
 	return 0;
 }

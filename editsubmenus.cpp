@@ -35,7 +35,7 @@ void serviceChargeCheckingType::editMenu() // edits class, only called in editme
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -44,15 +44,15 @@ void serviceChargeCheckingType::editMenu() // edits class, only called in editme
 				break;
 			case '1':
 				cout << endl << endl << setw(31) << "Enter new name: ";
-				cin >> name;
+				getline(cin, name);
 				break;
 			case '2':
 				cout << endl << endl << setw(34) << "Enter new balance: ";
-				cin >> balance;
+				getposdouble(balance);
 				break;
 			case '3':
 				cout << endl << endl << setw(34) << "Enter new number of checks: ";
-				cin >> numberOfChecksWritten;
+				getposint(numberOfChecksWritten);
 				break;
 		}
 	}
@@ -87,7 +87,7 @@ void noServiceChargeCheckingType::editMenu() // edits class, only called in edit
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -96,19 +96,19 @@ void noServiceChargeCheckingType::editMenu() // edits class, only called in edit
 				break;
 			case '1':
 				cout << endl << endl << setw(31) << "Enter new name: ";
-				cin >> name;
+				getline(cin, name);
 				break;
 			case '2':
 				cout << endl << endl << setw(34) << "Enter new balance: ";
-				cin >> balance;
+				getposdouble(balance);
 				break;
 			case '3':
 				cout << endl << endl << setw(34) << "Enter new interest rate: ";
-				cin >> interestRate;
+				getposdouble(interestRate);
 				break;
 			case '4':
 				cout << endl << endl << setw(34) << "Enter new minimum balance: ";
-				cin >> minimumBalance;
+				getposdouble(minimumBalance);
 				break;
 		}
 	}
@@ -142,7 +142,7 @@ void highInterestCheckingType::editMenu() // edits class, only called in editmen
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -151,19 +151,19 @@ void highInterestCheckingType::editMenu() // edits class, only called in editmen
 				break;
 			case '1':
 				cout << endl << endl << setw(31) << "Enter new name: ";
-				cin >> name;
+				getline(cin, name);
 				break;
 			case '2':
 				cout << endl << endl << setw(34) << "Enter new balance: ";
-				cin >> balance;
+				getposdouble(balance);
 				break;
 			case '3':
 				cout << endl << endl << setw(34) << "Enter new interest rate: ";
-				cin >> interestRate;
+				getposdouble(interestRate);
 				break;
 			case '4':
 				cout << endl << endl << setw(34) << "Enter new minimum balance: ";
-				cin >> minimumBalance;
+				getposdouble(minimumBalance);
 				break;
 		}
 	}
@@ -228,7 +228,7 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -237,19 +237,19 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 				break;
 			case '1':
 				cout << endl << endl << setw(31) << "Enter new name: ";
-				cin >> name;
+				getline(cin, name);
 				break;
 			case '2':
 				cout << endl << endl << setw(34) << "Enter new balance: ";
-				cin >> balance;
+				getposdouble(balance);
 				break;
 			case '3':
 				cout << endl << endl << setw(34) << "Enter new interest rate: ";
-				cin >> interestRate;
+				getposdouble(interestRate);
 				break;
 			case '4':
 				cout << endl << endl << setw(34) << "Enter new maturity months: ";
-				cin >> maturityMonths;
+				getposint(maturityMonths);
 				break;
 		}
 	}
@@ -298,7 +298,7 @@ void savingsAccountType::editMenu()
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -307,15 +307,15 @@ void savingsAccountType::editMenu()
 				break;
 			case '1':
 				cout << endl << endl << setw(31) << "Enter new name: ";
-				cin >> name;
+				getline(cin, name);
 				break;
 			case '2':
 				cout << endl << endl << setw(34) << "Enter new balance: ";
-				cin >> balance;
+				getposdouble(balance);
 				break;
 			case '3':
 				cout << endl << endl << setw(40) << "Enter new interest rate: ";
-				cin >> interestRate;
+				getposdouble(interestRate);
 				break;
 		}
 	}
@@ -352,7 +352,7 @@ void highInterestSavingsType::editMenu()
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -361,19 +361,19 @@ void highInterestSavingsType::editMenu()
 				break;
 			case '1':
 				cout << endl << endl << setw(31) << "Enter new name: ";
-				cin >> name;
+				getline(cin, name);
 				break;
 			case '2':
 				cout << endl << endl << setw(34) << "Enter new balance: ";
-				cin >> balance;
+				getposdouble(balance);
 				break;
 			case '3':
 				cout << endl << endl << setw(40) << "Enter new interest rate: ";
-				cin >> interestRate;
+				getposdouble(interestRate);
 				break;
 			case '4':
 				cout << endl << endl << setw(40) << "Enter new minimumBalance: ";
-				cin >> minimumBalance;
+				getposdouble(minimumBalance);
 				break;
 		}
 	}

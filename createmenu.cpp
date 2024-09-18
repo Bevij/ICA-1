@@ -17,7 +17,6 @@ void createMenu()
 
 	do
 	{
-		choice = ' ';
 		accountNum = randomNum(); // no checks yet...
 		account = to_string(accountNum);
 		ofstream fileout(account);// fileout is cout, but to file
@@ -39,9 +38,10 @@ void createMenu()
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 		cout << setw(15) << " " << "Selection : " << endl;
 
-		cin >> choice;
+		getchar(choice);
 		switch(choice)
 		{
+
 			case '1': // Service Charge Checking
 			{
 				accountChar = 'y';
@@ -52,10 +52,9 @@ void createMenu()
 				cout << setw(16) << "|" << "           Service Charge Checking           |" << endl;
 				cout << setw(15) << " " << "|_____________________________________________|" << endl;
 				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
-				cin.ignore();
 				getline(cin, name);
 				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
-				cin >> balance;
+				getposdouble(balance);
 				numChecksWritten = 0; // it's a new account, after all
 
 				fileout << accountChar << endl;
@@ -64,6 +63,8 @@ void createMenu()
 				fileout << numChecksWritten;
 				break;
 			}
+
+
 		case '2': //No Service Charge Checking
 			    accountChar = 'n';
 
@@ -73,20 +74,22 @@ void createMenu()
 				cout << setw(16) << "|" << "         No Service Charge Checking          |" << endl;
 				cout << setw(15) << " " << "|_____________________________________________|" << endl;
 				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
-				cin.ignore();
 				getline(cin, name);
 				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
-				cin >> balance;
+				getposdouble(balance);
 				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
-				cin>>intRate;
+				getposdouble(intRate);
 				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
-				cin>>minBalance;
+				getposdouble(minBalance);
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				fileout<< intRate<<endl;
 				fileout<< minBalance<<endl;
 				break;
+
+
 		case '3': //High Interest Checking
 				accountChar = 'C';
 
@@ -96,18 +99,20 @@ void createMenu()
 				cout << setw(16) << "|" << "           High Interest Checking            |" << endl;
 				cout << setw(15) << " " << "|_____________________________________________|" << endl;
 				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
-				cin.ignore();
 				getline(cin, name);
 				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
-				cin >> balance;
+				getposdouble(balance);
 				cout << endl << setw(15) << " " << "Interest Rate          :  "<<endl;
-				cin>>intRate;
+				getposdouble(intRate);
 				cout << endl << setw(15) << " " << "Minimum Balance        :  "<<endl;
-				cin>>minBalance;
+				getposdouble(minBalance);
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				break;
+
+
 		case '4': //Certificate of Deposit
 				accountChar = 'd';
 
@@ -117,20 +122,22 @@ void createMenu()
 				cout << setw(16) << "|" << "           Certificate Of Deposit            |" << endl;
 				cout << setw(15) << " " << "|_____________________________________________|" << endl;
 				cout << endl << setw(15) << " " << "Name of Account Holder : ";
-				cin.ignore();
 				getline(cin, name);
 				cout << endl << setw(15) << " " << "Initial Deposit        : ";
-				cin >> balance;
+				getposdouble(balance);
 				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
-				cin>>intRate;
+				getposdouble(intRate);
 				cout << endl << setw(15) << " " << "Maturity Months        : "<<endl;
-				cin>>maturityMon;
+				getposint(maturityMon);
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				fileout << intRate<<endl;
 				fileout << maturityMon<<endl;
 				break;
+
+
 		case '5'://Savings Account
 				accountChar = 's';
 
@@ -143,14 +150,17 @@ void createMenu()
 				cin.ignore();
 				getline(cin, name);
 				cout << endl << setw(15) << " " << "Initial Deposit        : ";
-				cin >> balance;
-				cout << endl << setw(15) << " " << "Interest Rate          :  "<<endl;
-				cin>>intRate;
+				getposdouble(balance);
+				cout << endl << setw(15) << " " << "Interest Rate          :  " << endl;
+				getposdouble(intRate);
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				fileout << intRate<<endl;
 				break;
+
+
 		case '6'://high Interest Savings
 				accountChar = 'S';
 
@@ -163,17 +173,20 @@ void createMenu()
 				cin.ignore();
 				getline(cin, name);
 				cout << endl << setw(15) << " " << "Initial Deposit        : ";
-				cin >> balance;
+				getposdouble(balance);
 				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
-				cin>>intRate;
+				getposdouble(intRate);
 				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
-				cin>>minBalance;
+				getposdouble(minBalance);
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				fileout<< intRate<<endl;
 				fileout<< minBalance<<endl;
 				break;
+
+
 			case '0':
 			{
 				cout << "Exit" << endl;
