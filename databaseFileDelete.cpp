@@ -5,6 +5,8 @@ namespace fs = filesystem;
 
 void deleteAccountFile()
 {
+	string temp;
+
 	// Request last name
 
 	char accountHolderLastName[ARRAYSIZE] = {};
@@ -31,9 +33,9 @@ void deleteAccountFile()
 	char fileName[FILENAMESIZE] = {};
 	// = accountHolderLastName + ", " + accountHolderFirstName + " - " + tempAccountNumber + ".txt";
 	strcat(fileName, accountHolderLastName);
-	strcat(fileName, ", ");
+	strcat(fileName, "\,\ ");
 	strcat(fileName, accountHolderFirstName);
-	strcat(fileName, " - ");
+	strcat(fileName, "\ -\ ");
 	strcat(fileName, accountNumber);
 	strcat(fileName, ".txt");
 
@@ -63,6 +65,7 @@ void deleteAccountFile()
 		cout << "Are you sure you want to delete this account?" << endl;
 		cout << "\t1. Yes" << endl;
 		cout << "\t2. No" << endl;
+		cin >> confirm;
 
 		switch (confirm)
 		{
@@ -93,6 +96,7 @@ void deleteAccountFile()
 	else
 	{
 		cout << "File does not exist!" << endl;
+		cin >> temp;
 	}
 
 	return;

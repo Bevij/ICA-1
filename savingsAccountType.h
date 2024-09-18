@@ -8,6 +8,7 @@
 class savingsAccountType: public bankAccountType
 {
 	public:
+		savingsAccountType(string filename); // constructs off of a file
 
 		savingsAccountType(string n, int acctNumber, double bal);
 
@@ -18,6 +19,7 @@ class savingsAccountType: public bankAccountType
 		void postInterest();
 		virtual void createMonthlyStatement();
 		virtual void print();
+		void editMenu(); // for use only by editmenu.cpp
 
 	protected:
 		double interestRate;

@@ -4,8 +4,12 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <fstream>
+#include <filesystem>
+#include <cstdio>
 
 using namespace std;
+namespace fs = filesystem;
 
 class bankAccountType
 {

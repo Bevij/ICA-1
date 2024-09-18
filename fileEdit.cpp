@@ -10,7 +10,7 @@ void fileEdit(string filename, string strReplace,    string strNew) {
 	tempfilename = filename + ".temp";
 
 
-	ifstream filein(filename); // filein is now basically cin, but in a file
+	ifstream filein(filename); // filein is now basically cin, but from a file
 
 	if(!filein) { // if fail to open file, display error message
 		cout << "error opening file\n";
