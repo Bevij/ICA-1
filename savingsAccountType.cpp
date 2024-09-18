@@ -56,13 +56,19 @@ void savingsAccountType::editMenu() // edits class, only called in editmenu.cpp
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << "SAVINGS ACCOUNT EDIT\n\n";
-		cout << setw(4) << "   " << "Acct # " << accountNumber << endl;
-		cout << setw(4) << "1. " << setw(15) << "Name: " << name << endl;
-		cout << setw(4) << "2. " << setw(15) << "Balance: " << balance << endl;
-		cout << setw(4) << "3. " << setw(15) << "Interest Rate: " << interestRate << endl;
-		cout << setw(4) << "0. " << "EXIT" << endl;
-		cout << endl << "Number to change: ";
+		cout << setw(15) << " " << "_______________________________________________" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << setw(31) << "SAVINGS ACCOUNT EDIT" << setw(15) << "|" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
+		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
+		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
+		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
+		cout << setw(16) << "|" << setw(13) << "0.  EXIT" << setw(33) << "|" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+
+		cout << endl << setw(33) << "Number to change: ";
 		cin.get(choice);
 
 		switch(choice)
@@ -71,15 +77,15 @@ void savingsAccountType::editMenu() // edits class, only called in editmenu.cpp
 				leaving = true;
 				break;
 			case '1':
-				cout << "Enter new name: ";
+				cout << endl << endl << setw(31) << "Enter new name: ";
 				cin >> name;
 				break;
 			case '2':
-				cout << "Enter new balance: ";
+				cout << endl << endl << setw(34) << "Enter new balance: ";
 				cin >> balance;
 				break;
 			case '3':
-				cout << "Enter new interest rate: ";
+				cout << endl << endl << setw(40) << "Enter new interest rate: ";
 				cin >> interestRate;
 				break;
 		}
