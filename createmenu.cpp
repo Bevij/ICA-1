@@ -19,7 +19,7 @@ void createMenu()
 	{
 		choice = ' ';
 		accountNum = randomNum(); // no checks yet...
-		account = accountNum;
+		account = to_string(accountNum);
 		ofstream fileout(account);// fileout is cout, but to file
 		cout << "\033c" << endl << endl;
 		cout << setw(15) << " " << "_______________________________________________" << endl;
