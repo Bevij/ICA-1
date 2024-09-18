@@ -9,18 +9,22 @@ int main(){
 	inputValidate = true;
 
 	do{
-		cout << "\033c" << endl << endl;
-		cout<<"Main Menu"<<endl;
-	   cout<<"1. Create" <<endl;
-   	cout<<"2. View"<<endl;
-   	cout<<"3. Edit"<<endl;
-   	cout<<"4. Remove"<<endl;
-   	cout<<"5. Exit"<<endl;
-		cout << "6. Random Num Test" << endl;
-		cout << "7. Create file Test" << endl;
-		cout << "8. Delete file Test" << endl;
-		cout << "9. Edit file Test" << endl;
-   	cout<<"Enter Number: "<<endl;
+		cout << "\033c" << right << endl << endl;
+		cout << setw(15) << " " << "_______________________________________________" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << setw(34) << "'Insert Bank Name here'" << setw(12) << "|" <<endl;
+		cout << setw(16) << "|" << setw(28) << "Main Menu" << setw(18) << "|" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl;
+		cout << setw(16) << "|" << setw(20) << " " << setw(26) << "|" << endl;
+	   cout << setw(16) << "|" << setw(23) << "1.  Create Account" << setw(23) << "|" << endl;
+   	cout << setw(16) << "|" << setw(21) << "2.  View Account" << setw(25) << "|" << endl;
+   	cout << setw(16) << "|" << setw(21) << "3.  Edit Account" << setw(25) << "|" << endl;
+   	cout << setw(16) << "|" << setw(23) << "4.  Remove Account" << setw(23) << "|" << endl;
+   	cout << setw(16) << "|" << setw(13) << "5.  Exit" << setw(33) << "|" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl;
+
+
+   	cout << endl << endl << endl << setw(15) << " " << "Selection: ";
    	cin>>choice;
 
 		switch(choice)
@@ -28,57 +32,41 @@ int main(){
    	   case '1':
       	   createMenu();
          	break;
+
 	      case '2':
    	    	/* if(->accountNumb ==0)
       	   cout<<"No accounts to view. Please create an account";
         		else */
           	viewMenu();
    	      break;
+
 	      case '3':
 				/* if(->accountNumb ==0)
          	cout<<"No accounts to edit. Please create an account";
 	     		else*/
 	        	editMenu();
    	      break;
+
       	case '4':
 				/*   if(->accountNumb ==0)
          	cout<<"No accounts to remove.";
 	     		else */
            	removeMenu();
-           	break;
+
+				break;
      	   case '5':
         	  	inputValidate = false;
            	break;
-			case '6':
-				//Temp testing of random function
-				num = randomNum();
-				cout << endl << endl << "Here is a random number : " << num << endl << endl;
-				cout << endl << "Press enter to continue : ";
-				cin.ignore();
-				cin.ignore();
 
-				break;
-
-			case '7':
-
-				createAccountFile();
-
-				break;
-
-			case '8':
-
-				deleteAccountFile();
-
-				break;
-
-			case '9':
-
-				viewAccountFile();
-
-				break;
         	default:
-           	cout<<"Not a valid option please input correct number: "<<endl;
-           	cin>> choice;
+
+				cout << endl << endl << endl << endl << right;
+           	//cout << setw(50) << "Error!" << endl << endl;
+				cout << setw(64) << "Error, Please enter a valid menu option [ 1 - 5 ]";
+
+   			cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
+				cin.ignore();
+				cin.ignore();
 				break;
 		}
 	} while(choice != '5');
