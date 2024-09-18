@@ -13,26 +13,31 @@ void createMenu()
 	int		maturityMon;
 	int numChecksWritten;
 
-   bool leaving;
+   bool leaving = false;
 
-	while(!leaving)
+	do
 	{
-
+		choice = ' ';
 		accountNum = randomNum(); // no checks yet...
 		account = accountNum;
 		ofstream fileout(account);// fileout is cout, but to file
-
-		cout << "\033c";
-		cout << "\033[2J\033[1;1H" << endl;
-		cout << "What Type of Account would you like to make?" << endl;
-		cout << "1.Service Charge Checking Account" << endl;
-		cout << "2.No Service Charge Checking" << endl;
-		cout << "3.High Interest Checking" << endl;
-		cout << "4.Certificate of Deposit" << endl;
-		cout << "5.Savings Account" << endl;
-		cout << "6.High Interest Savings" << endl;
-		cout << "0.Exit" << endl;
-		cout << "Please enter a choice" << endl;
+		cout << "\033c" << endl << endl;
+		cout << setw(15) << " " << "_______________________________________________" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << setw(22) << "Create Account" << setw(24) << "|" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl;
+		cout << setw(15) << " " << "|  Select the Account you would like to make  |" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << "     1.Service Charge Checking Account       |" << endl;
+		cout << setw(16) << "|" << "     2.No Service Charge Checking            |" << endl;
+		cout << setw(16) << "|" << "     3.High Interest Checking                |" << endl;
+		cout << setw(16) << "|" << "     4.Certificate of Deposit                |" << endl;
+		cout << setw(16) << "|" << "     5.Savings Account                       |" << endl;
+		cout << setw(16) << "|" << "     6.High Interest Savings                 |" << endl;
+		cout << setw(16) << "|" << "     0.Exit                                  |" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "Selection : " << endl;
 
 		cin >> choice;
 		switch(choice)
@@ -41,10 +46,15 @@ void createMenu()
 			{
 				accountChar = 'y';
 
-				cout << "\033c";
-				cout << "Name of Account Holder: "<<endl;
+				cout << "\033c" << endl << endl;
+				cout << setw(15) << " " << "_______________________________________________" << endl;
+				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+				cout << setw(16) << "|" << "           Service Charge Checking           |" << endl;
+				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
+				cin.ignore();
 				getline(cin, name);
-				cout << "Initial Deposit: "<<endl;
+				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
 				cin >> balance;
 				numChecksWritten = 0; // it's a new account, after all
 
@@ -57,14 +67,19 @@ void createMenu()
 		case '2': //No Service Charge Checking
 			    accountChar = 'n';
 
-				cout << "\033c";
-				cout << "Name of Account Holder: "<<endl;
+				cout << "\033c" << endl << endl;
+				cout << setw(15) << " " << "_______________________________________________" << endl;
+				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+				cout << setw(16) << "|" << "         No Service Charge Checking          |" << endl;
+				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
+				cin.ignore();
 				getline(cin, name);
-				cout << "Initial Deposit: "<<endl;
+				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
 				cin >> balance;
-				cout <<" Interest Rate:  "<<endl;
+				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
 				cin>>intRate;
-				cout<<"Minimum Balance:  "<<endl;
+				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
 				cin>>minBalance;
 				fileout << accountChar << endl;
 				fileout << name << endl;
@@ -76,13 +91,18 @@ void createMenu()
 				accountChar = 'C';
 
 				cout << "\033c";
-				cout << "Name of Account Holder: "<<endl;
+				cout << setw(15) << " " << "_______________________________________________" << endl;
+				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+				cout << setw(16) << "|" << "           High Interest Checking            |" << endl;
+				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
+				cin.ignore();
 				getline(cin, name);
-				cout << "Initial Deposit: "<<endl;
+				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
 				cin >> balance;
-				cout <<" Interest Rate:  "<<endl;
+				cout << endl << setw(15) << " " << "Interest Rate          :  "<<endl;
 				cin>>intRate;
-				cout<<"Minimum Balance:  "<<endl;
+				cout << endl << setw(15) << " " << "Minimum Balance        :  "<<endl;
 				cin>>minBalance;
 				fileout << accountChar << endl;
 				fileout << name << endl;
@@ -92,13 +112,18 @@ void createMenu()
 				accountChar = 'd';
 
 				cout << "\033c";
-				cout << "Name of Account Holder: ";
+				cout << setw(15) << " " << "_______________________________________________" << endl;
+				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+				cout << setw(16) << "|" << "           Certificate Of Deposit            |" << endl;
+				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << endl << setw(15) << " " << "Name of Account Holder : ";
+				cin.ignore();
 				getline(cin, name);
-				cout << "Initial Deposit: ";
+				cout << endl << setw(15) << " " << "Initial Deposit        : ";
 				cin >> balance;
-				cout <<" Interest Rate:  "<<endl;
+				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
 				cin>>intRate;
-				cout<<"Maturity Months:  "<<endl;
+				cout << endl << setw(15) << " " << "Maturity Months        : "<<endl;
 				cin>>maturityMon;
 				fileout << accountChar << endl;
 				fileout << name << endl;
@@ -110,11 +135,16 @@ void createMenu()
 				accountChar = 's';
 
 				cout << "\033c";
-				cout << "Name of Account Holder: ";
+				cout << setw(15) << " " << "_______________________________________________" << endl;
+				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+				cout << setw(16) << "|" << "              Savings  Account               |" << endl;
+				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << endl << setw(15) << " " << "Name of Account Holder : ";
+				cin.ignore();
 				getline(cin, name);
-				cout << "Initial Deposit: ";
+				cout << endl << setw(15) << " " << "Initial Deposit        : ";
 				cin >> balance;
-				cout <<" Interest Rate:  "<<endl;
+				cout << endl << setw(15) << " " << "Interest Rate          :  "<<endl;
 				cin>>intRate;
 				fileout << accountChar << endl;
 				fileout << name << endl;
@@ -125,13 +155,18 @@ void createMenu()
 				accountChar = 'S';
 
 				cout << "\033c";
-				cout << "Name of Account Holder: ";
+				cout << setw(15) << " " << "_______________________________________________" << endl;
+				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+				cout << setw(16) << "|" << "            High Interest Savings            |" << endl;
+				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << endl << setw(15) << " " << "Name of Account Holder : ";
+				cin.ignore();
 				getline(cin, name);
-				cout << "Initial Deposit: ";
+				cout << endl << setw(15) << " " << "Initial Deposit        : ";
 				cin >> balance;
-				cout <<" Interest Rate:  "<<endl;
+				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
 				cin>>intRate;
-				cout<<"Minimum Balance:  "<<endl;
+				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
 				cin>>minBalance;
 				fileout << accountChar << endl;
 				fileout << name << endl;
@@ -146,10 +181,12 @@ void createMenu()
 			}
 			break;
 			default:
-				cout << "option not available please select a valid option" << endl;
-				cin >> choice;
+				cout << endl << endl << setw(15) << " " << "option not available please select a valid option";
+				cout << endl << endl << setw(15) << " " << "Press enter to countinue : ";
+				cin.ignore();
+				cin.ignore();
 		}
-	}
+	}while(!leaving);
 
    return;
 }
