@@ -8,6 +8,8 @@
 class noServiceChargeCheckingType: public checkingAccountType
 {
 	public:
+		noServiceChargeCheckingType(string filename);
+
 		noServiceChargeCheckingType(string n, int acctNumber, double bal);
 		noServiceChargeCheckingType(string n, int acctNumber, double bal,
 										double minBalance, double intRate);
@@ -19,6 +21,8 @@ class noServiceChargeCheckingType: public checkingAccountType
 		void withdraw(double amount);
 		virtual void createMonthlyStatement();
 		virtual void print();
+
+		void editMenu();
 
 	protected:
 		double minimumBalance;

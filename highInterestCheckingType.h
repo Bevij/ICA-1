@@ -8,6 +8,8 @@
 class highInterestCheckingType: public noServiceChargeCheckingType
 {
 	public:
+		highInterestCheckingType(string filename);
+
 		highInterestCheckingType(string n, int acctNumber, double bal);
 		highInterestCheckingType(string n, int acctNumber, double bal,
 									double minBal, double intRate);
@@ -17,6 +19,8 @@ class highInterestCheckingType: public noServiceChargeCheckingType
 		void postInterest();
 		void createMonthlyStatement();
 		virtual void print();
+
+		void editMenu();
 
 	private:
 		static const double INTEREST_RATE; // = 0.05;

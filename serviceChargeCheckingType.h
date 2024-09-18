@@ -8,6 +8,8 @@
 class serviceChargeCheckingType: public checkingAccountType
 {
 	public:
+		serviceChargeCheckingType(string filename);
+
 		serviceChargeCheckingType(string n, int acctNumber, double bal);
 		serviceChargeCheckingType(string n, int acctNumber, double bal,
 								    double servChargeAmount, double servChargeCheck);
@@ -22,6 +24,8 @@ class serviceChargeCheckingType: public checkingAccountType
 		void writeCheck(double amount);
 		virtual void createMonthlyStatement();
 		virtual void print();
+
+		void editMenu();
 
 	protected:
 		double serviceChargeAmount;

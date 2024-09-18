@@ -8,6 +8,7 @@
 class certificateOfDepositType: public bankAccountType
 {
 	public:
+		certificateOfDepositType(string filename);
 
 		certificateOfDepositType(string n, int acctNumber, double bal);
 		certificateOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon);
@@ -23,6 +24,7 @@ class certificateOfDepositType: public bankAccountType
 		void withdraw(double amount);
 		void withdraw();
 		void createMonthlyStatement();
+		void editMenu();
 
 		void print();
 
