@@ -66,6 +66,7 @@ void editMenu()
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;
+				}
 				case 'C':
 				{
 					highInterestCheckingType highChecking(filename);

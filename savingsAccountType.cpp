@@ -4,6 +4,10 @@
 
 const double savingsAccountType::INTEREST_RATE = 0.03;
 
+savingsAccountType::savingsAccountType()
+{
+}
+
 // constructor FROM FILE
 savingsAccountType::savingsAccountType(string filename)
 {

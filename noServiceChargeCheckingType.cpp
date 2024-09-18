@@ -4,6 +4,10 @@
 const double noServiceChargeCheckingType::MIN_BALANCE = 1000.00;
 const double noServiceChargeCheckingType::INTEREST_RATE = 0.02;
 
+noServiceChargeCheckingType::noServiceChargeCheckingType()
+{
+}
+
 noServiceChargeCheckingType::noServiceChargeCheckingType(string filename)
 {
 	ifstream filein(filename);

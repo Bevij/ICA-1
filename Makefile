@@ -16,6 +16,8 @@ createmenu.o: createmenu.cpp *.o
 
 editmenu.o: editmenu.cpp *.o
 
+editsubmenus.o: editsubmenus.cpp *.o
+
 removemenu.o: removemenu.cpp *.o
 
 randomnum.o: randomnum.cpp

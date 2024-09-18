@@ -8,6 +8,7 @@
 class savingsAccountType: public bankAccountType
 {
 	public:
+		savingsAccountType();
 		savingsAccountType(string filename); // constructs off of a file
 
 		savingsAccountType(string n, int acctNumber, double bal);
