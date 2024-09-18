@@ -3,7 +3,10 @@
 void createMenu()
 {
 	char choice;
-
+	string name;
+	int accountNumb;
+	double balance;
+	bankAccountType *bankAccount;
    bool exit = true;
 
 	while(exit == true)
@@ -24,7 +27,14 @@ void createMenu()
 		switch(choice)
 		{
 			case '1':
-				cout<<"Creating Bank Account"<<endl;
+					cout<<"What is the name for the account"<<endl;
+						getline(cin, name);
+						cin.ignore();
+					cout<<" What is the inital account Balance? : "<<endl;
+						cin>>balance;
+					accountNumb= randomNum();
+					bankAccount-> new bankAccount(name,accountNumb,balance);
+					
 				cin.ignore();
 				cin.ignore();
 			break;
