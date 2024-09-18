@@ -51,6 +51,71 @@ void createMenu()
 				fileout << numChecksWritten;
 				break;
 			}
+		case '2': //No Service Charge Checking
+			    accountChar = 'y';
+
+				cout << "\033c";
+				cout << "Name of Account Holder: ";
+				getline(cin, name);
+				cout << "Initial Deposit: ";
+				cin >> balance;
+				
+				fileout << accountChar << endl;
+				fileout << name << endl;
+				fileout << balance << endl;
+				break;
+		case '3': //High Interest Checking
+				accountChar = 'y';
+
+				cout << "\033c";
+				cout << "Name of Account Holder: ";
+				getline(cin, name);
+				cout << "Initial Deposit: ";
+				cin >> balance;
+				
+				fileout << accountChar << endl;
+				fileout << name << endl;
+				fileout << balance << endl;
+				break;
+		case '4': //Certificate of Deposit
+				accountChar = 'y';
+
+				cout << "\033c";
+				cout << "Name of Account Holder: ";
+				getline(cin, name);
+				cout << "Initial Deposit: ";
+				cin >> balance;
+				
+				fileout << accountChar << endl;
+				fileout << name << endl;
+				fileout << balance << endl;
+				break;
+		case '5'://Savings Account
+				accountChar = 'y';
+
+				cout << "\033c";
+				cout << "Name of Account Holder: ";
+				getline(cin, name);
+				cout << "Initial Deposit: ";
+				cin >> balance;
+				
+				fileout << accountChar << endl;
+				fileout << name << endl;
+				fileout << balance << endl;
+				break;
+		case '6'://high Interest Savings
+				accountChar = 'y';
+
+				cout << "\033c";
+				cout << "Name of Account Holder: ";
+				getline(cin, name);
+				cout << "Initial Deposit: ";
+				cin >> balance;
+				
+				fileout << accountChar << endl;
+				fileout << name << endl;
+				fileout << balance << endl;
+				break;
 			case '0':
 			{
 				cout << "Exit" << endl;
