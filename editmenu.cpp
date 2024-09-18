@@ -40,18 +40,6 @@ void editMenu()
 			filein >> acctType; // first line will be string showing what account it is
 			switch(acctType)
 			{
-				case 'c':
-				{
-					checkingAccountType checking(filename);
-					checking.editMenu();
-					fileout << "c\n";
-					fileout << checking.getAccountNumber() << endl;
-					fileout << checking.getName() << endl;
-					fileout << checking.getBalance();
-					fs::remove(filename);
-					fs::rename(tempfilename, filename);
-					break;
-				}
 				case 'y':
 				{
 					serviceChargeCheckingType service(filename);

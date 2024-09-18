@@ -7,49 +7,6 @@
 
 
 
-// CHECKING
-
-void checkingAccountType::editMenu() // edits class, only called in editmenu.cpp
-{
-	bool leaving = false;
-	char choice;
-
-	while(!leaving)
-	{
-		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(31) << "CHECKING ACCOUNT EDIT" << setw(15) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(33) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
-
-		cout << endl << setw(33) << "Number to change: ";
-		cin.get(choice);
-
-		switch(choice)
-		{
-			case '0':
-				leaving = true;
-				break;
-			case '1':
-				cout << endl << endl << setw(31) << "Enter new name: ";
-				cin >> name;
-				break;
-			case '2':
-				cout << endl << endl << setw(34) << "Enter new balance: ";
-				cin >> balance;
-				break;
-		}
-	}
-	return;
-}
-
-
 
 
 // SERVICE CHARGE CHECKING
