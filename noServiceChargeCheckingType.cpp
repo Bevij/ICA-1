@@ -40,6 +40,18 @@ void noServiceChargeCheckingType::setMinimumBalance(double minBalance)
 	minimumBalance = minBalance;
 }
 
+double noServiceChargeCheckingType::getInterestRate()
+{
+	return interestRate;
+}
+
+void noServiceChargeCheckingType::setInterestRate(double intRate)
+{
+	interestRate = intRate;
+}
+
+
+
 bool noServiceChargeCheckingType::verifyMinimumBalance(double amount)
 {
 	return (balance - amount >= minimumBalance);
