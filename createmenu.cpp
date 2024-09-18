@@ -6,6 +6,7 @@ void createMenu()
 	char accountChar;
 	string name;
 	int accountNum;
+	string account;
 	double balance;
 	int numChecksWritten;
 
@@ -13,6 +14,11 @@ void createMenu()
 
 	while(!leaving)
 	{
+
+		accountNum = randomNum(); // no checks yet...
+		account = accountNum;
+		ofstream fileout(account);// fileout is cout, but to file
+
 		cout << "\033c";
 		cout << "\033[2J\033[1;1H" << endl;
 		cout << "What Type of Account would you like to make?" << endl;
@@ -29,15 +35,13 @@ void createMenu()
 		switch(choice)
 		{
 			case '1': // Service Charge Checking
+			{
 				accountChar = 'y';
-				accountNum = randomNum(); // no checks yet...
-
-				ofstream fileout(accountNum);// fileout is cout, but to file
 
 				cout << "\033c";
-				cout << "Name of Account Holder: "
+				cout << "Name of Account Holder: ";
 				getline(cin, name);
-				cout << "Initial Deposit: "
+				cout << "Initial Deposit: ";
 				cin >> balance;
 				numChecksWritten = 0; // it's a new account, after all
 
@@ -46,15 +50,12 @@ void createMenu()
 				fileout << balance << endl;
 				fileout << numChecksWritten;
 				break;
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
+			}
 			case '0':
+			{
 				cout << "Exit" << endl;
 				leaving = true;
+			}
 			break;
 			default:
 				cout << "option not available please select a valid option" << endl;
