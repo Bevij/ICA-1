@@ -7,11 +7,6 @@ const double highInterestSavingsType::INTEREST_RATE = 0.05;
 
 highInterestSavingsType::highInterestSavingsType(string filename)
 {
-	name = "";
-	balance = 0;
-	interestRate = 0.0;
-	minimumBalance = 0.0;
-
 	ifstream filein(filename);
 	string temp;
 	filein >> temp;

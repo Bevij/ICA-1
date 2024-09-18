@@ -215,7 +215,7 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 		cout << "\033c" << right;
 		cout << setw(15) << " " << "_______________________________________________" << endl;
 		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(16) << "NO SERVICE CHARGE CHECKING ACCOUNT EDIT" << setw(15) << "|" << endl;
+		cout << setw(16) << "|" << setw(16) << "CERTIFICATE OF DEPOSIT ACCOUNT EDIT" << setw(15) << "|" << endl;
 		cout << setw(15) << " " << "|_____________________________________________|" << endl;
 		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
 		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
@@ -223,7 +223,7 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
 		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
 		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Maturity Months : " << setw(20) << left << interestRate << "|" << endl << right;
+		cout << setw(16) << "|" << setw(25) << "3.  Maturity Months : " << setw(20) << left << maturityMonths << "|" << endl << right;
 		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(33) << "|" << endl;
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
@@ -248,8 +248,8 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 				cin >> interestRate;
 				break;
 			case '4':
-				cout << endl << endl << setw(34) << "Enter new minimum balance: ";
-				cin >> minimumBalance;
+				cout << endl << endl << setw(34) << "Enter new maturity months: ";
+				cin >> maturityMonths;
 				break;
 		}
 	}
@@ -330,7 +330,7 @@ void savingsAccountType::editMenu()
 
 // HIGH INTEREST SAVINGS
 
-void highInverestSavingsType::editMenu()
+void highInterestSavingsType::editMenu()
 {
 	bool leaving = false;
 	char choice;
