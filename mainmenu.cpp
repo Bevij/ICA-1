@@ -25,7 +25,8 @@ int main(){
 
 
    	cout << endl << endl << endl << setw(15) << " " << "Selection: ";
-   	cin>>choice;
+   	cin.get(choice);
+		cin.ignore(1000, '\n');
 
 		switch(choice)
 		{

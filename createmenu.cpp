@@ -10,13 +10,13 @@ void createMenu()
 	double balance;
 	int numChecksWritten;
 
-   bool leaving;
+   bool leaving = false;
 
 	while(!leaving)
 	{
 
 		accountNum = randomNum(); // no checks yet...
-		account = accountNum;
+		account = to_string(accountNum);
 		ofstream fileout(account);// fileout is cout, but to file
 
 		cout << "\033c";
@@ -31,7 +31,8 @@ void createMenu()
 		cout << "0.Exit" << endl;
 		cout << "Please enter a choice" << endl;
 
-		cin >> choice;
+		cin.get(choice);
+		cin.ignore(1000, '\n');
 		switch(choice)
 		{
 			case '1': // Service Charge Checking
@@ -51,80 +52,87 @@ void createMenu()
 				fileout << numChecksWritten;
 				break;
 			}
-		case '2': //No Service Charge Checking
-			    accountChar = 'y';
+			case '2': //No Service Charge Checking
+			{
+			    accountChar = 'n';
 
 				cout << "\033c";
 				cout << "Name of Account Holder: ";
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-				
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				break;
-		case '3': //High Interest Checking
-				accountChar = 'y';
+			}
+			case '3': //High Interest Checking
+			{
+				accountChar = 'C';
 
 				cout << "\033c";
 				cout << "Name of Account Holder: ";
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-				
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				break;
-		case '4': //Certificate of Deposit
-				accountChar = 'y';
+			}
+			case '4': //Certificate of Deposit
+			{
+				accountChar = 'd';
 
 				cout << "\033c";
 				cout << "Name of Account Holder: ";
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-				
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				break;
-		case '5'://Savings Account
-				accountChar = 'y';
+			}
+			case '5'://Savings Account
+			{
+				accountChar = 's';
 
 				cout << "\033c";
 				cout << "Name of Account Holder: ";
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-				
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				break;
-		case '6'://high Interest Savings
-				accountChar = 'y';
+			}
+			case '6'://high Interest Savings
+			{
+				accountChar = 'S';
 
 				cout << "\033c";
 				cout << "Name of Account Holder: ";
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-				
+
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				break;
+			}
 			case '0':
 			{
 				cout << "Exit" << endl;
 				leaving = true;
 			}
 			break;
-			default:
-				cout << "option not available please select a valid option" << endl;
-				cin >> choice;
 		}
 	}
 
