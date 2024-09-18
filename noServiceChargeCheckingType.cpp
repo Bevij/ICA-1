@@ -4,6 +4,18 @@
 const double noServiceChargeCheckingType::MIN_BALANCE = 1000.00;
 const double noServiceChargeCheckingType::INTEREST_RATE = 0.02;
 
+noServiceChargeCheckingType::noServiceChargeCheckingType(string filename)
+{
+	ifstream filein(filename);
+	string temp;
+	filein >> temp;
+	filein >> accountNumber;
+	filein >> name;
+	filein >> balance;
+	filein >> interestRate;
+	filein >> minimumBalance;
+}
+
 noServiceChargeCheckingType::noServiceChargeCheckingType(string n, int acctNumber, double bal)
 								: checkingAccountType(n, acctNumber, bal)
 {

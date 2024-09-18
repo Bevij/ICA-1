@@ -42,93 +42,93 @@ void editMenu()
 			{
 				case 'c':
 				{
-					checkingAccountType temp(filename);
-					temp.editMenu();
+					checkingAccountType checking(filename);
+					checking.editMenu();
 					fileout << "c\n";
-					fileout << temp.getAccountNumber() << endl;
-					fileout << temp.getName() << endl;
-					fileout << temp.getBalance();
+					fileout << checking.getAccountNumber() << endl;
+					fileout << checking.getName() << endl;
+					fileout << checking.getBalance();
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;
 				}
 				case 'y':
 				{
-					serviceChargeCheckingType temp(filename);
-					temp.editMenu();
-					fileout << "n\n";
-					fileout << temp.getAccountNumber() << endl;
-					fileout << temp.getName() << endl;
-					fileout << temp.getBalance() << endl;
-					fileout << temp.getNumberOfChecksWritten();
+					serviceChargeCheckingType service(filename);
+					service.editMenu();
+					fileout << "y\n";
+					fileout << service.getAccountNumber() << endl;
+					fileout << service.getName() << endl;
+					fileout << service.getBalance() << endl;
+					fileout << service.getNumberOfChecksWritten();
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;
 				}
 				case 'n':
 				{
-					noServiceChargeCheckingType temp(filename);
-					temp.editMenu();
+					noServiceChargeCheckingType noService(filename);
+					noService.editMenu();
 					fileout << "n\n";
-					fileout << temp.getAccountNumber() << endl;
-					fileout << temp.getName() << endl;
-					fileout << temp.getBalance() << endl;
-					fileout << temp.getInterestRate() << endl;
-					fileout << temp.getMinimumBalance();
+					fileout << noService.getAccountNumber() << endl;
+					fileout << noService.getName() << endl;
+					fileout << noService.getBalance() << endl;
+					fileout << noService.getInterestRate() << endl;
+					fileout << noService.getMinimumBalance();
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;
 				case 'C':
 				{
-					highInterestCheckingType temp(filename);
-					temp.editMenu();
+					highInterestCheckingType highChecking(filename);
+					highChecking.editMenu();
 					fileout << "C\n";
-					fileout << temp.getAccountNumber() << endl;
-					fileout << temp.getName() << endl;
-					fileout << temp.getBalance() << endl;
-					fileout << temp.getInterestRate() << endl;
-					fileout << temp.getMinimumBalance();
+					fileout << highChecking.getAccountNumber() << endl;
+					fileout << highChecking.getName() << endl;
+					fileout << highChecking.getBalance() << endl;
+					fileout << highChecking.getInterestRate() << endl;
+					fileout << highChecking.getMinimumBalance();
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;
 				}
 				case 'd':
 				{
-					certificateOfDepositType temp(filename);
-					temp.editMenu();
+					certificateOfDepositType deposit(filename);
+					deposit.editMenu();
 					fileout << "d\n";
-					fileout << temp.getAccountNumber() << endl;
-					fileout << temp.getName() << endl;
-					fileout << temp.getBalance() << endl;
-					fileout << temp.getInterestRate() << endl;
-					fileout << temp.getMaturityMonths();
+					fileout << deposit.getAccountNumber() << endl;
+					fileout << deposit.getName() << endl;
+					fileout << deposit.getBalance() << endl;
+					fileout << deposit.getInterestRate() << endl;
+					fileout << deposit.getMaturityMonths();
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;
 				}
 				case 's':
 				{
-					savingsAccountType temp(filename); // constructor with one string brings data in from file
-					temp.editMenu();
+					savingsAccountType savings(filename); // constructor with one string brings data in from file
+					savings.editMenu();
 					fileout << "s\n";
-					fileout << temp.getAccountNumber() << endl;
-					fileout << temp.getName() << endl;
-					fileout << temp.getBalance() << endl;
-					fileout << temp.getInterestRate();
+					fileout << savings.getAccountNumber() << endl;
+					fileout << savings.getName() << endl;
+					fileout << savings.getBalance() << endl;
+					fileout << savings.getInterestRate();
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;
 				}
 				case 'S':
 				{
-					highInterestSavingsType temp(filename);
-					temp.editMenu();
+					highInterestSavingsType highSavings(filename);
+					highSavings.editMenu();
 					fileout << "S\n";
-					fileout << temp.getAccountNumber() << endl;
-					fileout << temp.getName() << endl;
-					fileout << temp.getBalance() << endl;
-					fileout << temp.getInterestRate() << endl;
-					fileout << temp.getMinimumBalance();
+					fileout << highSavings.getAccountNumber() << endl;
+					fileout << highSavings.getName() << endl;
+					fileout << highSavings.getBalance() << endl;
+					fileout << highSavings.getInterestRate() << endl;
+					fileout << highSavings.getMinimumBalance();
 					fs::remove(filename);
 					fs::rename(tempfilename, filename);
 					break;

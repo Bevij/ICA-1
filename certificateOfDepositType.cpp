@@ -5,6 +5,18 @@
 const double certificateOfDepositType::INTEREST_RATE = 0.05;
 const int certificateOfDepositType::NUMBER_OF_MATURITY_MONTHS = 6;
 
+certificateOfDepositType::certificateOfDepositType(string filename)
+{
+	ifstream filein(filename);
+	string temp;
+	filein >> temp;
+	filein >> accountNumber;
+	filein >> name;
+	filein >> balance;
+	filein >> interestRate;
+	filein >> maturityMonths;
+}
+
 certificateOfDepositType::certificateOfDepositType(string n, int acctNumber, double bal)
 {
 	interestRate = INTEREST_RATE;

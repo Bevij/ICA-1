@@ -5,6 +5,18 @@
 const double highInterestSavingsType::MINIMUM_BALANCE = 2500.00;
 const double highInterestSavingsType::INTEREST_RATE = 0.05;
 
+highInterestSavingsType::highInterestSavingsType(string filename)
+{
+	ifstream filein(filename);
+	string temp;
+	filein >> temp;
+	filein >> accountNumber;
+	filein >> name;
+	filein >> balance;
+	filein >> interestRate;
+	filein >> minimumBalance;
+}
+
 highInterestSavingsType::highInterestSavingsType(string n, int acctNumber, double bal)
 						  : savingsAccountType(n, acctNumber, bal, INTEREST_RATE)
 {

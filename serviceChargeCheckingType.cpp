@@ -6,6 +6,17 @@ const double serviceChargeCheckingType::ACCOUNT_SERVICE_CHARGE = 10.00;
 const int serviceChargeCheckingType::MAXIMUM_NUM_OF_CHECKS = 5;
 const double serviceChargeCheckingType::SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS = 5;
 
+serviceChargeCheckingType::serviceChargeCheckingType(string filename)
+{
+	ifstream filein(filename);
+	string temp;
+	filein >> temp;
+	filein >> accountNumber;
+	filein >> name;
+	filein >> balance;
+	filein >> numberOfChecksWritten;
+}
+
 serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal)
 							 : checkingAccountType(n, acctNumber, bal)
 {

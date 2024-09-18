@@ -5,6 +5,18 @@
 const double highInterestCheckingType::INTEREST_RATE = 0.05;
 const double highInterestCheckingType::MIN_BALANCE = 5000.00;
 
+highInterestCheckingType::highInterestCheckingType(string filename)
+{
+	ifstream filein(filename);
+	string temp;
+	filein >> temp;
+	filein >> accountNumber;
+	filein >> name;
+	filein >> balance;
+	filein >> interestRate;
+	filein >> minimumBalance;
+}
+
 highInterestCheckingType::highInterestCheckingType(string n, int acctNumber, double bal)
 							: noServiceChargeCheckingType(n, acctNumber, bal)
 {
