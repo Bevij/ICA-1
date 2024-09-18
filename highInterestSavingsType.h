@@ -18,6 +18,7 @@ class highInterestSavingsType: public savingsAccountType
 		virtual void print();
 
 		void editMenu();
+		void viewMenu();
 
 	protected:
 

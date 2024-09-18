@@ -24,7 +24,9 @@ class certificateOfDepositType: public bankAccountType
 		void withdraw(double amount);
 		void withdraw();
 		void createMonthlyStatement();
+
 		void editMenu();
+		void viewMenu();
 
 		void print();
 

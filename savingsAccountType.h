@@ -20,7 +20,9 @@ class savingsAccountType: public bankAccountType
 		void postInterest();
 		virtual void createMonthlyStatement();
 		virtual void print();
-		void editMenu(); // for use only by editmenu.cpp
+
+		void editMenu();
+		void viewMenu();
 
 	protected:
 		double interestRate;

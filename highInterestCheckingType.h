@@ -21,6 +21,7 @@ class highInterestCheckingType: public noServiceChargeCheckingType
 		virtual void print();
 
 		void editMenu();
+		void viewMenu();
 
 	private:
 		static const double INTEREST_RATE; // = 0.05;

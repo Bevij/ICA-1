@@ -26,6 +26,7 @@ class serviceChargeCheckingType: public checkingAccountType
 		virtual void print();
 
 		void editMenu();
+		void viewMenu();
 
 	protected:
 		double serviceChargeAmount;

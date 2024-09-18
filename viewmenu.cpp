@@ -1,24 +1,86 @@
 #include "header.h"
 
 
-
-//basic view menu;
-void viewMenu(){
-
-string user;
-
-	cout << "Please insert account last name or account Number: "<<endl;
-    cin >> user;
-
-	//Here would be either call function for searching for proper account.
+void viewMenu()
+{
+	string tempstring;
 
 
-	/*
-	Either A set up so that you can deposit or withdraw money from an account and then check for if it's possible
-	or
-	      B Inverse check account first then allow to deposit
-	*/
-	cout << "Viewed Account/"<<endl;
+	string filename;
 
-   return;
+	char acctType;
+
+
+		cout << "\033c" << endl << endl;
+		cout << setw(15) << " " << "_______________________________________________" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << setw(28) << "View Menu" << setw(18) << "|" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl;
+		cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
+		cin >> filename;
+
+
+		ifstream filein(filename); // filein is now cin >> (stuff from filename)
+
+		if(!filein)
+		{
+			cout << endl << endl << endl << endl << setw(15) << " " << "Error, account does not exist";
+			cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
+			cin.ignore();
+			cin.ignore();
+		}
+		else
+		{
+			filein >> acctType; // first line will be string showing what account it is
+			switch(acctType)
+			{
+				case 'y':
+				{
+					serviceChargeCheckingType service(filename);
+					service.viewMenu();
+					break;
+				}
+				case 'n':
+				{
+					noServiceChargeCheckingType noService(filename);
+					noService.viewMenu();
+					break;
+				}
+				case 'C':
+				{
+					highInterestCheckingType highChecking(filename);
+					highChecking.viewMenu();
+					break;
+				}
+				case 'd':
+				{
+					certificateOfDepositType deposit(filename);
+					deposit.viewMenu();
+					break;
+				}
+				case 's':
+				{
+					savingsAccountType savings(filename); // constructor with one string brings data in from file
+					savings.viewMenu();
+					break;
+				}
+				case 'S':
+				{
+					highInterestSavingsType highSavings(filename);
+					highSavings.viewMenu();
+					break;
+				}
+				default:
+					cout << endl << endl << endl << endl << setw(15) << " " << "File structure invalid";
+					cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
+					cin.ignore();
+					cin.ignore();
+					break;
+			}
+
+		}
+
+
+	return;
 }
+

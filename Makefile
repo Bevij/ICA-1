@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Werror -Wpedantic -std=c++20 -O0 -g
 CC = g++
 
-OBJECTS = mainmenu.o viewmenu.o createmenu.o editmenu.o removemenu.o randomnum.o fileEdit.o editsubmenus.o databaseFileCreate.o databaseFileDelete.o databaseFileEdit.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
+OBJECTS = mainmenu.o viewmenu.o createmenu.o viewsubmenus.o editmenu.o removemenu.o randomnum.o fileEdit.o editsubmenus.o  bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
@@ -11,6 +11,8 @@ mainmenu.o: mainmenu.cpp *.o
 
 
 viewmenu.o: viewmenu.cpp *.o
+
+viewsubmenus.o: viewsubmenus.cpp *.o
 
 createmenu.o: createmenu.cpp *.o
 
@@ -24,13 +26,6 @@ randomnum.o: randomnum.cpp
 
 fileEdit.o: fileEdit.cpp
 
-
-
-databaseFileCreate.o: databaseFileCreate.cpp
-
-databaseFileDelete.o: databaseFileDelete.cpp
-
-databaseFileEdit.o: databaseFileEdit.cpp
 
 
 

@@ -26,6 +26,7 @@ class noServiceChargeCheckingType: public checkingAccountType
 		virtual void print();
 
 		void editMenu();
+		void viewMenu();
 
 	protected:
 		double minimumBalance;
