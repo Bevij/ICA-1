@@ -30,9 +30,5 @@ string randomNum(){
 
 	}while(!exit);
 
-	cout << accountNum << endl;
-	cin.ignore();
-	cin.ignore();
-
 	return accountNum;										// Returns string instead of int
 }

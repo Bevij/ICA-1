@@ -5,7 +5,6 @@ void createMenu()
 	char choice;
 	char accountChar;
 	string name;
-	int accountNum;
 	string account;
 	double balance;
 	double   intRate;
@@ -17,9 +16,6 @@ void createMenu()
 
 	do
 	{
-		accountNum = randomNum(); // no checks yet...
-		account = to_string(accountNum);
-		ofstream fileout(account);// fileout is cout, but to file
 		cout << "\033c" << endl << endl;
 		cout << setw(15) << " " << "_______________________________________________" << endl;
 		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
@@ -44,6 +40,9 @@ void createMenu()
 
 			case '1': // Service Charge Checking
 			{
+				account = randomNum(); // Checks installed
+				ofstream fileouty(account);// fileout is cout, but to file
+
 				accountChar = 'y';
 
 				cout << "\033c" << endl << endl;
@@ -57,16 +56,20 @@ void createMenu()
 				getposdouble(balance);
 				numChecksWritten = 0; // it's a new account, after all
 
-				fileout << accountChar << endl;
-				fileout << name << endl;
-				fileout << balance << endl;
-				fileout << numChecksWritten;
+				fileouty << accountChar << endl;
+				fileouty << name << endl;
+				fileouty << balance << endl;
+				fileouty << numChecksWritten;
 				break;
 			}
 
 
-		case '2': //No Service Charge Checking
-			    accountChar = 'n';
+			case '2': //No Service Charge Checking
+			{
+				account = randomNum(); // Checks installed
+				ofstream fileoutn(account);// fileout is cout, but to file
+
+			   accountChar = 'n';
 
 				cout << "\033c" << endl << endl;
 				cout << setw(15) << " " << "_______________________________________________" << endl;
@@ -82,15 +85,19 @@ void createMenu()
 				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
 				getposdouble(minBalance);
 
-				fileout << accountChar << endl;
-				fileout << name << endl;
-				fileout << balance << endl;
-				fileout<< intRate<<endl;
-				fileout<< minBalance<<endl;
+				fileoutn << accountChar << endl;
+				fileoutn << name << endl;
+				fileoutn << balance << endl;
+				fileoutn << intRate<<endl;
+				fileoutn << minBalance<<endl;
 				break;
 
+			}
+			case '3': //High Interest Checking
+			{
+				account = randomNum(); // Checks installed
+				ofstream fileoutC(account);// fileout is cout, but to file
 
-		case '3': //High Interest Checking
 				accountChar = 'C';
 
 				cout << "\033c";
@@ -107,13 +114,17 @@ void createMenu()
 				cout << endl << setw(15) << " " << "Minimum Balance        :  "<<endl;
 				getposdouble(minBalance);
 
-				fileout << accountChar << endl;
-				fileout << name << endl;
-				fileout << balance << endl;
+				fileoutC << accountChar << endl;
+				fileoutC << name << endl;
+				fileoutC << balance << endl;
 				break;
 
+			}
+			case '4': //Certificate of Deposit
+			{
+				account = randomNum(); // Checks installed
+				ofstream fileoutd(account);// fileout is cout, but to file
 
-		case '4': //Certificate of Deposit
 				accountChar = 'd';
 
 				cout << "\033c";
@@ -130,15 +141,19 @@ void createMenu()
 				cout << endl << setw(15) << " " << "Maturity Months        : "<<endl;
 				getposint(maturityMon);
 
-				fileout << accountChar << endl;
-				fileout << name << endl;
-				fileout << balance << endl;
-				fileout << intRate<<endl;
-				fileout << maturityMon<<endl;
+				fileoutd << accountChar << endl;
+				fileoutd << name << endl;
+				fileoutd << balance << endl;
+				fileoutd << intRate<<endl;
+				fileoutd << maturityMon<<endl;
 				break;
 
+			}
+			case '5'://Savings Account
+			{
+				account = randomNum(); // Checks installed
+				ofstream fileouts(account);// fileout is cout, but to file
 
-		case '5'://Savings Account
 				accountChar = 's';
 
 				cout << "\033c";
@@ -154,14 +169,18 @@ void createMenu()
 				cout << endl << setw(15) << " " << "Interest Rate          :  " << endl;
 				getposdouble(intRate);
 
-				fileout << accountChar << endl;
-				fileout << name << endl;
-				fileout << balance << endl;
-				fileout << intRate<<endl;
+				fileouts << accountChar << endl;
+				fileouts << name << endl;
+				fileouts << balance << endl;
+				fileouts << intRate<<endl;
 				break;
 
+			}
+			case '6'://high Interest Savings
+			{
+				account = randomNum(); // Checks installed
+				ofstream fileoutS(account);// fileout is cout, but to file
 
-		case '6'://high Interest Savings
 				accountChar = 'S';
 
 				cout << "\033c";
@@ -179,14 +198,14 @@ void createMenu()
 				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
 				getposdouble(minBalance);
 
-				fileout << accountChar << endl;
-				fileout << name << endl;
-				fileout << balance << endl;
-				fileout<< intRate<<endl;
-				fileout<< minBalance<<endl;
+				fileoutS << accountChar << endl;
+				fileoutS << name << endl;
+				fileoutS << balance << endl;
+				fileoutS << intRate<<endl;
+				fileoutS << minBalance<<endl;
 				break;
 
-
+			}
 			case '0':
 			{
 				cout << "Exit" << endl;
@@ -194,10 +213,12 @@ void createMenu()
 			}
 			break;
 			default:
+			{
 				cout << endl << endl << setw(15) << " " << "option not available please select a valid option";
 				cout << endl << endl << setw(15) << " " << "Press enter to countinue : ";
 				cin.ignore();
 				cin.ignore();
+			}
 		}
 	}while(!leaving);
 

@@ -46,7 +46,7 @@ void removeMenu();
 void createAccountFile();
 void deleteAccountFile();
 void viewAccountFile();
-int randomNum();
+string randomNum();
 void fileEdit(string, string, string);
 
 
