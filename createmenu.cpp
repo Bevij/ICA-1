@@ -8,15 +8,18 @@ void createMenu()
 	int accountNum;
 	string account;
 	double balance;
+	double   intRate;
+	double   minBalance;
+	int		maturityMon;
 	int numChecksWritten;
 
-   bool leaving = false;
+   bool leaving;
 
 	while(!leaving)
 	{
 
 		accountNum = randomNum(); // no checks yet...
-		account = to_string(accountNum);
+		account = accountNum;
 		ofstream fileout(account);// fileout is cout, but to file
 
 		cout << "\033c";
@@ -31,8 +34,7 @@ void createMenu()
 		cout << "0.Exit" << endl;
 		cout << "Please enter a choice" << endl;
 
-		cin.get(choice);
-		cin.ignore(1000, '\n');
+		cin >> choice;
 		switch(choice)
 		{
 			case '1': // Service Charge Checking
@@ -40,9 +42,9 @@ void createMenu()
 				accountChar = 'y';
 
 				cout << "\033c";
-				cout << "Name of Account Holder: ";
+				cout << "Name of Account Holder: "<<endl;
 				getline(cin, name);
-				cout << "Initial Deposit: ";
+				cout << "Initial Deposit: "<<endl;
 				cin >> balance;
 				numChecksWritten = 0; // it's a new account, after all
 
@@ -52,38 +54,41 @@ void createMenu()
 				fileout << numChecksWritten;
 				break;
 			}
-			case '2': //No Service Charge Checking
-			{
+		case '2': //No Service Charge Checking
 			    accountChar = 'n';
 
 				cout << "\033c";
-				cout << "Name of Account Holder: ";
+				cout << "Name of Account Holder: "<<endl;
 				getline(cin, name);
-				cout << "Initial Deposit: ";
+				cout << "Initial Deposit: "<<endl;
 				cin >> balance;
-
+				cout <<" Interest Rate:  "<<endl;
+				cin>>intRate;
+				cout<<"Minimum Balance:  "<<endl;
+				cin>>minBalance;
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
+				fileout<< intRate<<endl;
+				fileout<< minBalance<<endl;
 				break;
-			}
-			case '3': //High Interest Checking
-			{
+		case '3': //High Interest Checking
 				accountChar = 'C';
 
 				cout << "\033c";
-				cout << "Name of Account Holder: ";
+				cout << "Name of Account Holder: "<<endl;
 				getline(cin, name);
-				cout << "Initial Deposit: ";
+				cout << "Initial Deposit: "<<endl;
 				cin >> balance;
-
+				cout <<" Interest Rate:  "<<endl;
+				cin>>intRate;
+				cout<<"Minimum Balance:  "<<endl;
+				cin>>minBalance;
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
 				break;
-			}
-			case '4': //Certificate of Deposit
-			{
+		case '4': //Certificate of Deposit
 				accountChar = 'd';
 
 				cout << "\033c";
@@ -91,14 +96,17 @@ void createMenu()
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-
+				cout <<" Interest Rate:  "<<endl;
+				cin>>intRate;
+				cout<<"Maturity Months:  "<<endl;
+				cin>>maturityMon;
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
+				fileout << intRate<<endl;
+				fileout << maturityMon<<endl;
 				break;
-			}
-			case '5'://Savings Account
-			{
+		case '5'://Savings Account
 				accountChar = 's';
 
 				cout << "\033c";
@@ -106,14 +114,14 @@ void createMenu()
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-
+				cout <<" Interest Rate:  "<<endl;
+				cin>>intRate;
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
+				fileout << intRate<<endl;
 				break;
-			}
-			case '6'://high Interest Savings
-			{
+		case '6'://high Interest Savings
 				accountChar = 'S';
 
 				cout << "\033c";
@@ -121,18 +129,25 @@ void createMenu()
 				getline(cin, name);
 				cout << "Initial Deposit: ";
 				cin >> balance;
-
+				cout <<" Interest Rate:  "<<endl;
+				cin>>intRate;
+				cout<<"Minimum Balance:  "<<endl;
+				cin>>minBalance;
 				fileout << accountChar << endl;
 				fileout << name << endl;
 				fileout << balance << endl;
+				fileout<< intRate<<endl;
+				fileout<< minBalance<<endl;
 				break;
-			}
 			case '0':
 			{
 				cout << "Exit" << endl;
 				leaving = true;
 			}
 			break;
+			default:
+				cout << "option not available please select a valid option" << endl;
+				cin >> choice;
 		}
 	}
 
