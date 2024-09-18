@@ -12,8 +12,12 @@ void editMenu()
 	char acctType;
 
 
-		cout << "\033c" << endl;
-		cout << "Enter account number: ";
+		cout << "\033c" << endl << endl;
+		cout << setw(15) << " " << "_______________________________________________" << endl;
+		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
+		cout << setw(16) << "|" << setw(28) << "Edit Menu" << setw(18) << "|" << endl;
+		cout << setw(15) << " " << "|_____________________________________________|" << endl;
+		cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
 		cin >> acctNum;
 		filename = acctNum;
 
@@ -22,8 +26,10 @@ void editMenu()
 
 		if(!filein)
 		{
-			cout << "Account does not exist, any key to continue...\n";
-			cin  >> tempstring;
+			cout << endl << endl << endl << endl << setw(15) << " " << "Error, account does not exist";
+			cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
+			cin.ignore();
+			cin.ignore();
 		}
 		else
 		{
@@ -46,8 +52,10 @@ void editMenu()
 					fs::rename(tempfilename, filename);
 					break;
 				}default:
-					cout << "File structure invalid, any key to return to main menu...";
-					cin >> tempstring;
+					cout << endl << endl << endl << endl << setw(15) << " " << "File structure invalid";
+					cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
+					cin.ignore();
+					cin.ignore();
 					break;
 			}
 
