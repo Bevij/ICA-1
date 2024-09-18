@@ -5,7 +5,6 @@ void editMenu()
 {
 	string tempstring;
 
-	string acctNum;
 	string filename; // eventually filename will be acctNum + lastName
 	string tempfilename;
 
@@ -18,8 +17,7 @@ void editMenu()
 		cout << setw(16) << "|" << setw(28) << "Edit Menu" << setw(18) << "|" << endl;
 		cout << setw(15) << " " << "|_____________________________________________|" << endl;
 		cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
-		cin >> acctNum;
-		filename = acctNum;
+		getline(cin, filename);
 
 
 		ifstream filein(filename); // filein is now cin >> (stuff from filename)
@@ -28,8 +26,7 @@ void editMenu()
 		{
 			cout << endl << endl << endl << endl << setw(15) << " " << "Error, account does not exist";
 			cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
-			cin.ignore();
-			cin.ignore();
+			waitforenter();
 		}
 		else
 		{
@@ -132,15 +129,13 @@ void editMenu()
 					default:
 						cout << endl << endl << endl << endl << setw(15) << " " << "File structure invalid";
 						cout << endl << endl << setw(15) << " " << "Press enter to continue: ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 						break;
 				}
 			}
 			catch(string tempfilename) {
 				cout << "Access denied! '" << tempfilename << "' exists! Deadlock!!\nAny key to return to main menu...";
-				string temp;
-				cin >> temp;
+				waitforenter();
 			}
 
 		}

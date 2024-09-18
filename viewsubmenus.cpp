@@ -35,7 +35,7 @@ void serviceChargeCheckingType::viewMenu() // edits class, only called in editme
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "'0' to exit: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -75,7 +75,7 @@ void noServiceChargeCheckingType::viewMenu() // edits class, only called in edit
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "'0' to exit: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -114,7 +114,7 @@ void highInterestCheckingType::viewMenu() // edits class, only called in editmen
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -184,7 +184,7 @@ void certificateOfDepositType::viewMenu() // edits class, only called in editmen
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -238,7 +238,7 @@ void savingsAccountType::viewMenu()
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{
@@ -280,7 +280,7 @@ void highInterestSavingsType::viewMenu()
 		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
-		cin.get(choice);
+		getchar(choice);
 
 		switch(choice)
 		{

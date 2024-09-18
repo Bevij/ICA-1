@@ -19,6 +19,9 @@
 using namespace std;
 namespace fs = filesystem;
 
+
+#include "helpers.h" // generally input helper functions
+
 // inclusion of all classes, for use in general menu and other CPP files
 #include "bankAccountType.h"
 
