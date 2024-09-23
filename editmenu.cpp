@@ -35,7 +35,7 @@ void editMenu()
 			if(fs::exists(tempfilename))
 				throw deadlock();
 
-			ofstream fileout(tempfilename); // fileout is cout << (to tempfilename file)
+			ofstream fileouttemp(tempfilename); // both creates tempfilename AND sets fileout to output to it
 			// OUTPUT TIME TO FIRST LINE TO DO DEADLOCK!!!!!!!!!!!!!
 
 			filein >> acctType; // first line will be string showing what account it is
@@ -45,82 +45,88 @@ void editMenu()
 				{
 					serviceChargeCheckingType service(filename);
 					service.editMenu();
-					fileout << "y\n";
-					fileout << service.getAccountNumber() << endl;
-					fileout << service.getName() << endl;
-					fileout << service.getBalance() << endl;
-					fileout << service.getNumberOfChecksWritten();
-					fs::remove(filename);
-					fs::rename(tempfilename, filename);
+					fs::remove(tempfilename);
+					fs::remove(filename); //removes file
+					ofstream fileouty(filename); // remakes file and outputs to it
+					fileouty << "y\n";
+					fileouty << service.getAccountNumber() << endl;
+					fileouty << service.getName() << endl;
+					fileouty << service.getBalance() << endl;
+					fileouty << service.getNumberOfChecksWritten();
 					break;
 				}
 				case 'n':
 				{
 					noServiceChargeCheckingType noService(filename);
 					noService.editMenu();
-					fileout << "n\n";
-					fileout << noService.getAccountNumber() << endl;
-					fileout << noService.getName() << endl;
-					fileout << noService.getBalance() << endl;
-					fileout << noService.getInterestRate() << endl;
-					fileout << noService.getMinimumBalance();
-					fs::remove(filename);
-					fs::rename(tempfilename, filename);
+					fs::remove(tempfilename);
+					fs::remove(filename); //removes file
+					ofstream fileoutn(filename); // remakes file and outputs to it
+					fileoutn << "n\n";
+					fileoutn << noService.getAccountNumber() << endl;
+					fileoutn << noService.getName() << endl;
+					fileoutn << noService.getBalance() << endl;
+					fileoutn << noService.getInterestRate() << endl;
+					fileoutn << noService.getMinimumBalance();
 					break;
 				}
 				case 'C':
 				{
 					highInterestCheckingType highChecking(filename);
 					highChecking.editMenu();
-					fileout << "C\n";
-					fileout << highChecking.getAccountNumber() << endl;
-					fileout << highChecking.getName() << endl;
-					fileout << highChecking.getBalance() << endl;
-					fileout << highChecking.getInterestRate() << endl;
-					fileout << highChecking.getMinimumBalance();
-					fs::remove(filename);
-					fs::rename(tempfilename, filename);
+					fs::remove(tempfilename);
+					fs::remove(filename); //removes file
+					ofstream fileoutC(filename); // remakes file and outputs to it
+					fileoutC << "C\n";
+					fileoutC << highChecking.getAccountNumber() << endl;
+					fileoutC << highChecking.getName() << endl;
+					fileoutC << highChecking.getBalance() << endl;
+					fileoutC << highChecking.getInterestRate() << endl;
+					fileoutC << highChecking.getMinimumBalance();
 					break;
 				}
 				case 'd':
 				{
 					certificateOfDepositType deposit(filename);
 					deposit.editMenu();
-					fileout << "d\n";
-					fileout << deposit.getAccountNumber() << endl;
-					fileout << deposit.getName() << endl;
-					fileout << deposit.getBalance() << endl;
-					fileout << deposit.getInterestRate() << endl;
-					fileout << deposit.getMaturityMonths();
-					fs::remove(filename);
-					fs::rename(tempfilename, filename);
+					fs::remove(tempfilename);
+					fs::remove(filename); //removes file
+					ofstream fileoutd(filename); // remakes file and outputs to it
+					fileoutd << "d\n";
+					fileoutd << deposit.getAccountNumber() << endl;
+					fileoutd << deposit.getName() << endl;
+					fileoutd << deposit.getBalance() << endl;
+					fileoutd << deposit.getInterestRate() << endl;
+					fileoutd << deposit.getMaturityMonths();
 					break;
 				}
 				case 's':
 				{
 					savingsAccountType savings(filename); // constructor with one string brings data in from file
 					savings.editMenu();
-					fileout << "s\n";
-					fileout << savings.getAccountNumber() << endl;
-					fileout << savings.getName() << endl;
-					fileout << savings.getBalance() << endl;
-					fileout << savings.getInterestRate();
-					fs::remove(filename);
-					fs::rename(tempfilename, filename);
+					fs::remove(tempfilename);
+					fs::remove(filename); //removes file
+					ofstream fileouts(filename); // remakes file and outputs to it
+					fileouts << "s\n";
+					fileouts << savings.getAccountNumber() << endl;
+					fileouts << savings.getName() << endl;
+					fileouts << savings.getBalance() << endl;
+					fileouts << savings.getInterestRate();
 					break;
 				}
 				case 'S':
 				{
 					highInterestSavingsType highSavings(filename);
 					highSavings.editMenu();
-					fileout << "S\n";
-					fileout << highSavings.getAccountNumber() << endl;
-					fileout << highSavings.getName() << endl;
-					fileout << highSavings.getBalance() << endl;
-					fileout << highSavings.getInterestRate() << endl;
-					fileout << highSavings.getMinimumBalance();
-					fs::remove(filename);
-					fs::rename(tempfilename, filename);
+					fs::remove(tempfilename);
+					fs::remove(filename); //removes file
+					ofstream fileoutS(filename); // remakes file and outputs to it
+					fileoutS << "S\n";
+					fileoutS << highSavings.getAccountNumber() << endl;
+					fileoutS << highSavings.getName() << endl;
+					fileoutS << highSavings.getBalance() << endl;
+					fileoutS << highSavings.getInterestRate() << endl;
+					fileoutS << highSavings.getMinimumBalance();
 					break;
 				}
 				default:
@@ -132,7 +138,7 @@ void editMenu()
 				}
 			}//switch end
 
-		}
+		}//try end
 		catch(cantFind e) // cant find file, file DNE
 		{
 			cout << "\nError: accout '" << filename << "' does not exist!\nAny key to return to main menu...";

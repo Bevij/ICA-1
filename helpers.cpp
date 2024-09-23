@@ -5,6 +5,19 @@
 
 
 
+
+
+/******************************************************************************************************
+ *    AGILE SPECIFIC FUNCTIONS
+ ******************************************************************************************************/
+
+
+
+
+
+
+
+
 /**********************************************************************************************************
  *   INPUT HELPERS / SOME FORMATTING
  **********************************************************************************************************/
@@ -13,19 +26,6 @@ void wipescreen() {
 //	cout << "\033[H\033[J";
 	cout << "\033c";
 }
-/*
-void getchar(char &input) {
-	char temp;
-	cin.get(temp);
-
-	while(temp == '\n') { // note: this makes it REJECT if all it gets is a newline character
-		cout << "Please enter a valid character: ";
-		cin.get(temp);
-	}
-	cin.ignore(10000, '\n');
-	input = temp;
-	return;
-}*/
 
 void getchar(char &input) {
 	cin.get(input);
