@@ -133,6 +133,9 @@ void waitforenter() {
 
 
 
+
+
+
 /**********************************************************************************************************
  *   SORTERS AND STUFF (ALL ARRAY/VECTOR ONLY)
  **********************************************************************************************************/
@@ -204,4 +207,130 @@ void sortString(string* list, const int& listLength) { // MUST BE AN ARRAY OF ST
 		list[i] = tempString;
 	}
 	return;
+}
+
+
+
+
+
+/**********************************************************************************************************
+ *   OTHER !!!! (just stuff ig)
+ **********************************************************************************************************/
+
+string timeString(int t) {
+	int years;
+	int months;
+	int days;
+	int hours;
+	int minutes;
+	int seconds;
+
+	string out = "";
+	bool list;
+	int temp = 0;
+	bool prev;
+
+
+	years = t / 31536000;
+	t     = t % 31536000;
+	months = t / 2592000;
+	t      = t % 2592000;
+	days = t / 86400;
+	t    = t % 86400;
+	hours = t / 3600;
+	t     = t % 3600;
+	minutes = t / 60;
+	t       = t % 60;
+	seconds = t;
+
+	if(years)
+		temp++;
+	if(months)
+		temp++;
+	if(days)
+		temp++;
+	if(hours)
+		temp++;
+	if(minutes)
+		temp++;
+	if(seconds)
+		temp++;
+	if(temp > 2)
+		list = true;
+
+
+	if(years)
+	{
+		out += to_string(years) + " year";
+		if(years != 1)
+			out += 's';
+		if(list && (months || days || hours || minutes || seconds))
+			out += ',';
+		out += ' ';
+		prev = true;
+	}
+
+	if(months)
+	{
+		if((prev) && !(days || hours || minutes || seconds)) // if its the last thing, and something came before it
+			out += "and ";
+		out += to_string(months) + " month";
+		if(months != 1) // if plural
+			out += 's';
+		if(list && (days || hours || minutes || seconds)) // if its a list (needing commas) and theres more items after this one
+			out += ',';
+		out += ' ';
+		prev = true;
+	}
+
+	if(days)
+	{
+		if((prev) && !(hours || minutes || seconds))
+			out += "and ";
+		out += to_string(days) + " day";
+		if(days != 1)
+			out += 's';
+		if(list && (hours || minutes || seconds))
+			out += ',';
+		out += ' ';
+		prev = true;
+	}
+
+	if(hours) // NEED TO ADD CHECK FOR HIGHER STUFF BEFORE OUTPUTTING AND
+	{
+		if((prev) && !(minutes || seconds))
+			out += "and ";
+		out += to_string(hours) + " hour";
+		if(hours != 1)
+			out += 's';
+		if(list && (minutes || seconds))
+			out += ',';
+		out += ' ';
+		prev = true;
+	}
+
+
+	if(minutes)
+	{
+		if((prev) && !(seconds))
+			out += "and ";
+		out += to_string(minutes) + " minute";
+		if(minutes != 1)
+			out += 's';
+		if(list && seconds)
+			out += ',';
+		out += ' ';
+		prev = true;
+	}
+
+	if(seconds)
+	{
+		if(prev)
+			out += "and ";
+		out += to_string(seconds) + " second";
+		if(seconds != 1)
+			out += 's';
+	}
+
+	return out;
 }

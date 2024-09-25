@@ -47,7 +47,6 @@ void createAccountFile();
 void deleteAccountFile();
 void viewAccountFile();
 string randomNum();
-void fileEdit(string, string, string);
 
 
 //     CONST/GLOBAL VARIABLE DECLARATIONS
@@ -55,3 +54,4 @@ const int ARRAYSIZE = 30;
 const int FILENAMESIZE = 70;
 
 #endif
+

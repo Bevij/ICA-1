@@ -27,5 +27,8 @@ void sortInt(int* list, const int&);						// takes list, sorts it
 int  getSmallestInt(const int* list, const int&);		// takes list, returns smallest index
 int  getLargestInt(const int* list, const int&);		// takes list, returns largest index
 
+// OTHER
+string timeString(int t);
+
 
 #endif
