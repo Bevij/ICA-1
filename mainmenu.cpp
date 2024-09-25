@@ -6,6 +6,7 @@ int main(){
 	char choice;
 	bool leaving = false;
 
+
 	do{
 		cout << "\033c" << right << endl << endl;
 		cout << setw(15) << " " << "_______________________________________________" << endl;

@@ -11,7 +11,30 @@
  *    AGILE SPECIFIC FUNCTIONS
  ******************************************************************************************************/
 
+string randomNum() {
+	int cycles = 0;
+	int randNum = 0;
+	time_t seconds = time(NULL);
+	string filename;
 
+	bool leaving = false;
+
+	do
+	{
+		srand((unsigned) seconds * (cycles + 27)); // setting seed
+		randNum = (10000 + rand() % 90000);			 // seting range and gets rand number
+		filename = to_string(randNum);           	 // puts into string
+
+		ifstream filein(filename);
+
+		if(!filein) // checks if file exists, if it doesn't, this is a valid account to make
+			leaving = true;
+
+		cycles++;
+	}while(!leaving);
+
+	return filename;
+}
 
 
 
@@ -217,7 +240,7 @@ void sortString(string* list, const int& listLength) { // MUST BE AN ARRAY OF ST
  *   OTHER !!!! (just stuff ig)
  **********************************************************************************************************/
 
-string timeString(int t) {
+string timeString(int t) { // t in seconds, returns string for representation of t
 	int years;
 	int months;
 	int days;
@@ -331,6 +354,9 @@ string timeString(int t) {
 		if(seconds != 1)
 			out += 's';
 	}
+
+	if(temp = 0)
+		out = "0 seconds";
 
 	return out;
 }

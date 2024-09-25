@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// AGILE SPECIFIC
+string randomNum();
 
 // INPUT AND FORMATTING
 void   wipescreen();                   // wipes the screen
