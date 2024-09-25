@@ -4,15 +4,15 @@
 
 class cantFind {};
 class deadlock {};
-class rejectedOverride {};
+class abortOverride {};
 
 void editMenu()
 {
-	const int OVERRIDE_TIME = 4000; // the time required (in seconds) until a file.temp can be overridden by someone else
+	const int OVERRIDE_TIME = 3600; // the time required (in seconds) until a file.temp can be overridden by someone else
 	time_t t;
 	int filetime; // the time in a .temp file, checked for potential deadlock
 
-	string tempstring;
+//	string tempstring;
 
 	string filename; // eventually filename will be acctNum + lastName
 	string tempfilename;
@@ -29,10 +29,9 @@ void editMenu()
 	getline(cin, filename);
 
 
-	ifstream filein(filename); // filein is now cin >> (stuff from file)
 	try
 	{
-
+		ifstream filein(filename); // filein is now cin >> (stuff from file)
 		if(!filein)
 			throw cantFind();
 
@@ -46,18 +45,11 @@ void editMenu()
 
 			if(t >= filetime + OVERRIDE_TIME)
 			{
-				cout << "\nFile has been opened and edited without save. Override? (y/n): ";
+				cout << "\nFile has been opened and edited without save.\nWARNING: Override may cause unwanted discards to changes made on fil1!\nOverride? (y/n): ";
 				char yn;
 				getyn(yn);
 				if(yn == 'n')
-					throw rejectedOverride();
-/*				else
-				{
-					cout << "Overriding '" << filename << "' file editing\n";
-					cout << "WARNING: May cause unwanted discards to changes made on file!\n";
-					cout << "Press enter to continue...";
-					waitforenter();
-				}*/
+					throw abortOverride();
 			}
 			else
 				throw deadlock();
@@ -76,10 +68,10 @@ void editMenu()
 		{
 			case 'y':
 			{
-				serviceChargeCheckingType service(filename);
-				service.editMenu();
-				fs::remove(tempfilename);
-				fs::remove(filename); //removes file
+				serviceChargeCheckingType service(filename); // makes a temporary class to hold data, constructs from data in file
+				service.editMenu(); // calls editMenu from class
+				fs::remove(tempfilename); // removes lock/timer file
+				fs::remove(filename); // removes old file
 				ofstream fileouty(filename); // remakes file and outputs to it
 				fileouty << "y\n";
 				fileouty << service.getAccountNumber() << endl;
@@ -173,18 +165,21 @@ void editMenu()
 	}//try end
 	catch(cantFind e) // cant find file, file DNE
 	{
-		cout << "\nError: accout '" << filename << "' does not exist!\nPress enter to return to main menu...";
+		cout << "\nError: account '" << filename << "' does not exist!";
+		cout << "\nPress enter to return to main menu...";
 		waitforenter();
 	}
 	catch(deadlock e) // file.temp exists, not editable yet
 	{
-		cout << "\nAccess denied! '" << tempfilename << "' exists! Deadlock!!\n";
-		cout << "Please wait " << timeString(filetime + OVERRIDE_TIME - t) << " before attempting override.\nPress enter to return to main menu...";
+		cout << "\nAccess denied! '" << tempfilename << "' exists! Deadlock!!";
+		cout << "\nPlease wait " << timeString(filetime + OVERRIDE_TIME - t) << " before attempting override.";
+		cout << "\nPress enter to return to main menu...";
 		waitforenter();
 	}
-	catch(rejectedOverride e) // file.temp exists, was editable, user chose NOT to edit file
+	catch(abortOverride e) // file.temp exists, was editable, user chose NOT to edit file
 	{
-		cout << "\nOverride rejected.\nPress enter to return to main menu...";
+		cout << "\nOverride aborted.";
+		cout << "\nPress enter to return to main menu...";
 		waitforenter();
 	}
 
