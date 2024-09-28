@@ -46,6 +46,10 @@ void removeMenu();
 void createAccountFile();
 void deleteAccountFile();
 void viewAccountFile();
+void deposit();
+void withdraw();
+void editLogin();
+void transfer();
 string randomNum();
 
 
