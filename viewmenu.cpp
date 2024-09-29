@@ -16,10 +16,10 @@ void viewMenu()
 
 
 	cout << "\033c" << endl << endl;
-	cout << setw(15) << " " << "_______________________________________________" << endl;
-	cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-	cout << setw(16) << "|" << setw(28) << "View Menu" << setw(18) << "|" << endl;
-	cout << setw(15) << " " << "|_____________________________________________|" << endl;
+	cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+	cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+	cout << setw(18) << "║" << setw(27) << "View Menu" << setw(21) << "║" << endl;
+	cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 	cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
 	getline(cin, filename);
 

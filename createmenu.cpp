@@ -18,21 +18,22 @@ void createMenu()
 	do
 	{
 		cout << "\033c" << endl << endl;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(22) << "Create Account" << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(15) << " " << "|  Select the Account you would like to make  |" << endl;
-		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "     1.Service Charge Checking Account       |" << endl;
-		cout << setw(16) << "|" << "     2.No Service Charge Checking            |" << endl;
-		cout << setw(16) << "|" << "     3.High Interest Checking                |" << endl;
-		cout << setw(16) << "|" << "     4.Certificate of Deposit                |" << endl;
-		cout << setw(16) << "|" << "     5.Savings Account                       |" << endl;
-		cout << setw(16) << "|" << "     6.High Interest Savings                 |" << endl;
-		cout << setw(16) << "|" << "     0.Exit                                  |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << setw(30) << "Create  Account" << setw(18) << "║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│  Select the Account you would like to make  │" << endl;
+		cout << setw(18) << "│" << setw(48) << "│" << endl;
+		cout << setw(18) << "│" << setw(48) << "│" << endl;
+		cout << setw(18) << "│" << "     1.Service Charge Checking Account       │" << endl;
+		cout << setw(18) << "│" << "     2.No Service Charge Checking            │" << endl;
+		cout << setw(18) << "│" << "     3.High Interest Checking                │" << endl;
+		cout << setw(18) << "│" << "     4.Certificate of Deposit                │" << endl;
+		cout << setw(18) << "│" << "     5.Savings Account                       │" << endl;
+		cout << setw(18) << "│" << "     6.High Interest Savings                 │" << endl;
+		cout << setw(18) << "│" << "     0.Exit                                  │" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 		cout << setw(15) << " " << "Selection : " << endl;
 
 		getchar(choice);
@@ -44,10 +45,10 @@ void createMenu()
 				accountChar = 'y';
 
 				cout << "\033c" << endl << endl;
-				cout << setw(15) << " " << "_______________________________________________" << endl;
-				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-				cout << setw(16) << "|" << "           Service Charge Checking           |" << endl;
-				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+				cout << setw(18) << "║" << setw(48) << "║" << endl;
+				cout << setw(18) << "║" << "           Service Charge Checking           ║" << endl;
+				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
 				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
 				getline(cin, tempNum);
@@ -84,10 +85,10 @@ void createMenu()
 			   accountChar = 'n';
 
 				cout << "\033c" << endl << endl;
-				cout << setw(15) << " " << "_______________________________________________" << endl;
-				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-				cout << setw(16) << "|" << "         No Service Charge Checking          |" << endl;
-				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+				cout << setw(18) << "║" << setw(48) << "║" << endl;
+				cout << setw(18) << "║" << "         No Service Charge Checking          ║" << endl;
+				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
 				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
 				getline(cin, tempNum);
@@ -125,10 +126,10 @@ void createMenu()
 				accountChar = 'C';
 
 				cout << "\033c";
-				cout << setw(15) << " " << "_______________________________________________" << endl;
-				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-				cout << setw(16) << "|" << "           High Interest Checking            |" << endl;
-				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+				cout << setw(18) << "║" << setw(48) << "║" << endl;
+				cout << setw(18) << "║" << "           High Interest Checking            ║" << endl;
+				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
 				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
 				getline(cin, tempNum);
@@ -166,10 +167,10 @@ void createMenu()
 				accountChar = 'd';
 
 				cout << "\033c";
-				cout << setw(15) << " " << "_______________________________________________" << endl;
-				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-				cout << setw(16) << "|" << "           Certificate Of Deposit            |" << endl;
-				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+				cout << setw(18) << "║" << setw(48) << "║" << endl;
+				cout << setw(18) << "║" << "           Certificate Of Deposit            ║" << endl;
+				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
 				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
 				getline(cin, tempNum);
@@ -207,10 +208,10 @@ void createMenu()
 				accountChar = 's';
 
 				cout << "\033c";
-				cout << setw(15) << " " << "_______________________________________________" << endl;
-				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-				cout << setw(16) << "|" << "              Savings  Account               |" << endl;
-				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+				cout << setw(18) << "║" << setw(48) << "║" << endl;
+				cout << setw(18) << "║" << "              Savings  Account               ║" << endl;
+				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
 				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
 				getline(cin, tempNum);
@@ -245,10 +246,10 @@ void createMenu()
 				accountChar = 'S';
 
 				cout << "\033c";
-				cout << setw(15) << " " << "_______________________________________________" << endl;
-				cout << setw(16) << "|" << setw(19) << " " << setw(27) << "|" << endl;
-				cout << setw(16) << "|" << "            High Interest Savings            |" << endl;
-				cout << setw(15) << " " << "|_____________________________________________|" << endl;
+				cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+				cout << setw(18) << "║" << setw(48) << "║" << endl;
+				cout << setw(18) << "║" << "            High Interest Savings            ║" << endl;
+				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
 				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
 				getline(cin, tempNum);
