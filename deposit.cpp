@@ -48,9 +48,6 @@ void deposit()
 			cout << setw(15) << " " << "Enter the account number to Deposit to : ";
 			cin.ignore();
 			getline(cin, filename);
-			cout << endl << endl << endl;
-			cout << setw(15) << " " << "Enter the amount of money to Deposit   : ";
-			cin >> amount;
 
 			try
 			{
@@ -59,6 +56,10 @@ void deposit()
 				{
 					throw cantFind();
 				}
+
+				cout << endl << endl << endl;
+				cout << setw(15) << " " << "Enter the amount of money to Deposit   : ";
+				cin >> amount;
 
 				if(amount <= 0)
 				{
@@ -81,7 +82,7 @@ void deposit()
 						fileouty << service.getAccountNumber() << endl;
 						fileouty << service.getName() << endl;
 						fileouty << service.getBalance() << endl;
-						fileouty << service.getNumberOfChecksWritten();
+						fileouty << service.getNumberOfChecksWritten() << endl;
 
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << service.getBalance() << "$!" << endl << endl;
@@ -103,7 +104,7 @@ void deposit()
 						fileoutn << noService.getName() << endl;
 						fileoutn << noService.getBalance() << endl;
 						fileoutn << noService.getInterestRate() << endl;
-						fileoutn << noService.getMinimumBalance();
+						fileoutn << noService.getMinimumBalance() << endl;
 
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << noService.getBalance() << "$!" << endl << endl;
@@ -124,8 +125,8 @@ void deposit()
 						fileoutC << highChecking.getAccountNumber() << endl;
 						fileoutC << highChecking.getName() << endl;
 						fileoutC << highChecking.getBalance() << endl;
-						fileoutC << highChecking.getInterestRate();
-						fileoutC << highChecking.getMinimumBalance();
+						fileoutC << highChecking.getInterestRate() << endl;
+						fileoutC << highChecking.getMinimumBalance() << endl;
 
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << highChecking.getBalance() << "$!" << endl << endl;
@@ -146,8 +147,8 @@ void deposit()
 						fileoutd << deposit.getAccountNumber() << endl;
 						fileoutd << deposit.getName() << endl;
 						fileoutd << deposit.getBalance() << endl;
-						fileoutd << deposit.getInterestRate();
-						fileoutd << deposit.getMaturityMonths();
+						fileoutd << deposit.getInterestRate() << endl;
+						fileoutd << deposit.getMaturityMonths() << endl;
 
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << deposit.getBalance() << "$!" << endl << endl;
@@ -168,7 +169,7 @@ void deposit()
 						fileouts << savings.getAccountNumber() << endl;
 						fileouts << savings.getName() << endl;
 						fileouts << savings.getBalance() << endl;
-						fileouts << savings.getInterestRate();
+						fileouts << savings.getInterestRate() << endl;
 
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << savings.getBalance() << "$!" << endl << endl;
@@ -189,8 +190,8 @@ void deposit()
 						fileoutS << highSavings.getAccountNumber() << endl;
 						fileoutS << highSavings.getName() << endl;
 						fileoutS << highSavings.getBalance() << endl;
-						fileoutS << highSavings.getInterestRate();
-						fileoutS << highSavings.getMinimumBalance();
+						fileoutS << highSavings.getInterestRate() << endl;
+						fileoutS << highSavings.getMinimumBalance() << endl;
 
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << highSavings.getBalance() << "$!" << endl << endl;
@@ -211,7 +212,7 @@ void deposit()
 			catch(cantFind)
 			{
 				cout << endl << endl;
-				cout << setw(15) << "Error: Account '" << filename << "' does not exist" << endl;
+				cout << setw(15) << " " << "Error: Account '" << filename << "' does not exist" << endl;
 				cout << setw(15) << " " <<  "Press Enter to continue : ";
 				cin.ignore();
 				cin.ignore();
