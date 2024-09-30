@@ -27,14 +27,16 @@ void deposit()
 	cout << setw(15) << " " << "└────────────────────────────────────────┘" << endl << endl;
 	cout << setw(15) << " " << "Selection : ";
 
-	cin >> choice;
+	bool invalid = true;
+	do { // input validity for 0 or 1
+		getchar(choice);
+		invalid = (!(choice == '1' || choice == '0'));
+		if(invalid)
+			cout << " Invlalid choice! (1 or 0): ";
+	}while(invalid);
 
 	switch(choice)
 	{
-		case '0':
-
-			return;
-			break;
 
 		case '1':
 
@@ -46,7 +48,6 @@ void deposit()
 			cout << setw(15) << " " << "╚════════════════════════════════════════╝" << endl << endl;
 
 			cout << setw(15) << " " << "Enter the account number to Deposit to : ";
-			cin.ignore();
 			getline(cin, filename);
 
 			try
@@ -59,12 +60,7 @@ void deposit()
 
 				cout << endl << endl << endl;
 				cout << setw(15) << " " << "Enter the amount of money to Deposit   : ";
-				cin >> amount;
-
-				if(amount <= 0)
-				{
-					throw invalidAmount();
-				}
+				getposdouble(amount);
 
 				filein >> acctType;
 
@@ -87,8 +83,7 @@ void deposit()
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << service.getBalance() << "$!" << endl << endl;
 						cout << setw(15) << " " << "Press Enter to continue : ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 						break;
 					}
 					case 'n':
@@ -109,8 +104,7 @@ void deposit()
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << noService.getBalance() << "$!" << endl << endl;
 						cout << setw(15) << " " << "Press Enter to continue : ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 						break;
 					}
 					case 'C':
@@ -131,8 +125,7 @@ void deposit()
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << highChecking.getBalance() << "$!" << endl << endl;
 						cout << setw(15) << " " << "Press Enter to continue : ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 						break;
 					}
 					case 'd':
@@ -153,8 +146,7 @@ void deposit()
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << deposit.getBalance() << "$!" << endl << endl;
 						cout << setw(15) << " " << "Press Enter to continue : ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 						break;
 					}
 					case 's':
@@ -174,8 +166,7 @@ void deposit()
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << savings.getBalance() << "$!" << endl << endl;
 						cout << setw(15) << " " << "Press Enter to continue : ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 						break;
 					}
 					case 'S':
@@ -196,16 +187,14 @@ void deposit()
 						cout << endl << endl;
 						cout << setw(15) << " " << "Success! Your balance is now " << highSavings.getBalance() << "$!" << endl << endl;
 						cout << setw(15) << " " << "Press Enter to continue : ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 						break;
 					}
 					default:
 					{
 						cout << endl << endl;
 						cout << setw(15) << " " << "File structure invalid, press Enter to continue : ";
-						cin.ignore();
-						cin.ignore();
+						waitforenter();
 					}
 				}			// End Nested Swtich
 			}				// End Try Block
@@ -214,40 +203,20 @@ void deposit()
 				cout << endl << endl;
 				cout << setw(15) << " " << "Error: Account '" << filename << "' does not exist" << endl;
 				cout << setw(15) << " " <<  "Press Enter to continue : ";
-				cin.ignore();
-				cin.ignore();
+				waitforenter();
 			}
 			catch(invalidAmount)
 			{
 				cout << endl << endl;
 				cout << setw(15) << " " << "Error: " << amount << "$ is not a valid amount to deposit" << endl;
 				cout << setw(15) << " " << "Press Enter to continue : ";
-				cin.ignore();
-				cin.ignore();
+				waitforenter();
 			}
 
 			break;
 
-		default:
-		{
-			cout << endl << endl;
-			cout << setw(15) << " " << "Error invalid choice, returning to mainmenu" << endl << endl;
-			cout << setw(15) << " " << "Press enter to continue : ";
-			cin.ignore();
-			cin.ignore();
-
+		case '0':
 			break;
-		}
-
-	}						// End Switch
-
-
-	//cout << setw(15) << " " <<  "You have entered the Deposit Menu!" << endl << endl << endl;
-	//cout << setw(15) << " " << "Not much in this menu either..." << endl << endl;							// Yet
-
-	//cout << setw(15) << " " << "Press Enter to countinue : ";
-	//cin.ignore();
-	//cin.ignore();
-
+	}		// End Switch
 	return;
 }
