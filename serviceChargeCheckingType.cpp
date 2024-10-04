@@ -15,6 +15,9 @@ serviceChargeCheckingType::serviceChargeCheckingType(string filename)
 	filein >> name;
 	filein >> balance;
 	filein >> numberOfChecksWritten;
+
+	serviceChargeAmount = ACCOUNT_SERVICE_CHARGE;
+	serviceChargeCheck = SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS;
 }
 
 serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal)

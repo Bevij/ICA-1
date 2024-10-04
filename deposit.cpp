@@ -32,7 +32,9 @@ void deposit()
 		getchar(choice);
 		invalid = (!(choice == '1' || choice == '0'));
 		if(invalid)
-			cout << " Invlalid choice! (1 or 0): ";
+		{
+			cout << setw(15) << " " << "Invlalid choice! (1 or 0): ";
+		}
 	}while(invalid);
 
 	switch(choice)

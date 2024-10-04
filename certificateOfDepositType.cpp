@@ -69,19 +69,22 @@ void certificateOfDepositType::postInterest()
 
 void certificateOfDepositType::withdraw(double amount)
 {
-	// no withdraw until maturity
+	if(cdMonth > maturityMonths)
+	{
+		balance = balance - amount;
+
+		cout << setw(15) << " " << "Sucsess! Your balance is now" << balance << "$!" << endl << endl;
+	}
+	else
+	{
+		cout << setw(15) << " " << "Error, Account has not been matured withdraw cancelled." << endl << endl;
+	}
+
 }
 
 void certificateOfDepositType::withdraw()
 {
-	if(cdMonth > maturityMonths)
-	{
-		balance = 0;
-	}
-	else
-	{
-		cout << "CD has not been matured. No withdrawl." << endl;
-	}
+	// Moved to other Withdraw
 }
 
 void certificateOfDepositType::createMonthlyStatement()
