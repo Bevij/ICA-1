@@ -53,8 +53,11 @@ int loginMenu () {
 				cout << "Please create a password: "; // Add password obfuscation to hide characters
 				cin >> password;
 				cout << endl;
-				cout << "Please enter Last Name: "
+				cout << "Please enter Last Name: ";
 				cin >> lastName;
+				cout << endl;
+				cout << "Please enter First Name: ";
+				cin >> firstName;
 				cout << endl;
 				fullName = lastName + ", " + firstName;
 				// Role assignment
