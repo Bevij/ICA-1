@@ -42,7 +42,7 @@ int main(){
 
 			case 2:
 
-				cout << setw(18) << "║" << setw(30) << "Manager Menu" << setw(18) << "║" << endl;
+				cout << setw(18) << "║" << setw(29) << "Manager  Menu" << setw(19) << "║" << endl;
 				break;
 
 			case 3:
