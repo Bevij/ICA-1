@@ -8,7 +8,7 @@ class abortOverride {};
 
 void editMenu()
 {
-	const int OVERRIDE_TIME = 3600; // the time required (in seconds) until a file.temp can be overridden by someone else
+	const int OVERRIDE_TIME = 30; // the time required (in seconds) until a file.temp can be overridden by someone else
 	time_t t;
 	int filetime; // the time in a .temp file, checked for potential deadlock
 
@@ -31,9 +31,17 @@ void editMenu()
 
 	try
 	{
-		ifstream filein(filename); // filein is now cin >> (stuff from file)
-		if(!filein)
+		ifstream fileintest(filename); // filein is now cin >> (stuff from file)
+
+		if(!fileintest)
 			throw cantFind();
+
+		fileintest.close();
+
+
+		decrypt(filename);
+		ifstream filein(filename); // store and makes readable the decrypted file for editmenu.cpp
+		encrypt(filename);
 
 		tempfilename = filename + ".temp";
 		if(fs::exists(tempfilename))
@@ -61,7 +69,6 @@ void editMenu()
 		fileouttemp << t; // assigns time opened to file.temp
 		fileouttemp.flush(); // tells it to actually, yknow, WRITE THE LINE AND SAVE IT
 
-
 		filein >> acctType; // first line will be string showing what account it is
 
 		switch(acctType)
@@ -78,6 +85,7 @@ void editMenu()
 				fileouty << service.getName() << endl;
 				fileouty << service.getBalance() << endl;
 				fileouty << service.getNumberOfChecksWritten();
+				encrypt(filename);
 				break;
 			}
 			case 'n':
@@ -93,6 +101,7 @@ void editMenu()
 				fileoutn << noService.getBalance() << endl;
 				fileoutn << noService.getInterestRate() << endl;
 				fileoutn << noService.getMinimumBalance();
+				encrypt(filename);
 				break;
 			}
 			case 'C':
@@ -108,6 +117,7 @@ void editMenu()
 				fileoutC << highChecking.getBalance() << endl;
 				fileoutC << highChecking.getInterestRate() << endl;
 				fileoutC << highChecking.getMinimumBalance();
+				encrypt(filename);
 				break;
 			}
 			case 'd':
@@ -123,6 +133,7 @@ void editMenu()
 				fileoutd << deposit.getBalance() << endl;
 				fileoutd << deposit.getInterestRate() << endl;
 				fileoutd << deposit.getMaturityMonths();
+				encrypt(filename);
 				break;
 			}
 			case 's':
@@ -137,6 +148,7 @@ void editMenu()
 				fileouts << savings.getName() << endl;
 				fileouts << savings.getBalance() << endl;
 				fileouts << savings.getInterestRate();
+				encrypt(filename);
 				break;
 			}
 			case 'S':
@@ -152,6 +164,7 @@ void editMenu()
 				fileoutS << highSavings.getBalance() << endl;
 				fileoutS << highSavings.getInterestRate() << endl;
 				fileoutS << highSavings.getMinimumBalance();
+				encrypt(filename);
 				break;
 			}
 			default:

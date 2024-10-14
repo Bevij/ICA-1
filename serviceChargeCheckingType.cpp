@@ -8,6 +8,7 @@ const double serviceChargeCheckingType::SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS = 5;
 
 serviceChargeCheckingType::serviceChargeCheckingType(string filename)
 {
+	decrypt(filename);
 	ifstream filein(filename);
 	string temp;
 	filein >> temp;
@@ -18,6 +19,7 @@ serviceChargeCheckingType::serviceChargeCheckingType(string filename)
 
 	serviceChargeAmount = ACCOUNT_SERVICE_CHARGE;
 	serviceChargeCheck = SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS;
+	encrypt(filename);
 }
 
 serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal)

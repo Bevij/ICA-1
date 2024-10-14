@@ -7,6 +7,7 @@
 #include <fstream>
 #include <filesystem>
 #include <cstdio>
+#include "helpers.h"
 
 using namespace std;
 namespace fs = filesystem;

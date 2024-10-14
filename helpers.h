@@ -18,6 +18,8 @@ void   getposint(int&);						// positive valid int
 void   getsignedint(int&);					// any      valid int
 void   getposdouble(double&);				// positive valid float
 void   getsigneddouble(double&);			// any      valid float
+void   encrypt(const string&);
+void   decrypt(const string&);
 
 string lowerstring(const string&);		// returns lowercase string
 string upperstring(const string&);		// returns uppercase string

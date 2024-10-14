@@ -7,6 +7,7 @@ const int certificateOfDepositType::NUMBER_OF_MATURITY_MONTHS = 6;
 
 certificateOfDepositType::certificateOfDepositType(string filename)
 {
+	decrypt(filename);
 	ifstream filein(filename);
 	string temp;
 	filein >> temp;
@@ -15,6 +16,7 @@ certificateOfDepositType::certificateOfDepositType(string filename)
 	filein >> balance;
 	filein >> interestRate;
 	filein >> maturityMonths;
+	encrypt(filename);
 }
 
 certificateOfDepositType::certificateOfDepositType(string n, int acctNumber, double bal)
