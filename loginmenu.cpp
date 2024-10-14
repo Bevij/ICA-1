@@ -123,6 +123,7 @@ int loginMenu () {
 
 			} else if (acctChoice == 'n') {
 				cout << "Exiting..." << endl;
+				waitforenter();
 				break;
 			}
 	return accountType; // Either have a function embedded that reads accountType from file for this, or take out entirely

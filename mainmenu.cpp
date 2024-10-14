@@ -2,7 +2,12 @@
 
 
 int main(){
-
+	loginInfo user; // holds all the data for user, check header.h
+						 // to access members of it, its only user.variablename
+						 // user.fname = "Steve";
+	user.fname = "Steve";
+	cout << user.fname;
+	waitforenter();
 
 	int menuSelection = 0;						// 0 will be the default menu / Admin menu until login is completed
 														// If you want to test a different menu change this value to 1 for Manager and 2 for Client

@@ -53,6 +53,18 @@ void transfer();
 string randomNum();
 
 
+
+struct loginInfo
+{
+	char role;
+	string username;
+	string fname;
+	string lname;
+	vector<string> accounts; // list of all accounts for user
+};
+extern loginInfo user;
+
+
 //     CONST/GLOBAL VARIABLE DECLARATIONS
 const int ARRAYSIZE = 30;
 const int FILENAMESIZE = 70;
