@@ -1,6 +1,6 @@
 #include "header.h"
 
-int loginMenu () {
+void loginMenu () {
 
 	int accountType;
 	string userName;
@@ -125,5 +125,5 @@ int loginMenu () {
 				cout << "Exiting..." << endl;
 				break;
 			}
-	return accountType; // Either have a function embedded that reads accountType from file for this, or take out entirely
+	return;
 }

@@ -39,6 +39,7 @@ namespace fs = filesystem;
 
 
 //    GENERAL FUNCTION DECLARATION
+void loginMenu();
 void createMenu();
 void viewMenu();
 void editMenu();
