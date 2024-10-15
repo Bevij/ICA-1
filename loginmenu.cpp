@@ -45,15 +45,15 @@ int loginMenu () {
 			string line;
 			while (getline(fileStream, line)) {
 				username = line;
-				loginInfo.username = username;
+				user.username = username;
 				password = line;
-				loginInfo.password = password;
+				user.password = password;
 				lastName = line;
-				loginInfo.lastName = lastName;
+				user.lastName = lastName;
 				firstName = line;
-				loginInfo.firstName = firstName;
+				user.firstName = firstName;
 				role = line;
-				loginInfo.role = role;
+				user.role = role;
 			}
 			fileStream.close();
 		}
@@ -122,7 +122,7 @@ int loginMenu () {
 						if (pinInput == pinMaster) {
 							cout << "PIN accepted. Role set to Manager." << endl;
 							break;
-						} elbse {
+						} else {
 							cout << "Invalid PIN. Role set to Client." << endl;
 							role = 1;
 							break;
@@ -148,15 +148,15 @@ int loginMenu () {
 				// User file creation
 				ofstream userFile(username);
 				userFile << username << endl;
-				loginInfo.username = username;
+				user.username = username;
 				userFile << password << endl;
-				loginInfo.password = password;
+				user.password = password;
 				userFile << lastName << endl;
-				loginInfo.lastName = lastName;
+				user.lastName = lastName;
 				userFile << firstName << endl;
-				loginInfo.firstName = firstName;
+				user.firstName = firstName;
 				userFile << role << endl;
-				loginInfo.role = role;
+				user.role = role;
 
 			} else if (acctChoice == 'n') {
 				cout << "Exiting..." << endl;
