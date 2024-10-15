@@ -15,6 +15,7 @@
 #include <cctype>
 #include <cstring>
 #include <cstdio>
+#include <sstream>
 
 using namespace std;
 namespace fs = filesystem;
