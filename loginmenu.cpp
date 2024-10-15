@@ -11,6 +11,7 @@ int loginMenu () {
 	char usernameChoice;
 	string firstName;
 	string lastName;
+	loginInfo user;
 
 	// Login
 	cout << "Username: ";
@@ -43,6 +44,7 @@ int loginMenu () {
 			}
 
 			string line;
+			string roleString;
 			while (getline(fileStream, line)) {
 				username = line;
 				user.username = username;
@@ -50,9 +52,10 @@ int loginMenu () {
 				user.password = password;
 				lastName = line;
 				user.lastName = lastName;
-				firstName = line;
+				firstName = linwe;
 				user.firstName = firstName;
-				role = line;
+				roleString = line;
+				role = stoi(roleString);
 				user.role = role;
 			}
 			fileStream.close();
@@ -70,26 +73,26 @@ int loginMenu () {
 				cin >> usernameChoice;
 				if (usernameChoice == 'n') {
 					cout << "\nPlease enter a new username: ";
-					cin >> username;
+					getline (cin, username);
 					break;
 				} else if (usernameChoice == 'y') {
 					break;
 				}
 				cout << "\nPlease create a password: "; // Add password obfuscation to hide characters
-				cin.getline(password);
+				getline(cin, password);
 				int attempt = 0;
 				for (passwordCheck!=password && attempt<3) {
 					cout << "\nConfirm password: ";
-					cin.getline(passwordCheck);
+					getline(cin, passwordCheck);
 					if (passwordCheck!=password) {
 						attempt++
 						cout << "Password does not match. Attempt " << attempt << "/3. Please try again." << endl;
 					}
 				}
 				cout << "\nPlease enter Last Name: ";
-				cin.getline(lastName);
+				getline(cin, lastName);
 				cout << "\nPlease enter First Name: ";
-				cin.getline(firstName);
+				getline(cin, firstName);
 				// Role assignment
 				cout << "What type of account is this? Please enter the number value." << endl;
 				cout << "1. Client." << endl;

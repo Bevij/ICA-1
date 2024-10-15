@@ -1,13 +1,15 @@
 #include "header.h"
 
 void searchAccounts() {
-	// Retrieve user information
-	string username = ?; // username FROM INPUT AT LOGIN
-	string roleStr = ?; // FROM USER FILE
-	string name = ?; // FROM USER FILE (Last, First)
+	// Retrieve user information from struct
+	string username = user.username;
+	string lastName = user.lastName;
+	string firstName = user.firstName;
+	int role = user.role;
+	string fullName = lastName + ", " + firstName;
 
 	// Specify directory
-	fs::path dir = "./Data/Accounts/" + username + "/" + name;
+	fs::path dir = "./Data/Accounts/" + fullName + "/" + username;
 
 	// Check if directory exists
 	if (!fs::exists(dir) || !fs::is_directory(dir)) {
@@ -15,8 +17,8 @@ void searchAccounts() {
 			return 1;
 	}
 
-	// Converts role to integer for switch
-	int roleInt = stoi(roleStr);
+	// Converts role to integer for switch (no longer needed with structs instead of files)
+	// int roleInt = stoi(roleStr);
 
 	switch (roleInt) {
 		case 1: // Client
@@ -44,15 +46,16 @@ void searchAccounts() {
 					// OUTPUT FILE CONTENTS
 				}
 			} while (!fs::exists(filePath) && !fs::is_regular_file(filePath)) */
+
 			break;
 		case 2: case 3: case 4: // Clerk, Manager, Admin
+			int searchMethod = 0;
 			cout << "Please specify how you would like to search for an account." << endl;
 			cout << "\t1. Account Holder Name" << endl;
 			cout << "\t2. Account Number" << endl << endl;
 
 			// User Input and Validation
 			do {
-				int searchMethod = 0;
 				cin >> searchMethod;
 				if (searchMethod != 1 && searchMethod != 2) {
 					cout << "Invalid choice. Choose again: "
@@ -63,8 +66,6 @@ void searchAccounts() {
 			switch (searchMethod) {
 				case 1: // Account Holder Name
 					// Name Input
-					string lastName, firstName, fullName;
-
 					cout << "Enter the last name of the account holder: ";
 					getline (cin, lastName);
 					cout << endl;
