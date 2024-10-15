@@ -15,10 +15,9 @@ int loginMenu () {
 
 	// Login
 	cout << "Username: ";
-	cin >> username;
-	cout << endl;
-	cout << "Password: ";
-	cin >> password;
+	getline(cin, username);
+	cout << "\nPassword: ";
+	getline(cin, password);
 	cout << endl << endl;
 
 	// Check if account exists, prompt user to create one if not
@@ -28,7 +27,7 @@ int loginMenu () {
 		// Account search
 		for (const auto& entry : fs::directory_iterator(dirUserSearch)) {
 			if (fs::is_regular_file(entry.path())) {
-				if (entry.path().filename() == username) {
+				if (entry.path().stem() == username) { // .stem() searches for file without extension instead of .filename()
 					filePath = entry.path();
 					userFound = true;
 					break;
@@ -37,10 +36,12 @@ int loginMenu () {
 		}
 
 		// If account exists, input each line into local variables and struct
-		if (userFound = true) {
+		if (userFound) {
 			ifstream fileStream(filePath);
+
 			if (!fileStream) {
 				cerr << "Could not open file." << endl;
+				return 1;
 			}
 
 			string line;
@@ -55,7 +56,9 @@ int loginMenu () {
 				firstName = line;
 				user.firstName = firstName;
 				roleString = line;
-				role = stoi(roleString);
+				// Converts string role to int
+				stringstream container(roleString);
+				container >> role;
 				user.role = role;
 			}
 			fileStream.close();
@@ -74,22 +77,28 @@ int loginMenu () {
 				if (usernameChoice == 'n') {
 					cout << "\nPlease enter a new username: ";
 					getline (cin, username);
+					cin.ignore();
 				}
+
+				// Password
 				cout << "\nPlease create a password: "; // Add password obfuscation to hide characters
 				getline(cin, password);
 				int attempt = 0;
-				for (passwordCheck != password && attempt < 3) {
+				do {
 					cout << "\nConfirm password: ";
 					getline(cin, passwordCheck);
 					if (passwordCheck!=password) {
 						attempt++;
 						cout << "Password does not match. Attempt " << attempt << "/3. Please try again." << endl;
 					}
-				}
+				} while (passwordCheck != password && attempt < 3);
+
+				// Name
 				cout << "\nPlease enter Last Name: ";
 				getline(cin, lastName);
 				cout << "\nPlease enter First Name: ";
 				getline(cin, firstName);
+
 				// Role assignment
 				cout << "What type of account is this? Please enter the number value." << endl;
 				cout << "1. Client." << endl;
@@ -146,7 +155,7 @@ int loginMenu () {
 				}
 
 				// User file creation
-				ofstream userFile(username);
+				ofstream userFile(filePath);
 				userFile << username << endl;
 				user.username = username;
 				userFile << password << endl;
