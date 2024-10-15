@@ -19,20 +19,21 @@ void serviceChargeCheckingType::editMenu() // edits class, only called in editme
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "     SERVICE CHARGE CHECKING ACCOUNT EDIT    |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(28) << "Service Charge Check : " << left << setw(17) << serviceChargeCheck << "|" << endl << right;
-		cout << setw(16) << "|" << setw(28) << "Service Charge Amount: " << left << setw(17) << serviceChargeAmount << "|" << endl << right;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "Max # of Checks   : " << MAXIMUM_NUM_OF_CHECKS << setw(20) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Num Checks    : " << setw(20) << left << numberOfChecksWritten << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "     SERVICE CHARGE CHECKING ACCOUNT EDIT    ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(18) << "│" << setw(28) << "Service Charge Check : " << left << setw(19) << serviceChargeCheck << "│" << endl << right;
+		cout << setw(18) << "│" << setw(28) << "Service Charge Amount: " << left << setw(19) << serviceChargeAmount << "│" << endl << right;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "Max # of Checks   : " << MAXIMUM_NUM_OF_CHECKS << setw(20) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Num Checks    : " << setw(20) << left << numberOfChecksWritten << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
 		getchar(choice);
@@ -73,18 +74,19 @@ void noServiceChargeCheckingType::editMenu() // edits class, only called in edit
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "   NO SERVICE CHARGE CHECKING ACCOUNT EDIT   |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "4.  Minimum Bal   : " << setw(20) << left << minimumBalance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "   NO SERVICE CHARGE CHECKING ACCOUNT EDIT   ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "4.  Minimum Bal   : " << setw(20) << left << minimumBalance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
 		getchar(choice);
@@ -128,18 +130,19 @@ void highInterestCheckingType::editMenu() // edits class, only called in editmen
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "     HIGH INTEREST CHECKING ACCOUNT EDIT     |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "4.  Minimum Bal   : " << setw(20) << left << minimumBalance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "     HIGH INTEREST CHECKING ACCOUNT EDIT     ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(27) << "1.  Name            : " << setw(18) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "2.  Balance         : " << setw(18) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "3.  Interest Rate   : " << setw(18) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "4.  Minimum Balance : " << setw(18) << left << minimumBalance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
 		getchar(choice);
@@ -170,39 +173,6 @@ void highInterestCheckingType::editMenu() // edits class, only called in editmen
 	return;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // CERTIFICATE OF DEPOSIT
 
 void certificateOfDepositType::editMenu() // edits class, only called in editmenu.cpp
@@ -213,19 +183,20 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "     CERTIFICATE OF DEPOSIT ACCOUNT EDIT     |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "|" << endl << right;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(27) << "1.  Name            : " << setw(18) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(27) << "2.  Balance         : " << setw(18) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(27) << "3.  Interest Rate   : " << setw(18) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(27) << "3.  Maturity Months : " << setw(18) << left << maturityMonths << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "     CERTIFICATE OF DEPOSIT ACCOUNT EDIT     ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(18) << "│" << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "|" << endl << right;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(27) << "1.  Name            : " << setw(18) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "2.  Balance         : " << setw(18) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "3.  Interest Rate   : " << setw(18) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "3.  Maturity Months : " << setw(18) << left << maturityMonths << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
 		getchar(choice);
@@ -257,24 +228,6 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // SAVINGS
 
 void savingsAccountType::editMenu()
@@ -285,17 +238,18 @@ void savingsAccountType::editMenu()
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(31) << "SAVINGS ACCOUNT EDIT" << setw(15) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << setw(33) << "SAVINGS ACCOUNT EDIT" << setw(15) << "║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
 		getchar(choice);
@@ -322,12 +276,6 @@ void savingsAccountType::editMenu()
 	return;
 }
 
-
-
-
-
-
-
 // HIGH INTEREST SAVINGS
 
 void highInterestSavingsType::editMenu()
@@ -338,18 +286,19 @@ void highInterestSavingsType::editMenu()
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "      HIGH INTEREST SAVINGS ACCOUNT EDIT     |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "4.  Min Balance   : " << setw(20) << left << minimumBalance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "      HIGH INTEREST SAVINGS ACCOUNT EDIT     ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "4.  Min Balance   : " << setw(20) << left << minimumBalance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 
 		cout << endl << setw(33) << "Number to change: ";
 		getchar(choice);
