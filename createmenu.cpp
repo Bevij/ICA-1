@@ -6,13 +6,14 @@ void createMenu()
 	char accountChar;
 	string name;
 	string account;
-	string tempNum;
 	double balance;
 	double   intRate;
 	double   minBalance;
+	int tempNum;
 	int		maturityMon;
 	int numChecksWritten;
 
+	bool randomNumUsed = false;
    bool leaving = false;
 
 	do
@@ -49,23 +50,32 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "           Service Charge Checking           ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
-				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
-				getline(cin, tempNum);
-				cout << endl << setw(15) << " " << "Name of Account Holder          : "<<endl;
-				getline(cin, name);
-				cout << endl << setw(15) << " " << "Initial Deposit                 : "<<endl;
-				getposdouble(balance);
-				numChecksWritten = 0; // it's a new account, after all
+				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "Or Enter 0 For a Random Number  : ";
 
-				if(tempNum == "-1")
+				getposint(tempNum);
+
+				if(tempNum == 0)
 				{
 					account = randomNum(); // Checks installed
+					randomNumUsed = true;
+				}
+				else if(tempNum > 99999)
+				{
+					cout << endl << endl << setw(15) << " " << "Error Invalid Input Generating A Random Number..." << endl;
+					account = randomNum(); // Checks installed
+					randomNumUsed = true;
 				}
 				else
 				{
-					account = tempNum;
+					account = to_string(tempNum);
 				}
+
+				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
+				getposdouble(balance);
+				numChecksWritten = 0; // it's a new account, after all
 
 				ofstream fileouty(account);// fileout is cout, but to file
 
@@ -74,6 +84,18 @@ void createMenu()
 				fileouty << name << endl;
 				fileouty << balance << endl;
 				fileouty << numChecksWritten << endl;
+
+				cout << endl << endl;
+				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
+
+				// Only Tells you your bank account number if you randomly generated it, if you created it you should be able to remember / write it down already
+
+				if(randomNumUsed)
+				{
+					cout << setw(15) << " " << "Your Bank Account Number is     : " << account << endl << endl;
+				}
+				cout << setw(15) << " " << "Press Enter to Continue         : ";
+				waitforenter();
 
 				break;
 
@@ -89,26 +111,34 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "         No Service Charge Checking          ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
-				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
-				getline(cin, tempNum);
-				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
-				getline(cin, name);
-				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
-				getposdouble(balance);
-				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
-				getposdouble(intRate);
-				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
-				getposdouble(minBalance);
+				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "Or Enter 0 For a Random Number :  ";
 
-				if(tempNum == "-1")
+				getposint(tempNum);
+
+				if(tempNum == 0)
 				{
 					account = randomNum(); // Checks installed
+					randomNumUsed = true;
+				}
+				else if(tempNum > 99999)
+				{
+					cout << endl << endl << setw(15) << " " << "Error Invalid Input Generating A Random Number..." << endl;
+					account = randomNum(); // Checks installed
+					randomNumUsed = true;
 				}
 				else
 				{
-					account = tempNum;
+					account = to_string(tempNum);
 				}
+				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
+				getposdouble(balance);
+				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
+				getposdouble(intRate);
+				cout << endl << endl << setw(15) << " " << "Minimum Balance                 :  ";
+				getposdouble(minBalance);
 
 				ofstream fileoutn(account);// fileout is cout, but to file
 
@@ -118,6 +148,19 @@ void createMenu()
 				fileoutn << balance << endl;
 				fileoutn << intRate<<endl;
 				fileoutn << minBalance<<endl;
+
+				cout << endl << endl;
+				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
+
+				// Only Tells you your bank account number if you randomly generated it, if you created it you should be able to remember / write it down already
+
+				if(randomNumUsed)
+				{
+					cout << setw(15) << " " << "Your Bank Account Number is     :  " << account << endl << endl;
+				}
+				cout << setw(15) << " " << "Press Enter to Continue         :  ";
+				waitforenter();
+
 				break;
 
 			}
@@ -130,26 +173,34 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "           High Interest Checking            ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
-				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
-				getline(cin, tempNum);
-				cout << endl << setw(15) << " " << "Name of Account Holder : "<<endl;
-				getline(cin, name);
-				cout << endl << setw(15) << " " << "Initial Deposit        : "<<endl;
-				getposdouble(balance);
-				cout << endl << setw(15) << " " << "Interest Rate          :  "<<endl;
-				getposdouble(intRate);
-				cout << endl << setw(15) << " " << "Minimum Balance        :  "<<endl;
-				getposdouble(minBalance);
+				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
-				if(tempNum == "-1")
+				getposint(tempNum);
+
+				if(tempNum == 0)
 				{
 					account = randomNum(); // Checks installed
+					randomNumUsed = true;
+				}
+				else if(tempNum > 99999)
+				{
+					cout << endl << endl << setw(15) << " " << "Error Invalid Input Generating A Random Number..." << endl;
+					account = randomNum(); // Checks installed
+					randomNumUsed = true;
 				}
 				else
 				{
-					account = tempNum;
+					account = to_string(tempNum);
 				}
+				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
+				getposdouble(balance);
+				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
+				getposdouble(intRate);
+				cout << endl << endl << setw(15) << " " << "Minimum Balance                 :  ";
+				getposdouble(minBalance);
 
 				ofstream fileoutC(account);// fileout is cout, but to file
 
@@ -159,6 +210,19 @@ void createMenu()
 				fileoutC << balance << endl;
 				fileoutC << intRate << endl;
 				fileoutC << minBalance << endl;
+
+				cout << endl << endl;
+				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
+
+				// Only Tells you your bank account number if you randomly generated it, if you created it you should be able to remember / write it down already
+
+				if(randomNumUsed)
+				{
+					cout << setw(15) << " " << "Your Bank Account Number is     :  " << account << endl << endl;
+				}
+				cout << setw(15) << " " << "Press Enter to Continue         :  ";
+				waitforenter();
+
 				break;
 
 			}
@@ -171,26 +235,34 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "           Certificate Of Deposit            ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
-				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
-				getline(cin, tempNum);
-				cout << endl << setw(15) << " " << "Name of Account Holder : ";
-				getline(cin, name);
-				cout << endl << setw(15) << " " << "Initial Deposit        : ";
-				getposdouble(balance);
-				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
-				getposdouble(intRate);
-				cout << endl << setw(15) << " " << "Maturity Months        : "<<endl;
-				getposint(maturityMon);
+				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
-				if(tempNum == "-1")
+				getposint(tempNum);
+
+				if(tempNum == 0)
 				{
 					account = randomNum(); // Checks installed
+					randomNumUsed = true;
+				}
+				else if(tempNum > 99999)
+				{
+					cout << endl << endl << setw(15) << " " << "Error Invalid Input Generating A Random Number..." << endl;
+					account = randomNum(); // Checks installed
+					randomNumUsed = true;
 				}
 				else
 				{
-					account = tempNum;
+					account = to_string(tempNum);
 				}
+				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
+				getposdouble(balance);
+				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
+				getposdouble(intRate);
+				cout << endl << endl << setw(15) << " " << "Maturity Months                 :  ";
+				getposint(maturityMon);
 
 				ofstream fileoutd(account);// fileout is cout, but to file
 
@@ -200,6 +272,21 @@ void createMenu()
 				fileoutd << balance << endl;
 				fileoutd << intRate << endl;
 				fileoutd << maturityMon << endl;
+
+				cout << endl << endl;
+				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
+
+				// Only Tells you your bank account number if you randomly generated it, if you created it you should be able to remember / write it down already
+
+				if(randomNumUsed)
+				{
+				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+
+					cout << setw(15) << " " << "Your Bank Account Number is     :  " << account << endl << endl;
+				}
+				cout << setw(15) << " " << "Press Enter to Continue         :  ";
+				waitforenter();
+
 				break;
 
 			}
@@ -212,24 +299,32 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "              Savings  Account               ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
-				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
-				getline(cin, tempNum);
-				cout << endl << setw(15) << " " << "Name of Account Holder : ";
-				getline(cin, name);
-				cout << endl << setw(15) << " " << "Initial Deposit        : ";
-				getposdouble(balance);
-				cout << endl << setw(15) << " " << "Interest Rate          :  " << endl;
-				getposdouble(intRate);
+				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
-				if(tempNum == "-1")
+				getposint(tempNum);
+
+				if(tempNum == 0)
 				{
 					account = randomNum(); // Checks installed
+					randomNumUsed = true;
+				}
+				else if(tempNum > 99999)
+				{
+					cout << endl << endl << setw(15) << " " << "Error Invalid Input Generating A Random Number..." << endl;
+					account = randomNum(); // Checks installed
+					randomNumUsed = true;
 				}
 				else
 				{
-					account = tempNum;
+					account = to_string(tempNum);
 				}
+				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
+				getposdouble(balance);
+				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
+				getposdouble(intRate);
 
 				ofstream fileouts(account);// fileout is cout, but to file
 
@@ -238,6 +333,19 @@ void createMenu()
 				fileouts << name << endl;
 				fileouts << balance << endl;
 				fileouts << intRate << endl;
+
+				cout << endl << endl;
+				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
+
+				// Only Tells you your bank account number if you randomly generated it, if you created it you should be able to remember / write it down already
+
+				if(randomNumUsed)
+				{
+					cout << setw(15) << " " << "Your Bank Account Number is     : " << account << endl << endl;
+				}
+				cout << setw(15) << " " << "Press Enter to Continue         : ";
+				waitforenter();
+
 				break;
 
 			}
@@ -250,26 +358,34 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "            High Interest Savings            ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 digit number" << endl;
-				cout << setw(15) << " " << "Or enter -1 for a random number : " << endl;
-				getline(cin, tempNum);
-				cout << endl << setw(15) << " " << "Name of Account Holder : ";
-				getline(cin, name);
-				cout << endl << setw(15) << " " << "Initial Deposit        : ";
-				getposdouble(balance);
-				cout << endl << setw(15) << " " << "Interest Rate          : "<<endl;
-				getposdouble(intRate);
-				cout << endl << setw(15) << " " << "Minimum Balance        : "<<endl;
-				getposdouble(minBalance);
+				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
-				if(tempNum == "-1")
+				getposint(tempNum);
+
+				if(tempNum == 0)
 				{
 					account = randomNum(); // Checks installed
+					randomNumUsed = true;
+				}
+				else if(tempNum > 99999)
+				{
+					cout << endl << endl << setw(15) << " " << "Error Invalid Input Generating A Random Number..." << endl;
+					account = randomNum(); // Checks installed
+					randomNumUsed = true;
 				}
 				else
 				{
-					account = tempNum;
+					account = to_string(tempNum);
 				}
+				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
+				getposdouble(balance);
+				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
+				getposdouble(intRate);
+				cout << endl << endl << setw(15) << " " << "Minimum Balance                 :  ";
+				getposdouble(minBalance);
 
 				ofstream fileoutS(account);// fileout is cout, but to file
 
@@ -279,6 +395,19 @@ void createMenu()
 				fileoutS << balance << endl;
 				fileoutS << intRate << endl;
 				fileoutS << minBalance << endl;
+
+				cout << endl << endl;
+				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
+
+				// Only Tells you your bank account number if you randomly generated it, if you created it you should be able to remember / write it down already
+
+				if(randomNumUsed)
+				{
+					cout << setw(15) << " " << "Your Bank Account Number is     : " << account << endl << endl;
+				}
+				cout << setw(15) << " " << "Press Enter to Continue         : ";
+				waitforenter();
+
 				break;
 			}
 			case '0':
