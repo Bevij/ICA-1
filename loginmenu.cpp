@@ -123,6 +123,7 @@ void loginMenu () {
 
 			} else if (acctChoice == 'n') {
 				cout << "Exiting..." << endl;
+				waitforenter();
 				break;
 			}
 	return;

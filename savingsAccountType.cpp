@@ -11,6 +11,7 @@ savingsAccountType::savingsAccountType()
 // constructor FROM FILE
 savingsAccountType::savingsAccountType(string filename)
 {
+	decrypt(filename);
 	ifstream filein(filename);
 	string temp;
 	filein >> temp;
@@ -18,6 +19,7 @@ savingsAccountType::savingsAccountType(string filename)
 	filein >> name;
 	filein >> balance;
 	filein >> interestRate;
+	encrypt(filename);
 }
 
 savingsAccountType::savingsAccountType(string n, int acctNumber, double bal)

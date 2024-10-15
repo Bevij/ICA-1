@@ -10,6 +10,7 @@ noServiceChargeCheckingType::noServiceChargeCheckingType()
 
 noServiceChargeCheckingType::noServiceChargeCheckingType(string filename)
 {
+	decrypt(filename);
 	ifstream filein(filename);
 	string temp;
 	filein >> temp;
@@ -18,6 +19,7 @@ noServiceChargeCheckingType::noServiceChargeCheckingType(string filename)
 	filein >> balance;
 	filein >> interestRate;
 	filein >> minimumBalance;
+	encrypt(filename);
 }
 
 noServiceChargeCheckingType::noServiceChargeCheckingType(string n, int acctNumber, double bal)

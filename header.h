@@ -32,7 +32,7 @@ namespace fs = filesystem;
 
 #include "certificateOfDepositType.h"
 
-#include "savingsAccountType.h"
+exe#include "savingsAccountType.h"
 #include "highInterestSavingsType.h"
 
 
@@ -52,6 +52,18 @@ void withdraw();
 void editLogin();
 void transfer();
 string randomNum();
+
+
+
+struct loginInfo
+{
+	char role;
+	string username;
+	string fname;
+	string lname;
+	vector<string> accounts; // list of all accounts for user
+};
+extern loginInfo user;
 
 
 //     CONST/GLOBAL VARIABLE DECLARATIONS

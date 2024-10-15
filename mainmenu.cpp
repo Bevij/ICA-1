@@ -2,6 +2,12 @@
 
 
 int main(){
+	loginInfo user; // holds all the data for user, check header.h
+						 // to access members of it, its only user.variablename
+						 // user.fname = "Steve";
+	user.fname = "Steve";
+	cout << user.fname;
+	waitforenter();
 
 	int menuSelection = 0;						// 0 will be the default menu / Admin menu until login is completed
 														// If you want to test a different menu change this value to 1 for Manager and 2 for Client
@@ -19,7 +25,8 @@ int main(){
 	cout << setw(15) << " " << "      3 for Client Menu..." << endl << endl;
 	cout << setw(15) << " " << "      Selection : ";
 
-	cin >> menuSelection;
+	getposint(menuSelection);
+
 
 
 	do{
@@ -49,6 +56,23 @@ int main(){
 
 				cout << setw(18) << "║" << setw(27) << "Client Menu" << setw(21) << "║" << endl;
 				break;
+
+			case 4:
+			{
+				cout << "Encrypt which file? :";
+				string tempstring1;
+				getline(cin, tempstring1);
+				encrypt(tempstring1);
+				break;
+			}
+			case 5:
+			{
+				cout << "Decrypt which file? :";
+				string tempstring2;
+				getline(cin, tempstring2);
+				decrypt(tempstring2);
+				break;
+			}
 		}
 
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;

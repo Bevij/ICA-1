@@ -11,6 +11,47 @@
  *    AGILE SPECIFIC FUNCTIONS
  ******************************************************************************************************/
 
+void encrypt(const string& filename) {
+	int key = stoi(filename);
+
+	string tempfilename = filename + ".encrypt";
+
+	ifstream filein(filename);
+	ofstream fileout(tempfilename);
+
+	char c;
+
+	while(filein >> noskipws >> c) {
+		int temp = (c + key);
+		fileout << char(temp);
+	}
+
+	fs::remove(filename);
+	fs::rename(tempfilename, filename);
+
+	return;
+}
+void decrypt(const string& filename) {
+	int key = stoi(filename);
+
+	string tempfilename = filename + ".decrypt";
+
+	ifstream filein(filename);
+	ofstream fileout(tempfilename);
+
+	char c;
+
+	while(filein >> noskipws >> c) {
+		int temp = (c - key);
+		fileout << char(temp);
+	}
+
+	fs::remove(filename);
+	fs::rename(tempfilename, filename);
+
+	return;
+}
+
 string randomNum() {
 	int cycles = 0;
 	int randNum = 0;
@@ -239,6 +280,57 @@ void sortString(string* list, const int& listLength) { // MUST BE AN ARRAY OF ST
 /**********************************************************************************************************
  *   OTHER !!!! (just stuff ig)
  **********************************************************************************************************/
+
+
+
+string moneyString(double m) { // m in money, returns string with commas in correct spots
+	string tempstring;
+	string out = "";
+	int periodlocation = 0;
+	int numcommas;
+	int numtillfirstcomma;
+	int nextcommalocation = 0;
+
+
+
+	tempstring = to_string(m);
+	const int length = tempstring.length();
+
+	char* data = new char[length + 1];
+
+	strcpy(data, tempstring.c_str());
+
+	for(int i = 0; i < length; i++)
+	{
+		if(data[1] == '.')
+			periodlocation = i;
+	}
+	if(periodlocation == 0) // ADD SMTH HERE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		int blah = 4040;
+
+
+	numcommas = periodlocation / 3;
+	if(numcommas > 0)
+		numtillfirstcomma = periodlocation % 3;
+
+	
+
+
+
+
+
+
+
+
+	delete[] data;
+	return out;
+}
+
+
+
+
+
+
 
 string timeString(int t) { // t in seconds, returns string for representation of t
 	int years;
