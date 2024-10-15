@@ -39,7 +39,7 @@ exe#include "savingsAccountType.h"
 
 
 //    GENERAL FUNCTION DECLARATION
-void loginMenu();
+int loginMenu();
 void createMenu();
 void viewMenu();
 void editMenu();
@@ -57,11 +57,12 @@ string randomNum();
 
 struct loginInfo
 {
-	char role;
 	string username;
-	string fname;
-	string lname;
-	vector<string> accounts; // list of all accounts for user
+	string password;
+	string lastName;
+	string firstName;
+	int role;
+	// vector<string> accounts; // list of all accounts for user
 };
 extern loginInfo user;
 

@@ -1,16 +1,16 @@
 #include "header.h"
 
-void loginMenu () {
+int loginMenu () {
 
-	int accountType;
+	int role;
 	string userName;
 	string pin;
 	string password;
+	string passwordCheck;
 	char acctChoice;
 	char usernameChoice;
 	string firstName;
 	string lastName;
-	string fullName;
 
 	// Login
 	cout << "Username: ";
@@ -22,16 +22,43 @@ void loginMenu () {
 
 	// Check if account exists, prompt user to create one if not
 		fs::path dirUserSearch = "./Data/Users";
+		fs::path filePath;
 		bool userFound = false;
 		// Account search
 		for (const auto& entry : fs::directory_iterator(dirUserSearch)) {
 			if (fs::is_regular_file(entry.path())) {
 				if (entry.path().filename() == username) {
+					filePath = entry.path();
 					userFound = true;
 					break;
 				}
 			}
 		}
+
+		// If account exists, input each line into local variables and struct
+		if (userFound = true) {
+			ifstream fileStream(filePath);
+			if (!fileStream) {
+				cerr << "Could not open file." << endl;
+			}
+
+			string line;
+			while (getline(fileStream, line)) {
+				username = line;
+				loginInfo.username = username;
+				password = line;
+				loginInfo.password = password;
+				lastName = line;
+				loginInfo.lastName = lastName;
+				firstName = line;
+				loginInfo.firstName = firstName;
+				role = line;
+				loginInfo.role = role;
+			}
+			fileStream.close();
+		}
+
+		// If account does not exist,
 		if (!userFound) {
 			cout << "Account not found or does not exist. Would you like to create one? (y/n)" << endl;
 		}
@@ -41,37 +68,40 @@ void loginMenu () {
 			if (acctChoice == 'y') {
 				cout << "You entered the username: " << username << " Is this correct? (y/n)" << endl;
 				cin >> usernameChoice;
-				cout << endl;
 				if (usernameChoice == 'n') {
-					cout << "Please enter a new username: ";
+					cout << "\nPlease enter a new username: ";
 					cin >> username;
-					cout << endl;
 					break;
 				} else if (usernameChoice == 'y') {
 					break;
 				}
-				cout << "Please create a password: "; // Add password obfuscation to hide characters
-				cin >> password;
-				cout << endl;
-				cout << "Please enter Last Name: ";
-				cin >> lastName;
-				cout << endl;
-				cout << "Please enter First Name: ";
-				cin >> firstName;
-				cout << endl;
-				fullName = lastName + ", " + firstName;
+				cout << "\nPlease create a password: "; // Add password obfuscation to hide characters
+				cin.getline(password);
+				int attempt = 0;
+				for (passwordCheck!=password && attempt<3) {
+					cout << "\nConfirm password: ";
+					cin.getline(passwordCheck);
+					if (passwordCheck!=password) {
+						attempt++
+						cout << "Password does not match. Attempt " << attempt << "/3. Please try again." << endl;
+					}
+				}
+				cout << "\nPlease enter Last Name: ";
+				cin.getline(lastName);
+				cout << "\nPlease enter First Name: ";
+				cin.getline(firstName);
 				// Role assignment
-				cout << "What type of account is this?" << endl;
+				cout << "What type of account is this? Please enter the number value." << endl;
 				cout << "1. Client." << endl;
 				cout << "2. Clerk." << endl;
 				cout << "3. Manager." << endl;
 				cout << "4. Admin." << endl;
-				cin >> accountType;
+				cin >> role;
 
 				int pinMaster = 1234;
 				int pinInput = 0;
 
-				switch (accountType) {
+				switch (role) {
 					case 1:
 						break;
 					case 2:
@@ -82,7 +112,7 @@ void loginMenu () {
 							break;
 						} else {
 							cout << "Invalid PIN. Role set to Client." << endl;
-							accountType = 1;
+							role = 1;
 							break;
 						}
 						break;
@@ -92,9 +122,9 @@ void loginMenu () {
 						if (pinInput == pinMaster) {
 							cout << "PIN accepted. Role set to Manager." << endl;
 							break;
-						} else {
+						} elbse {
 							cout << "Invalid PIN. Role set to Client." << endl;
-							accountType = 1;
+							role = 1;
 							break;
 						}
 						break;
@@ -106,7 +136,7 @@ void loginMenu () {
 							break;
 						} else {
 							cout << "Invalid PIN. Role set to Client." << endl;
-							accountType = 1;
+							role = 1;
 							break;
 						}
 						break;
@@ -117,14 +147,22 @@ void loginMenu () {
 
 				// User file creation
 				ofstream userFile(username);
+				userFile << username << endl;
+				loginInfo.username = username;
 				userFile << password << endl;
-				userFile << fullName << endl;
-				userFile << accountType << endl;
+				loginInfo.password = password;
+				userFile << lastName << endl;
+				loginInfo.lastName = lastName;
+				userFile << firstName << endl;
+				loginInfo.firstName = firstName;
+				userFile << role << endl;
+				loginInfo.role = role;
 
 			} else if (acctChoice == 'n') {
 				cout << "Exiting..." << endl;
 				waitforenter();
 				break;
 			}
-	return;
+
+	return role;
 }
