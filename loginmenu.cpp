@@ -3,7 +3,7 @@
 int loginMenu () {
 
 	int role;
-	string userName;
+	string username;
 	string pin;
 	string password;
 	string passwordCheck;
@@ -52,7 +52,7 @@ int loginMenu () {
 				user.password = password;
 				lastName = line;
 				user.lastName = lastName;
-				firstName = linwe;
+				firstName = line;
 				user.firstName = firstName;
 				roleString = line;
 				role = stoi(roleString);
@@ -74,18 +74,15 @@ int loginMenu () {
 				if (usernameChoice == 'n') {
 					cout << "\nPlease enter a new username: ";
 					getline (cin, username);
-					break;
-				} else if (usernameChoice == 'y') {
-					break;
 				}
 				cout << "\nPlease create a password: "; // Add password obfuscation to hide characters
 				getline(cin, password);
 				int attempt = 0;
-				for (passwordCheck!=password && attempt<3) {
+				for (passwordCheck != password && attempt < 3) {
 					cout << "\nConfirm password: ";
 					getline(cin, passwordCheck);
 					if (passwordCheck!=password) {
-						attempt++
+						attempt++;
 						cout << "Password does not match. Attempt " << attempt << "/3. Please try again." << endl;
 					}
 				}
@@ -164,7 +161,6 @@ int loginMenu () {
 			} else if (acctChoice == 'n') {
 				cout << "Exiting..." << endl;
 				waitforenter();
-				break;
 			}
 
 	return role;

@@ -1,6 +1,5 @@
 #include "header.h"
 
-
 int main(){
 	loginInfo user; // holds all the data for user, check header.h
 						 // to access members of it, its only user.variablename
@@ -8,6 +7,8 @@ int main(){
 	user.firstName = "Steve";
 	cout << user.firstName;
 	waitforenter();
+
+	loginMenu(); // Login
 
 	int menuSelection = 0;						// 0 will be the default menu / Admin menu until login is completed
 														// If you want to test a different menu change this value to 1 for Manager and 2 for Client
@@ -19,13 +20,14 @@ int main(){
 
 	cout << "\033c" << endl << endl;
 
-	cout << setw(15) << " " << "Enter 0 for Admin Menu..." << endl;
-	cout << setw(15) << " " << "      1 for Clerk Menu..." << endl;
-	cout << setw(15) << " " << "      2 for Manager Menu..." << endl;
-	cout << setw(15) << " " << "      3 for Client Menu..." << endl << endl;
+	cout << setw(15) << " " << "Enter 1 for Admin Menu..." << endl;
+	cout << setw(15) << " " << "      2 for Clerk Menu..." << endl;
+	cout << setw(15) << " " << "      3 for Manager Menu..." << endl;
+	cout << setw(15) << " " << "      4 for Client Menu..." << endl << endl;
 	cout << setw(15) << " " << "      Selection : ";
 
-	getposint(menuSelection);
+	menuSelection = user.role;
+	cout << "Menu " << menuSelection << " selected from user role." << endl;
 
 
 
