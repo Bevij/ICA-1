@@ -5,10 +5,9 @@ int main(){
 						 // to access members of it, its only user.variablename
 						 // user.fname = "Steve";
 
-	loginMenu(); // Login
+	// Login
 
-	int menuSelection = 0;						// 0 will be the default menu / Admin menu until login is completed
-														// If you want to test a different menu change this value to 1 for Manager and 2 for Client
+	int menuSelection = loginMenu();
 	char choice;
 	bool leaving = false;
 

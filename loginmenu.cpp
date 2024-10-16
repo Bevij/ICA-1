@@ -2,19 +2,19 @@
 
 int loginMenu () {
 
-	string username;
-	string password;
-	string lastName;
-	string firstName;
-	int role;
-
 	loginInfo user;
 
+	string username, password, lastName, firstName, roleString;
+	int role;
+
 	// Login
+
 	cout << "Username: ";
 	getline(cin, username);
+	cin.ignore();
 	cout << "Password: ";
 	getline(cin, password);
+	cin.ignore();
 	cout << endl << endl;
 
 	// Check if account exists, prompt user to create one if not
@@ -41,29 +41,24 @@ int loginMenu () {
 				return 1;
 			}
 
-			string line;
-			string roleString;
-			while (getline(fileStream, line)) {
-				username = line;
-				user.username = username;
-				password = line;
-				user.password = password;
-				lastName = line;
-				user.lastName = lastName;
-				firstName = line;
-				user.firstName = firstName;
-				roleString = line;
-				// Converts string role to int
-				stringstream container(roleString);
-				container >> role;
-				user.role = role;
-			}
-			fileStream.close();
-			cout << user.username << endl;
-			cout << user.password << endl;
-			cout << user.lastName << endl;
-			cout << user.firstName << endl;
-			cout << user.role << endl;
+			// Stores file variables locally if present and in correct order
+			if (getline(fileStream, username) &&
+				 getline(fileStream, password) &&
+				 getline(fileStream, lastName) &&
+				 getline(fileStream, firstName) &&
+				 getline(fileStream, roleString)) {
+
+					// Stores local variables in struct
+					user.username = username;
+					user.password = password;
+					user.lastName = lastName;
+					user.firstName = firstName;
+					user.role = stoi(roleString); // Convert roleString to integer
+				} else {
+					cerr << "File format is incorrect or incomplete." << endl;
+				}
+
+    		fileStream.close();
 		}
 
 		// If account does not exist,
@@ -92,7 +87,7 @@ int loginMenu () {
 				string passwordCheck;
 
 				do {
-					cout << "\nConfirm password: ";
+					cout << endl << "Confirm password: ";
 					cin.ignore();
 					getline(cin, passwordCheck);
 					if (passwordCheck != password) {
@@ -102,11 +97,9 @@ int loginMenu () {
 				} while (passwordCheck != password && attempt < 3);
 
 				// Name
-				cout << "\nPlease enter Last Name: ";
-				cin.ignore();
+				cout << endl << "Please enter Last Name: ";
 				getline(cin, lastName);
-				cout << "\nPlease enter First Name: ";
-				cin.ignore();
+				cout << endl << "Please enter First Name: ";
 				getline(cin, firstName);
 
 				// Role assignment
@@ -180,6 +173,7 @@ int loginMenu () {
 						break;
 					default:
 						cout << "Invalid choice. Role set to Client." << endl;
+						role = 1;
 						break;
 				}
 
