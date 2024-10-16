@@ -36,7 +36,7 @@ int loginMenu () {
 
 			if (!fileStream) {
 				cerr << "Could not open file." << endl;
-				return 1;
+				return 0;
 			}
 
 			// Stores file variables locally if present and in correct order
@@ -73,11 +73,13 @@ int loginMenu () {
 				cin >> usernameChoice;
 				if (usernameChoice == 'n') {
 					cout << "\nPlease enter a new username: ";
+					cin.ignore();
 					getline (cin, username);
 				}
 
 				// Password
 				cout << endl << "Please create a password: "; // Add password obfuscation to hide characters
+				cin.ignore();
 				getline(cin, password);
 
 				int attempt = 0;
@@ -191,6 +193,7 @@ int loginMenu () {
 			} else if (acctChoice == 'n') {
 				cout << "Exiting..." << endl;
 				waitforenter();
+				return 0;
 			}
 		}								// End bracket for user account creation
 	return role;
