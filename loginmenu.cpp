@@ -2,21 +2,18 @@
 
 int loginMenu () {
 
-	int role;
 	string username;
-	string pin;
 	string password;
-	string passwordCheck;
-	char acctChoice;
-	char usernameChoice;
-	string firstName;
 	string lastName;
+	string firstName;
+	int role;
+
 	loginInfo user;
 
 	// Login
 	cout << "Username: ";
 	getline(cin, username);
-	cout << "\nPassword: ";
+	cout << "Password: ";
 	getline(cin, password);
 	cout << endl << endl;
 
@@ -27,7 +24,7 @@ int loginMenu () {
 		// Account search
 		for (const auto& entry : fs::directory_iterator(dirUserSearch)) {
 			if (fs::is_regular_file(entry.path())) {
-				if (entry.path().stem() == username) { // .stem() searches for file without extension instead of .filename()
+				if (entry.path().filename() == username) { // .stem() searches for file without extension instead of .filename()
 					filePath = entry.path();
 					userFound = true;
 					break;
@@ -62,32 +59,43 @@ int loginMenu () {
 				user.role = role;
 			}
 			fileStream.close();
+			cout << user.username << endl;
+			cout << user.password << endl;
+			cout << user.lastName << endl;
+			cout << user.firstName << endl;
+			cout << user.role << endl;
 		}
 
 		// If account does not exist,
+		char acctChoice;
 		if (!userFound) {
 			cout << "Account not found or does not exist. Would you like to create one? (y/n)" << endl;
 		}
 		cin >> acctChoice;
 
 			// Account creation
+			char usernameChoice;
 			if (acctChoice == 'y') {
 				cout << "You entered the username: " << username << " Is this correct? (y/n)" << endl;
 				cin >> usernameChoice;
 				if (usernameChoice == 'n') {
 					cout << "\nPlease enter a new username: ";
 					getline (cin, username);
-					cin.ignore();
 				}
 
 				// Password
 				cout << "\nPlease create a password: "; // Add password obfuscation to hide characters
+				cin.ignore();
 				getline(cin, password);
+
 				int attempt = 0;
+				string passwordCheck;
+
 				do {
 					cout << "\nConfirm password: ";
+					cin.ignore();
 					getline(cin, passwordCheck);
-					if (passwordCheck!=password) {
+					if (passwordCheck != password) {
 						attempt++;
 						cout << "Password does not match. Attempt " << attempt << "/3. Please try again." << endl;
 					}
@@ -95,8 +103,10 @@ int loginMenu () {
 
 				// Name
 				cout << "\nPlease enter Last Name: ";
+				cin.ignore();
 				getline(cin, lastName);
 				cout << "\nPlease enter First Name: ";
+				cin.ignore();
 				getline(cin, firstName);
 
 				// Role assignment
@@ -109,45 +119,64 @@ int loginMenu () {
 
 				int pinMaster = 1234;
 				int pinInput = 0;
+				int pinAttemptCounter = 0;
 
 				switch (role) {
-					case 1:
+					case 1: // Client
 						break;
-					case 2:
-						cout << "Enter PIN for Clerk security clearance: ";
-						cin >> pinInput;
-						if (pinInput == pinMaster) {
-							cout << "PIN accepted. Role set to Clerk." << endl;
-							break;
-						} else {
-							cout << "Invalid PIN. Role set to Client." << endl;
-							role = 1;
-							break;
-						}
+					case 2: // Clerk
+						do {
+							cout << "Enter PIN for Clerk security clearance: ";
+							cin >> pinInput;
+							if (pinInput == pinMaster) {
+								cout << "PIN accepted. Role set to Clerk." << endl;
+								break;
+							} else {
+								pinAttemptCounter++;
+								cout << "Invalid PIN. Attempt " << pinAttemptCounter << "/3. Try again." << endl;
+							}
+							if (pinInput != pinMaster && pinAttemptCounter == 3) {
+								cout << "Access denied. Role set to Client." << endl;
+								role = 1;
+								break;
+							}
+						} while (pinInput != pinMaster && pinAttemptCounter < 3);
 						break;
-					case 3:
-						cout << "Enter PIN for Manager security clearance: ";
-						cin >> pinInput;
-						if (pinInput == pinMaster) {
-							cout << "PIN accepted. Role set to Manager." << endl;
-							break;
-						} else {
-							cout << "Invalid PIN. Role set to Client." << endl;
-							role = 1;
-							break;
-						}
+					case 3: // Manager
+						do {
+							cout << "Enter PIN for Manager security clearance: ";
+							cin >> pinInput;
+							if (pinInput == pinMaster) {
+								cout << "PIN accepted. Role set to Manager." << endl;
+								break;
+							} else {
+								pinAttemptCounter++;
+								cout << "Invalid PIN. Attempt " << pinAttemptCounter << "/3. Try again." << endl;
+							}
+							if (pinInput != pinMaster && pinAttemptCounter == 3) {
+								cout << "Access denied. Role set to Client." << endl;
+								role = 1;
+								break;
+							}
+						} while (pinInput != pinMaster && pinAttemptCounter < 3);
 						break;
-					case 4:
-						cout << "Enter PIN for Admin security clearance: ";
-						cin >> pinInput;
-						if (pinInput == pinMaster) {
-							cout << "PIN accepted. Role set to Admin." << endl;
-							break;
-						} else {
-							cout << "Invalid PIN. Role set to Client." << endl;
-							role = 1;
-							break;
-						}
+					case 4: // Admin
+						do {
+							cout << "Enter PIN for Admin security clearance: ";
+							cin >> pinInput;
+							if (pinInput == pinMaster) {
+								cout << "PIN accepted. Role set to Admin." << endl;
+								break;
+							} else {
+								pinAttemptCounter++;
+								cout << "Invalid PIN. Attempt " << pinAttemptCounter << "/3. Try again." << endl;
+							}
+							if (pinInput != pinMaster && pinAttemptCounter == 3) {
+								cout << "Access denied. Role set to Client." << endl;
+								role = 1;
+								break;
+							}
+						} while (pinInput != pinMaster && pinAttemptCounter < 3);
 						break;
 					default:
 						cout << "Invalid choice. Role set to Client." << endl;
@@ -155,7 +184,9 @@ int loginMenu () {
 				}
 
 				// User file creation
-				ofstream userFile(filePath);
+				string newFilePath = "./Data/Users/" + username;
+				fs::path newUserPath = newFilePath;
+				ofstream userFile(newUserPath);
 				userFile << username << endl;
 				user.username = username;
 				userFile << password << endl;
