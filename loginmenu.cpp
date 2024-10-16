@@ -64,7 +64,8 @@ int loginMenu () {
 
 				do {
 					cout << "Password: ";
-					getline(cin, passwordInput);
+					passwordInput = hidePass(); // password obfuscation function
+
 					if (passwordInput == password) {
 						cout << "Welcome back, " << firstName << "! Press enter to continue..." << endl;
 						leaving = true;
@@ -103,14 +104,15 @@ int loginMenu () {
 					// Password
 					cout << endl << "Please create a password: "; // Add password obfuscation to hide characters
 					cin.ignore();
-					getline(cin, password);
+					password = hidePass(); // password obfuscation function
 
 					attempt = 0;
 					string passwordCheck;
 
 					do {
 						cout << endl << "Confirm password: ";
-						getline(cin, passwordCheck);
+						passwordCheck = hidePass(); // password obfuscation function
+
 						if (passwordCheck != password) {
 							attempt++;
 							cout << "Password does not match. Attempt " << attempt << "/3. Please try again." << endl;

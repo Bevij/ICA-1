@@ -16,6 +16,10 @@
 #include <cstring>
 #include <cstdio>
 #include <sstream>
+// password hiding libraries
+#include <termios.h>
+#include <unistd.h>
+
 
 using namespace std;
 namespace fs = filesystem;
@@ -40,6 +44,7 @@ namespace fs = filesystem;
 
 
 //    GENERAL FUNCTION DECLARATION
+string hidePass();
 int loginMenu();
 void createMenu();
 void viewMenu();
