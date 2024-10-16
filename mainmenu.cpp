@@ -33,6 +33,12 @@ int main(){
 
 		switch(menuSelection)
 		{
+			case 0:
+
+				cout << setw(18) << "║" << setw(27) << "Exiting..." << setw(21) << "║" << endl;
+				leaving = true;
+				break;
+
 			case 1:
 
 				cout << setw(18) << "║" << setw(27) << "Client  Menu" << setw(21) << "║" << endl;
@@ -151,7 +157,6 @@ int main(){
      	   		case '0':				// Exit
 
         	  			leaving = true;
-
            			break;
 
         			default:
@@ -194,7 +199,6 @@ int main(){
      	   		case '0':				// Exit
 
         	  			leaving = true;
-
            			break;
 
         			default:
@@ -244,7 +248,6 @@ int main(){
      	   		case '0':				// Exit
 
         	  			leaving = true;
-
            			break;
 
         			default:
@@ -311,7 +314,6 @@ int main(){
      	   		case '0':
 
         	  			leaving = true;
-
            			break;
 
         			default:
