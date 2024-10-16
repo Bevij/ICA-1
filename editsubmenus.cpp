@@ -24,11 +24,11 @@ void serviceChargeCheckingType::editMenu() // edits class, only called in editme
 		cout << setw(18) << "║" << "     SERVICE CHARGE CHECKING ACCOUNT EDIT    ║" << endl;
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-		cout << setw(18) << "│" << setw(28) << "Service Charge Check : " << left << setw(19) << serviceChargeCheck << "│" << endl << right;
-		cout << setw(18) << "│" << setw(28) << "Service Charge Amount: " << left << setw(19) << serviceChargeAmount << "│" << endl << right;
+		cout << setw(18) << "│" << setw(28) << "Service Charge Check : " << left << setw(17) << serviceChargeCheck << "│" << endl << right;
+		cout << setw(18) << "│" << setw(28) << "Service Charge Amount: " << left << setw(17) << serviceChargeAmount << "│" << endl << right;
 		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
 		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
-		cout << setw(18) << "│" << setw(25) << "Max # of Checks   : " << MAXIMUM_NUM_OF_CHECKS << setw(20) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "Max # of Checks   : " << MAXIMUM_NUM_OF_CHECKS << setw(22) << "│" << endl;
 		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
 		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
 		cout << setw(18) << "│" << setw(25) << "3.  Num Checks    : " << setw(20) << left << numberOfChecksWritten << "│" << endl << right;
@@ -188,7 +188,7 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 		cout << setw(18) << "║" << "     CERTIFICATE OF DEPOSIT ACCOUNT EDIT     ║" << endl;
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-		cout << setw(18) << "│" << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "|" << endl << right;
+		cout << setw(18) << "│" << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "│" << endl << right;
 		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
 		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
 		cout << setw(18) << "│" << setw(27) << "1.  Name            : " << setw(18) << left << name << "│" << endl << right;

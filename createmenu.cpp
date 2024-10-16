@@ -35,7 +35,7 @@ void createMenu()
 		cout << setw(18) << "│" << "     6.High Interest Savings                 │" << endl;
 		cout << setw(18) << "│" << "     0.Exit                                  │" << endl;
 		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
-		cout << setw(15) << " " << "Selection : " << endl;
+		cout << setw(15) << " " << "Selection : ";
 
 		getchar(choice);
 		switch(choice)
@@ -71,8 +71,8 @@ void createMenu()
 					account = to_string(tempNum);
 				}
 
-				getline(cin, name);
 				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
+				getline(cin, name);
 				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 				getposdouble(balance);
 				numChecksWritten = 0; // it's a new account, after all
@@ -96,6 +96,8 @@ void createMenu()
 				}
 				cout << setw(15) << " " << "Press Enter to Continue         : ";
 				waitforenter();
+
+				encrypt(account);				// Account Encyption after file is made
 
 				break;
 
@@ -161,6 +163,8 @@ void createMenu()
 				cout << setw(15) << " " << "Press Enter to Continue         :  ";
 				waitforenter();
 
+				encrypt(account);				// Account Encyption after file is made
+
 				break;
 
 			}
@@ -222,6 +226,8 @@ void createMenu()
 				}
 				cout << setw(15) << " " << "Press Enter to Continue         :  ";
 				waitforenter();
+
+				encrypt(account);				// Account Encyption after file is made
 
 				break;
 
@@ -287,6 +293,8 @@ void createMenu()
 				cout << setw(15) << " " << "Press Enter to Continue         :  ";
 				waitforenter();
 
+				encrypt(account);				// Account Encyption after file is made
+
 				break;
 
 			}
@@ -345,6 +353,8 @@ void createMenu()
 				}
 				cout << setw(15) << " " << "Press Enter to Continue         : ";
 				waitforenter();
+
+				encrypt(account);				// Account Encyption after file is made
 
 				break;
 
@@ -407,6 +417,8 @@ void createMenu()
 				}
 				cout << setw(15) << " " << "Press Enter to Continue         : ";
 				waitforenter();
+
+				encrypt(account);				// Account Encyption after file is made
 
 				break;
 			}
