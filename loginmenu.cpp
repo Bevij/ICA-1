@@ -65,8 +65,7 @@ int loginMenu () {
 		char acctChoice;
 		if (!userFound) {
 			cout << "Account not found or does not exist. Would you like to create one? (y/n)" << endl;
-		}
-		cin >> acctChoice;
+			cin >> acctChoice;
 
 			// Account creation
 			char usernameChoice;
@@ -196,6 +195,6 @@ int loginMenu () {
 				cout << "Exiting..." << endl;
 				waitforenter();
 			}
-
+		}								// End bracket for user account creation
 	return role;
 }

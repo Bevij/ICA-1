@@ -23,10 +23,7 @@ int main(){
 	cout << setw(15) << " " << "      Selection : ";
 	*/
 
-	menuSelection = user.role;
 	cout << "Menu " << menuSelection << " selected from user role." << endl;
-
-
 
 	do{
 		cout << "\033c" << right << endl << endl;
