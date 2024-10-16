@@ -11,10 +11,8 @@ int loginMenu () {
 
 	cout << "Username: ";
 	getline(cin, username);
-	cin.ignore();
 	cout << "Password: ";
 	getline(cin, password);
-	cin.ignore();
 	cout << endl << endl;
 
 	// Check if account exists, prompt user to create one if not
@@ -53,7 +51,8 @@ int loginMenu () {
 					user.password = password;
 					user.lastName = lastName;
 					user.firstName = firstName;
-					user.role = stoi(roleString); // Convert roleString to integer
+					role = stoi(roleString);
+					user.role = role; // Convert roleString to integer
 				} else {
 					cerr << "File format is incorrect or incomplete." << endl;
 				}
@@ -78,8 +77,7 @@ int loginMenu () {
 				}
 
 				// Password
-				cout << "\nPlease create a password: "; // Add password obfuscation to hide characters
-				cin.ignore();
+				cout << endl << "Please create a password: "; // Add password obfuscation to hide characters
 				getline(cin, password);
 
 				int attempt = 0;
@@ -87,7 +85,6 @@ int loginMenu () {
 
 				do {
 					cout << endl << "Confirm password: ";
-					cin.ignore();
 					getline(cin, passwordCheck);
 					if (passwordCheck != password) {
 						attempt++;
