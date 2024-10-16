@@ -145,7 +145,7 @@ void createMenu()
 				ofstream fileoutn(account);// fileout is cout, but to file
 
 				fileoutn << accountChar << endl;
-				fileoutn << tempNum << endl;
+				fileoutn << account << endl;
 				fileoutn << name << endl;
 				fileoutn << balance << endl;
 				fileoutn << intRate<<endl;
@@ -209,7 +209,7 @@ void createMenu()
 				ofstream fileoutC(account);// fileout is cout, but to file
 
 				fileoutC << accountChar << endl;
-				fileoutC << tempNum << endl;
+				fileoutC << account << endl;
 				fileoutC << name << endl;
 				fileoutC << balance << endl;
 				fileoutC << intRate << endl;
@@ -273,7 +273,7 @@ void createMenu()
 				ofstream fileoutd(account);// fileout is cout, but to file
 
 				fileoutd << accountChar << endl;
-				fileoutd << tempNum << endl;
+				fileoutd << account << endl;
 				fileoutd << name << endl;
 				fileoutd << balance << endl;
 				fileoutd << intRate << endl;
@@ -286,8 +286,6 @@ void createMenu()
 
 				if(randomNumUsed)
 				{
-				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
-
 					cout << setw(15) << " " << "Your Bank Account Number is     :  " << account << endl << endl;
 				}
 				cout << setw(15) << " " << "Press Enter to Continue         :  ";
@@ -337,7 +335,7 @@ void createMenu()
 				ofstream fileouts(account);// fileout is cout, but to file
 
 				fileouts << accountChar << endl;
-				fileouts << tempNum << endl;
+				fileouts << account << endl;
 				fileouts << name << endl;
 				fileouts << balance << endl;
 				fileouts << intRate << endl;
@@ -400,7 +398,7 @@ void createMenu()
 				ofstream fileoutS(account);// fileout is cout, but to file
 
 				fileoutS << accountChar << endl;
-				fileoutS << tempNum << endl;
+				fileoutS << account << endl;
 				fileoutS << name << endl;
 				fileoutS << balance << endl;
 				fileoutS << intRate << endl;
@@ -432,8 +430,7 @@ void createMenu()
 			{
 				cout << endl << endl << setw(15) << " " << "option not available please select a valid option";
 				cout << endl << endl << setw(15) << " " << "Press enter to countinue : ";
-				cin.ignore();
-				cin.ignore();
+				waitforenter();
 			}
 		}
 	}while(!leaving);

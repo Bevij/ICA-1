@@ -27,10 +27,15 @@ void viewMenu()
 	try
 	{
 
-		ifstream filein(filename); // filein is now cin >> (stuff from filename)
+		ifstream fileintemp(filename); // filein is now cin >> (stuff from filename)
 
-		if(!filein)
+		if(!fileintemp)
 			throw cantFind();
+		fileintemp.close();
+
+		decrypt(filename);
+		ifstream filein(filename);
+		encrypt(filename);
 
 		tempfilename = filename + ".temp";
 		if(fs::exists(tempfilename))
@@ -51,6 +56,7 @@ void viewMenu()
 		}// fi tempfilename deadlock check
 
 		filein >> acctType; // first line will be string showing what account it is
+
 		switch(acctType)
 		{
 			case 'y':
