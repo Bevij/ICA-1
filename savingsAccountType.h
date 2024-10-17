@@ -15,6 +15,8 @@ class savingsAccountType: public bankAccountType
 
 		savingsAccountType(string n, int acctNumber, double bal, double intRate);
 
+		void update();
+
 		double getInterestRate();
 		void setInterestRate(double rate);
 		void postInterest();

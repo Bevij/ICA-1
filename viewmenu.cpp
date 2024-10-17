@@ -1,7 +1,5 @@
 #include "header.h"
 
-class cantFind {};
-class abortView {};
 
 void viewMenu()
 {

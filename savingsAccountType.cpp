@@ -13,13 +13,14 @@ savingsAccountType::savingsAccountType(string filename)
 {
 	decrypt(filename);
 	ifstream filein(filename);
+	encrypt(filename);
+
 	string temp;
 	filein >> temp;
 	filein >> accountNumber;
 	filein >> name;
 	filein >> balance;
 	filein >> interestRate;
-	encrypt(filename);
 }
 
 savingsAccountType::savingsAccountType(string n, int acctNumber, double bal)

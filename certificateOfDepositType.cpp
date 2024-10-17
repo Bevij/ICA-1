@@ -9,6 +9,8 @@ certificateOfDepositType::certificateOfDepositType(string filename)
 {
 	decrypt(filename);
 	ifstream filein(filename);
+	encrypt(filename);
+
 	string temp;
 	filein >> temp;
 	filein >> accountNumber;
@@ -16,7 +18,6 @@ certificateOfDepositType::certificateOfDepositType(string filename)
 	filein >> balance;
 	filein >> interestRate;
 	filein >> maturityMonths;
-	encrypt(filename);
 }
 
 certificateOfDepositType::certificateOfDepositType(string n, int acctNumber, double bal)

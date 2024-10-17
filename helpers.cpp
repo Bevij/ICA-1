@@ -11,6 +11,18 @@
  *    AGILE SPECIFIC FUNCTIONS
  ******************************************************************************************************/
 
+void lock(const string& filename)
+{
+	string tempfilename = filename + ".temp";
+	ofstream fileouttemp(tempfilename);
+	time_t t = time(NULL);
+	fileouttemp << t << endl << user.username;
+	fileouttemp.flush();
+}
+
+
+
+
 void encrypt(const string& filename) {
 	int key = stoi(filename);
 

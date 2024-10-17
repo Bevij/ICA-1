@@ -1,9 +1,6 @@
 #include "header.h"
 
 
-class cantFind{};
-class invalidAmount{};
-
 void withdraw()
 {
 
@@ -58,15 +55,22 @@ void withdraw()
 
 			try
 			{
-				ifstream filein(filename);
-				if(!filein)
+				ifstream fileintemp(filename);
+				if(!fileintemp)
 				{
 					throw cantFind();
 				}
+				fileintemp.close();
+
+				decrypt(filename);
+				ifstream filein(filename);
+				encrypt(filename);
+
 
 				cout << endl << endl << endl;
 				cout << setw(15) << " " << "Enter the amount of money to withdraw              : ";
 				getposdouble(amount);
+
 
 				filein >> acctType;
 
@@ -207,6 +211,7 @@ void withdraw()
 						waitforenter();
 					}
 				}		// End Nested Switch
+				encrypt(filename);
 			}			// End Try Block
 			catch(cantFind)
 			{

@@ -1,7 +1,9 @@
 #include "header.h"
 
+loginInfo user;
+
 int main(){
-	loginInfo user; // holds all the data for user, check header.h
+//	loginInfo user; // holds all the data for user, check header.h
 						 // to access members of it, its only user.variablename
 						 // user.fname = "Steve";
 
@@ -29,7 +31,7 @@ int main(){
 		cout << "\033c" << right << endl << endl;
 		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl << right;
 		cout << setw(18) << "║" << setw(48) << "║" << endl;
-		cout << setw(18) << "║" << setw(33) << "Barnet &  Co. Banking" << setw(15) << "║" <<endl;
+		cout << setw(18) << "║" << setw(33) << "Barnett &  Co. Banking" << setw(15) << "║" <<endl;
 
 		switch(menuSelection)
 		{

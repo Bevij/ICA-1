@@ -13,6 +13,8 @@ class certificateOfDepositType: public bankAccountType
 		certificateOfDepositType(string n, int acctNumber, double bal);
 		certificateOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon);
 
+		void update();
+
 		double getInterestRate();
 
 		void setInterestRate(double rate);

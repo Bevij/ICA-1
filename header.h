@@ -1,6 +1,9 @@
 #ifndef header_H
 #define header_H
 
+
+
+
 //    INITIALIZING AND INCLUSIONS OF ENTIRE PROGRAM
 
 // EVERYTHING TO INCLUDE SHOULD BE ONLY IN THIS HEADER FILE, SO AS NOT TO REPEATEDLY INCLUDE THE SAME LIBRARY
@@ -23,6 +26,20 @@
 
 using namespace std;
 namespace fs = filesystem;
+
+
+
+struct loginInfo // info of user
+{
+	string username;
+	string password;
+	string lastName;
+	string firstName;
+	int role;
+	// vector<string> accounts; // list of all accounts for user
+};
+extern loginInfo user;
+
 
 
 #include "helpers.h" // generally input helper functions
@@ -61,21 +78,18 @@ string randomNum();
 
 
 
-struct loginInfo
-{
-	string username;
-	string password;
-	string lastName;
-	string firstName;
-	int role;
-	// vector<string> accounts; // list of all accounts for user
-};
-extern loginInfo user;
-
 
 //     CONST/GLOBAL VARIABLE DECLARATIONS
 const int ARRAYSIZE = 30;
 const int FILENAMESIZE = 70;
+const int OVERRIDE_TIME = 120;
+
+//     GLOBAL EMPTY CLASSES FOR TRY/THROW/CATCH BLOCKS
+class cantFind {};
+class deadlock {};
+class abortOverride {};
+class abortView {};
+class invalidAmount {};
 
 #endif
 

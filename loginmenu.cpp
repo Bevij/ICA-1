@@ -2,8 +2,6 @@
 
 int loginMenu () {
 
-	loginInfo user;
-
 	string username, passwordInput, password, lastName, firstName, roleString;
 	int role = 1;
 	int attempt = 0;

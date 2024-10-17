@@ -9,6 +9,8 @@ highInterestSavingsType::highInterestSavingsType(string filename)
 {
 	decrypt(filename);
 	ifstream filein(filename);
+	encrypt(filename);
+
 	string temp;
 	filein >> temp;
 	filein >> accountNumber;
@@ -16,7 +18,6 @@ highInterestSavingsType::highInterestSavingsType(string filename)
 	filein >> balance;
 	filein >> interestRate;
 	filein >> minimumBalance;
-	encrypt(filename);
 }
 
 highInterestSavingsType::highInterestSavingsType(string n, int acctNumber, double bal)

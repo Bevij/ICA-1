@@ -20,6 +20,7 @@ void   getposdouble(double&);				// positive valid float
 void   getsigneddouble(double&);			// any      valid float
 void   encrypt(const string&);
 void   decrypt(const string&);
+void   lock(const string&);            // locks with filename.temp
 
 string lowerstring(const string&);		// returns lowercase string
 string upperstring(const string&);		// returns uppercase string

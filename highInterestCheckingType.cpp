@@ -9,6 +9,8 @@ highInterestCheckingType::highInterestCheckingType(string filename)
 {
 	decrypt(filename);
 	ifstream filein(filename);
+	encrypt(filename);
+
 	string temp;
 	filein >> temp;
 	filein >> accountNumber;
@@ -16,8 +18,8 @@ highInterestCheckingType::highInterestCheckingType(string filename)
 	filein >> balance;
 	filein >> interestRate;
 	filein >> minimumBalance;
-	encrypt(filename);
 }
+
 
 highInterestCheckingType::highInterestCheckingType(string n, int acctNumber, double bal)
 							: noServiceChargeCheckingType(n, acctNumber, bal)

@@ -24,6 +24,7 @@ class noServiceChargeCheckingType: public checkingAccountType
 		void withdraw(double amount);
 		virtual void createMonthlyStatement();
 		virtual void print();
+		void update();
 
 		void editMenu();
 		void viewMenu();

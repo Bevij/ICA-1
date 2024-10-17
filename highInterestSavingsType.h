@@ -16,6 +16,7 @@ class highInterestSavingsType: public savingsAccountType
 		bool verifyMinimumBalance(double amount);
 		virtual void withdraw(double amount);
 		virtual void print();
+		void update();
 
 		void editMenu();
 		void viewMenu();

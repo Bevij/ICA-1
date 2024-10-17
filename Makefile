@@ -1,11 +1,12 @@
 CFLAGS = -Wall -Werror -Wpedantic -std=c++20 -O0 -g
 CC = g++
 
-OBJECTS = mainmenu.cpp hidePass.o loginmenu.o viewmenu.o createmenu.o viewsubmenus.o editmenu.o helpers.o removemenu.o editsubmenus.o editLogin.o deposit.o withdraw.o transfer.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
+OBJECTS = mainmenu.cpp update.o hidePass.o loginmenu.o viewmenu.o createmenu.o viewsubmenus.o editmenu.o helpers.o removemenu.o editsubmenus.o editLogin.o deposit.o withdraw.o transfer.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
+update.o: update.cpp header.h
 
 hidePass.o: hidePass.cpp header.h
 

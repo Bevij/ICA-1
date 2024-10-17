@@ -10,6 +10,8 @@ serviceChargeCheckingType::serviceChargeCheckingType(string filename)
 {
 	decrypt(filename);
 	ifstream filein(filename);
+	encrypt(filename);
+
 	string temp;
 	filein >> temp;
 	filein >> accountNumber;
@@ -19,7 +21,6 @@ serviceChargeCheckingType::serviceChargeCheckingType(string filename)
 
 	serviceChargeAmount = ACCOUNT_SERVICE_CHARGE;
 	serviceChargeCheck = SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS;
-	encrypt(filename);
 }
 
 serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, double bal)
@@ -38,6 +39,7 @@ serviceChargeCheckingType::serviceChargeCheckingType(string n, int acctNumber, d
 	serviceChargeCheck = servChargeCheck;
 	numberOfChecksWritten = 0;
 }
+
 
 double serviceChargeCheckingType::getServiceChargeAccount()
 {

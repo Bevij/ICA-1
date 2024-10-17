@@ -19,6 +19,7 @@ class highInterestCheckingType: public noServiceChargeCheckingType
 		void postInterest();
 		void createMonthlyStatement();
 		virtual void print();
+		void update();
 
 		void editMenu();
 		void viewMenu();

@@ -1,14 +1,8 @@
 #include "header.h"
 
 
-
-class cantFind {};
-class deadlock {};
-class abortOverride {};
-
 void editMenu()
 {
-	const int OVERRIDE_TIME = 30; // the time required (in seconds) until a file.temp can be overridden by someone else
 	time_t t;
 	int filetime; // the time in a .temp file, checked for potential deadlock
 
@@ -35,7 +29,6 @@ void editMenu()
 
 		if(!fileintest)
 			throw cantFind();
-
 		fileintest.close();
 
 
@@ -64,10 +57,7 @@ void editMenu()
 		}// fi tempfilename deadlock check
 
 
-		ofstream fileouttemp(tempfilename); // both creates file.temp AND sets fileout to output to it
-		time_t t = time(NULL);
-		fileouttemp << t; // assigns time opened to file.temp
-		fileouttemp.flush(); // tells it to actually, yknow, WRITE THE LINE AND SAVE IT
+		lock(filename);
 
 		filein >> acctType; // first line will be string showing what account it is
 
@@ -77,94 +67,42 @@ void editMenu()
 			{
 				serviceChargeCheckingType service(filename); // makes a temporary class to hold data, constructs from data in file
 				service.editMenu(); // calls editMenu from class
-				fs::remove(tempfilename); // removes lock/timer file
-				fs::remove(filename); // removes old file
-				ofstream fileouty(filename); // remakes file and outputs to it
-				fileouty << "y\n";
-				fileouty << service.getAccountNumber() << endl;
-				fileouty << service.getName() << endl;
-				fileouty << service.getBalance() << endl;
-				fileouty << service.getNumberOfChecksWritten();
-				encrypt(filename);
+				service.update(); // updates the file with new data
 				break;
 			}
 			case 'n':
 			{
 				noServiceChargeCheckingType noService(filename);
 				noService.editMenu();
-				fs::remove(tempfilename);
-				fs::remove(filename); //removes file
-				ofstream fileoutn(filename); // remakes file and outputs to it
-				fileoutn << "n\n";
-				fileoutn << noService.getAccountNumber() << endl;
-				fileoutn << noService.getName() << endl;
-				fileoutn << noService.getBalance() << endl;
-				fileoutn << noService.getInterestRate() << endl;
-				fileoutn << noService.getMinimumBalance();
-				encrypt(filename);
+				noService.update();
 				break;
 			}
 			case 'C':
 			{
 				highInterestCheckingType highChecking(filename);
 				highChecking.editMenu();
-				fs::remove(tempfilename);
-				fs::remove(filename); //removes file
-				ofstream fileoutC(filename); // remakes file and outputs to it
-				fileoutC << "C\n";
-				fileoutC << highChecking.getAccountNumber() << endl;
-				fileoutC << highChecking.getName() << endl;
-				fileoutC << highChecking.getBalance() << endl;
-				fileoutC << highChecking.getInterestRate() << endl;
-				fileoutC << highChecking.getMinimumBalance();
-				encrypt(filename);
+				highChecking.update();
 				break;
 			}
 			case 'd':
 			{
 				certificateOfDepositType deposit(filename);
 				deposit.editMenu();
-				fs::remove(tempfilename);
-				fs::remove(filename); //removes file
-				ofstream fileoutd(filename); // remakes file and outputs to it
-				fileoutd << "d\n";
-				fileoutd << deposit.getAccountNumber() << endl;
-				fileoutd << deposit.getName() << endl;
-				fileoutd << deposit.getBalance() << endl;
-				fileoutd << deposit.getInterestRate() << endl;
-				fileoutd << deposit.getMaturityMonths();
-				encrypt(filename);
+				deposit.update();
 				break;
 			}
 			case 's':
 			{
-				savingsAccountType savings(filename); // constructor with one string brings data in from file
+				savingsAccountType savings(filename);
 				savings.editMenu();
-				fs::remove(tempfilename);
-				fs::remove(filename); //removes file
-				ofstream fileouts(filename); // remakes file and outputs to it
-				fileouts << "s\n";
-				fileouts << savings.getAccountNumber() << endl;
-				fileouts << savings.getName() << endl;
-				fileouts << savings.getBalance() << endl;
-				fileouts << savings.getInterestRate();
-				encrypt(filename);
+				savings.update();
 				break;
 			}
 			case 'S':
 			{
 				highInterestSavingsType highSavings(filename);
 				highSavings.editMenu();
-				fs::remove(tempfilename);
-				fs::remove(filename); //removes file
-				ofstream fileoutS(filename); // remakes file and outputs to it
-				fileoutS << "S\n";
-				fileoutS << highSavings.getAccountNumber() << endl;
-				fileoutS << highSavings.getName() << endl;
-				fileoutS << highSavings.getBalance() << endl;
-				fileoutS << highSavings.getInterestRate() << endl;
-				fileoutS << highSavings.getMinimumBalance();
-				encrypt(filename);
+				highSavings.update();
 				break;
 			}
 			default:
