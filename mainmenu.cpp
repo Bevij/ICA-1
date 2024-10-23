@@ -68,7 +68,9 @@ int main(){
 
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-		cout << setw(18) << "│" << setw(46) << "|" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
+		cout << setw(18) << "│" << setw(48) << "│" << endl;
 
 		switch(menuSelection)
 		{

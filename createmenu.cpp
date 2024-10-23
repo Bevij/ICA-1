@@ -24,7 +24,42 @@ void createMenu()
 		cout << setw(18) << "║" << setw(30) << "Create  Account" << setw(18) << "║" << endl;
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-		cout << setw(15) << " " << "│  Select the Account you would like to make  │" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << right << endl;
+		cout << setw(15) << " " << "│     User Role    : ";
+
+		// Switch for role selection
+
+		switch(user.role)
+		{
+			case 1:
+			{
+				cout << setw(25) << left << "Client" << right << "│" << endl;
+				break;
+			}
+			case 2:
+			{
+				cout << setw(25) << left << "Clerk" << right << "│" << endl;
+				break;
+			}
+			case 3:
+			{
+				cout << setw(25) << left << "Manager" << right << "│" << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << setw(25) << left << "Admin" << right << "│" << endl;
+				break;
+			}
+			default:
+			{
+				cout << setw(25) << left << "ERROR" << right << "│" << endl;
+				break;
+			}
+		}		// End Switch
+
+		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
+		cout << setw(15) << " " << "│         Select The Account To Create        │" << endl;
 		cout << setw(18) << "│" << setw(48) << "│" << endl;
 		cout << setw(18) << "│" << setw(48) << "│" << endl;
 		cout << setw(18) << "│" << "     1.Service Charge Checking Account       │" << endl;
@@ -50,7 +85,43 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "           Service Charge Checking           ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+				cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << right << endl;
+				cout << setw(15) << " " << "│     Role         : ";
+
+				// Switch for role selection
+
+				switch(user.role)
+				{
+					case 1:
+					{
+						cout << setw(25) << left << "Client" << right << "│" << endl;
+						break;
+					}
+					case 2:
+					{
+						cout << setw(25) << left << "Clerk" << right << "│" << endl;
+						break;
+					}
+					case 3:
+					{
+						cout << setw(25) << left << "Manager" << right << "│" << endl;
+						break;
+					}
+					case 4:
+					{
+						cout << setw(25) << left << "Admin" << right << "│" << endl;
+						break;
+					}
+					default:
+					{
+						cout << setw(25) << left << "ERROR" << right << "│" << endl;
+						break;
+					}
+				}		// End Switch
+				cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
+
+				cout << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
 				cout << setw(15) << " " << "Or Enter 0 For a Random Number  : ";
 
 				getposint(tempNum);
@@ -113,7 +184,43 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "         No Service Charge Checking          ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+				cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << right << endl;
+				cout << setw(15) << " " << "│     Role         : ";
+
+				// Switch for role selection
+
+				switch(user.role)
+				{
+					case 1:
+					{
+						cout << setw(25) << left << "Client" << right << "│" << endl;
+						break;
+					}
+					case 2:
+					{
+						cout << setw(25) << left << "Clerk" << right << "│" << endl;
+						break;
+					}
+					case 3:
+					{
+						cout << setw(25) << left << "Manager" << right << "│" << endl;
+						break;
+					}
+					case 4:
+					{
+						cout << setw(25) << left << "Admin" << right << "│" << endl;
+						break;
+					}
+					default:
+					{
+						cout << setw(25) << left << "ERROR" << right << "│" << endl;
+						break;
+					}
+				}		// End Switch
+				cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
+
+				cout << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
 				cout << setw(15) << " " << "Or Enter 0 For a Random Number :  ";
 
 				getposint(tempNum);
@@ -177,7 +284,43 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "           High Interest Checking            ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+				cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << right << endl;
+				cout << setw(15) << " " << "│     Role         : ";
+
+				// Switch for role selection
+
+				switch(user.role)
+				{
+					case 1:
+					{
+						cout << setw(25) << left << "Client" << right << "│" << endl;
+						break;
+					}
+					case 2:
+					{
+						cout << setw(25) << left << "Clerk" << right << "│" << endl;
+						break;
+					}
+					case 3:
+					{
+						cout << setw(25) << left << "Manager" << right << "│" << endl;
+						break;
+					}
+					case 4:
+					{
+						cout << setw(25) << left << "Admin" << right << "│" << endl;
+						break;
+					}
+					default:
+					{
+						cout << setw(25) << left << "ERROR" << right << "│" << endl;
+						break;
+					}
+				}		// End Switch
+				cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
+
+				cout << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
 				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
 				getposint(tempNum);
@@ -241,7 +384,43 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "           Certificate Of Deposit            ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+				cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << right << endl;
+				cout << setw(15) << " " << "│     Role         : ";
+
+				// Switch for role selection
+
+				switch(user.role)
+				{
+					case 1:
+					{
+						cout << setw(25) << left << "Client" << right << "│" << endl;
+						break;
+					}
+					case 2:
+					{
+						cout << setw(25) << left << "Clerk" << right << "│" << endl;
+						break;
+					}
+					case 3:
+					{
+						cout << setw(25) << left << "Manager" << right << "│" << endl;
+						break;
+					}
+					case 4:
+					{
+						cout << setw(25) << left << "Admin" << right << "│" << endl;
+						break;
+					}
+					default:
+					{
+						cout << setw(25) << left << "ERROR" << right << "│" << endl;
+						break;
+					}
+				}		// End Switch
+				cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
+
+				cout << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
 				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
 				getposint(tempNum);
@@ -305,7 +484,43 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "              Savings  Account               ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+				cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << right << endl;
+				cout << setw(15) << " " << "│     Role         : ";
+
+				// Switch for role selection
+
+				switch(user.role)
+				{
+					case 1:
+					{
+						cout << setw(25) << left << "Client" << right << "│" << endl;
+						break;
+					}
+					case 2:
+					{
+						cout << setw(25) << left << "Clerk" << right << "│" << endl;
+						break;
+					}
+					case 3:
+					{
+						cout << setw(25) << left << "Manager" << right << "│" << endl;
+						break;
+					}
+					case 4:
+					{
+						cout << setw(25) << left << "Admin" << right << "│" << endl;
+						break;
+					}
+					default:
+					{
+						cout << setw(25) << left << "ERROR" << right << "│" << endl;
+						break;
+					}
+				}		// End Switch
+				cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
+
+				cout << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
 				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
 				getposint(tempNum);
@@ -366,7 +581,43 @@ void createMenu()
 				cout << setw(18) << "║" << setw(48) << "║" << endl;
 				cout << setw(18) << "║" << "            High Interest Savings            ║" << endl;
 				cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-				cout << endl << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
+				cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+				cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << right << endl;
+				cout << setw(15) << " " << "│     Role         : ";
+
+				// Switch for role selection
+
+				switch(user.role)
+				{
+					case 1:
+					{
+						cout << setw(25) << left << "Client" << right << "│" << endl;
+						break;
+					}
+					case 2:
+					{
+						cout << setw(25) << left << "Clerk" << right << "│" << endl;
+						break;
+					}
+					case 3:
+					{
+						cout << setw(25) << left << "Manager" << right << "│" << endl;
+						break;
+					}
+					case 4:
+					{
+						cout << setw(25) << left << "Admin" << right << "│" << endl;
+						break;
+					}
+					default:
+					{
+						cout << setw(25) << left << "ERROR" << right << "│" << endl;
+						break;
+					}
+				}		// End Switch
+				cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
+
+				cout << setw(15) << " " << "       Enter a 5 Digit Number" << endl;
 				cout << setw(15) << " " << "Or Enter 0 For a Random Number : ";
 
 				getposint(tempNum);
