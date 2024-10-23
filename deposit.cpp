@@ -202,14 +202,18 @@ void deposit()
 					}
 					default:
 					{
-						cout << endl << endl;
-						cout << setw(15) << " " << "File structure invalid, press Enter to continue : ";
-						waitforenter(); // !!!!!! throw invalid file structure?
+						throw(fileStructureInvalid());
 					}
 				}			// End Nested Swtich
 				cout << setw(15) << " " << "Press Enter to continue : ";
 				waitforenter();
 				encrypt(filename);
+
+				misc.bankAccount = filename;
+				misc.amount = amount;
+				log('d'); // logs DEPOSIT
+
+
 			}			// End Try Block
 			catch(cantFind)
 			{
@@ -222,6 +226,13 @@ void deposit()
 			{
 				cout << endl << endl;
 				cout << setw(15) << " " << "Error: " << amount << "$ is not a valid amount to deposit" << endl;
+				cout << setw(15) << " " << "Press Enter to continue : ";
+				waitforenter();
+			}
+			catch(fileStructureInvalid)
+			{
+				cout << endl << endl;
+				cout << setw(15) << " " << "File Structure Invalid." << endl;
 				cout << setw(15) << " " << "Press Enter to continue : ";
 				waitforenter();
 			}

@@ -106,6 +106,7 @@ class deadlock {};
 class abortOverride {};
 class abortView {};
 class invalidAmount {};
+class fileStructureInvalid {};
 
 #endif
 

@@ -138,11 +138,12 @@ void editMenu()
 			}
 			default:
 			{
-				cout << "File structure invalid, press enter to continue...";
-				waitforenter();
-				break;
+				throw(fileStructureInvalid());
 			}
 		}//switch end
+
+		misc.bankAccount = filename;
+		log('e'); // logs EDIT
 
 	}//try end
 	catch(cantFind e) // cant find file, file DNE
@@ -161,6 +162,12 @@ void editMenu()
 	catch(abortOverride e) // file.temp exists, was editable, user chose NOT to edit file
 	{
 		cout << "\nOverride aborted.";
+		cout << "\nPress enter to return to main menu...";
+		waitforenter();
+	}
+	catch(fileStructureInvalid e)
+	{
+		cout << "\nFile structure invalid.";
 		cout << "\nPress enter to return to main menu...";
 		waitforenter();
 	}

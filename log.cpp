@@ -1,11 +1,21 @@
 #include "header.h"
 
 void log(const char& log) {
+
 	fs::path filePath = "./Data/Logs/Actions/";
 
-	string out;
-	time_t timeee = time(NULL);
+	string out;               // out is the ENTIRE string to output
+	time_t t = time(NULL);
 
+
+
+	// every log has the log type, the time of log, and the username who took the action
+	out += log;
+	out += '\n';
+	out += to_string(t);
+	out += '\n';
+	out += user.username;
+	out += '\n';
 
 	switch(log)
 	{
@@ -41,6 +51,13 @@ void log(const char& log) {
 		case 'e': // bank account edit (by admin or clerk)
 		{
 			filePath += "Edits";
+			out += misc.bankAccount;
+			out += '\n';
+			break;
+		}
+		case 'v': // bank account view
+		{
+			filePath += "Views";
 			out += misc.bankAccount;
 			out += '\n';
 			break;
@@ -90,21 +107,16 @@ void log(const char& log) {
 
 
 
-	ofstream foutAction(filePath, ios::app); // app is APPEND, which is just write to EOF
-	foutAction << log << endl;
-	foutAction << timeee << endl;
-	foutAction << user.username << endl;
-	foutAction << out;
-	foutAction.flush();
-	foutAction.close();
+
+	ofstream foutAction(filePath, ios::app); // ios::app is APPEND, which is just write to EOF
+	foutAction << out; // out is the entire thing to output to file
+	foutAction.flush(); // flush makes it write
+	foutAction.close(); // closing for fun teehee
 
 
 	fs::path filePathUsers = "./Data/Logs/Users/" + user.username;
 
 	ofstream foutUser(filePathUsers, ios::app);
-	foutUser << log << endl;
-	foutUser << timeee << endl;
-	foutUser << user.username << endl;
 	foutUser << out;
 	foutUser.flush();
 	foutUser.close();
@@ -112,9 +124,6 @@ void log(const char& log) {
 	fs::path filePathMaster = "./Data/Logs/Master";
 
 	ofstream foutMaster(filePathMaster, ios::app);
-	foutMaster << log << endl;
-	foutMaster << timeee << endl;
-	foutMaster << user.username << endl;
 	foutMaster << out;
 	foutMaster.flush();
 	foutMaster.close();

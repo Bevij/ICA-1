@@ -94,10 +94,13 @@ void viewMenu()
 				break;
 			}
 			default:
-				cout << "File structure invalid, press enter to continue...";
-				waitforenter();
-				break;
+			{
+				throw(fileStructureInvalid());
+			}
 		}// end switch
+
+		misc.bankAccount = filename;
+		log('v'); // log VIEW
 
 	}//end try
 	catch(cantFind e) // cant find file, file DNE
@@ -109,6 +112,12 @@ void viewMenu()
 	catch(abortView e)
 	{
 		cout << "\nView aborted.";
+		cout << "\nPress enter to return to main menu...";
+		waitforenter();
+	}
+	catch(fileStructureInvalid e)
+	{
+		cout << "\nFile structure invalid.";
 		cout << "\nPress enter to return to main menu...";
 		waitforenter();
 	}

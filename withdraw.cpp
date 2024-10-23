@@ -206,12 +206,16 @@ void withdraw()
 					}
 					default:
 					{
-						cout << endl << endl;
-						cout << setw(15) << " " << "File Structure Invalid, Press Enter to Continue : ";
-						waitforenter();
+						throw(fileStructureInvalid());
 					}
 				}		// End Nested Switch
 				encrypt(filename);
+
+				misc.bankAccount = filename;
+				misc.amount = amount;
+				log('w'); // logs WITHDRAWS
+
+
 			}			// End Try Block
 			catch(cantFind)
 			{
@@ -224,6 +228,13 @@ void withdraw()
 			{
 				cout << endl << endl;
 				cout << setw(15) << " " << "Error " << amount << " is not a valid amount to withdraw" << endl;
+				cout << setw(15) << " " << "Press Enter to continue : ";
+				waitforenter();
+			}
+			catch(fileStructureInvalid)
+			{
+				cout << endl << endl;
+				cout << setw(15) << " " << "File structure invalid." << endl;
 				cout << setw(15) << " " << "Press Enter to continue : ";
 				waitforenter();
 			}
