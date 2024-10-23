@@ -14,9 +14,9 @@ void log(const char& log) {
 			filePath += "Logins";
 			break;
 		}
-		case 'l': // "logouts
+		case 'l': // "logouts (in same file as logins)
 		{
-			filePath += "Logouts";
+			filePath += "Logins";
 			break;
 		}
 		case 'C': // user creations
@@ -33,7 +33,7 @@ void log(const char& log) {
 			out += '\n';
 			break;
 		}
-		case 'p': // bad password
+		case 'b': // bad password
 		{
 			filePath += "BadPasswords";
 			break;

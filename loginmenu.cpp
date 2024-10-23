@@ -13,6 +13,7 @@ int loginMenu () {
 		// Username
 		cout << "Username: ";
 		getline(cin, username);
+		user.username = username;
 
 			// Check if account exists, prompt user to create one if not
 			fs::path dirUserSearch = "./Data/Users";
@@ -70,6 +71,7 @@ int loginMenu () {
 						waitforenter();
 					}
 					if (passwordInput != password) {
+						log('b'); // logs a BAD PASSWORD
 						attempt++;
 						cout << "Incorrect password. Attempt " << attempt << "/3. Please try again." << endl;
 					}
@@ -92,11 +94,10 @@ int loginMenu () {
 				char usernameChoice;
 				if (acctChoice == 'y') {
 					cout << "You entered the username: " << username << " Is this correct? (y/n)" << endl;
-					cin >> usernameChoice;
+					getyn(usernameChoice);
 					if (usernameChoice == 'n') {
 						cout << "\nPlease enter a new username: ";
-						cin.ignore();
-						getline (cin, username);
+						getline(cin, username);
 					}
 
 					// Password
@@ -234,6 +235,9 @@ int loginMenu () {
 
 					leaving = true;
 
+					misc.userChanged = user.username; // sets for log
+					log('C'); // logs user creations
+
 				} else if (acctChoice == 'n') {
 					cout << "Press enter to exit..." << endl;
 					leaving = true;
@@ -241,6 +245,6 @@ int loginMenu () {
 				}
 			}								// End bracket for user account creation
 	} while (!leaving);
-
+	log('L'); // LOGIN LOG
 	return role;
 }

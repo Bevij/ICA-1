@@ -14,8 +14,6 @@ int main(){
 	char choice;
 	bool leaving = false;
 
-	log('L');
-
 	cout << "Menu " << menuSelection << " selected from user role." << endl;
 
 	do{
@@ -327,6 +325,7 @@ int main(){
 
 	cout << endl << endl;
 	cout << setw(15) << " " << "Logging out of " << user.username << ". . ." << endl;
+	log('l');
 
 	return 0;
 }
