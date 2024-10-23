@@ -41,6 +41,21 @@ struct loginInfo // info of user
 extern loginInfo user;
 
 
+struct miscInfo
+{
+	// all listed things for logging, just strings to pass as arguments
+	string userChanged;
+	string bankAccount;
+	string bankAccount2;
+	string amount;
+	string overriddenUser;
+};
+extern miscInfo misc;
+
+
+
+
+
 
 #include "helpers.h" // generally input helper functions
 
@@ -75,6 +90,7 @@ void withdraw();
 void editLogin();
 void transfer();
 string randomNum();
+void log(const char&);
 
 
 
