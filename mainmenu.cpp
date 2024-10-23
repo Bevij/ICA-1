@@ -105,7 +105,7 @@ int main(){
 				break;
 		}
 
-   	cout << setw(18) << "│" << setw(13) << "0.  Exit" << setw(35) << "│" << endl;
+   	cout << setw(18) << "│" << setw(16) << "0.  Log Out" << setw(32) << "│" << endl;
 		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
 
 
@@ -324,6 +324,9 @@ int main(){
 			}									// Bracket for end Admin Case
 		}										// Bracket for Original Switch
 	} while(!leaving);
+
+	cout << endl << endl;
+	cout << setw(15) << " " << "Logging out of " << user.username << ". . ." << endl;
 
 	return 0;
 }
