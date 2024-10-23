@@ -90,29 +90,31 @@ void log(const char& log) {
 
 
 
-	ofstream foutAction(filePath);
+	ofstream foutAction(filePath, ios::app); // app is APPEND, which is just write to EOF
 	foutAction << log << endl;
 	foutAction << timeee << endl;
 	foutAction << user.username << endl;
-	foutAction << out << endl;
+	foutAction << out;
 	foutAction.flush();
 	foutAction.close();
 
 
 	fs::path filePathUsers = "./Data/Logs/Users/" + user.username;
 
-	ofstream foutUser(filePathUsers);
+	ofstream foutUser(filePathUsers, ios::app);
+	foutUser << log << endl;
+	foutUser << timeee << endl;
+	foutUser << user.username << endl;
 	foutUser << out;
 	foutUser.flush();
 	foutUser.close();
 
 	fs::path filePathMaster = "./Data/Logs/Master";
 
-	ofstream foutMaster(filePathMaster);
+	ofstream foutMaster(filePathMaster, ios::app);
 	foutMaster << log << endl;
 	foutMaster << timeee << endl;
 	foutMaster << user.username << endl;
-	foutMaster << out << endl;
 	foutMaster << out;
 	foutMaster.flush();
 	foutMaster.close();
