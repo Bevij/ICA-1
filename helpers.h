@@ -24,7 +24,7 @@ void   lock(const string&);            // locks with filename.temp
 
 string lowerstring(const string&);		// returns lowercase string
 string upperstring(const string&);		// returns uppercase string
-
+string getTime();
 void waitforenter();
 
 // SORTERS

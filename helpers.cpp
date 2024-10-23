@@ -464,3 +464,16 @@ string timeString(int t) { // t in seconds, returns string for representation of
 
 	return out;
 }
+
+string getTime(){
+	
+	int buffer;
+	char date[80];
+	time_t rawtime;
+	struct tm *timeinfo;
+	
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	strftime(date, 80, "%Y-%m-%d %H:%M:%S", timeinfo);
+	return date;
+}
