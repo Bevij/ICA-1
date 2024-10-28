@@ -10,8 +10,16 @@ int loginMenu () {
 	// Login
 
 	do {
+		cout << "\033c" << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(15) << " " << "║" << setw(48) << "║" << endl;
+		cout << setw(15) << " " << "║" << setw(33) << "Barnett & Co. Banking" << setw(15) << "║" << endl;
+		cout << setw(15) << " " << "║" << setw(28) << "Login  Menu" << setw(20) << "║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl << endl;
+
+
 		// Username
-		cout << "Username: ";
+		cout << setw(15) << " " << "Username :  ";
 		getline(cin, username);
 		user.username = username;
 
@@ -35,7 +43,7 @@ int loginMenu () {
 				ifstream fileStream(filePath);
 
 				if (!fileStream) {
-					cerr << "Could not open file." << endl;
+					cerr << setw(15) << " " << "ERROR, Could Not Open File." << endl;
 				}
 
 				// Stores file variables locally if present and in correct order
@@ -53,7 +61,7 @@ int loginMenu () {
 						role = stoi(roleString);
 						user.role = role; // Convert roleString to integer
 					} else {
-						cerr << "File format is incorrect or incomplete." << endl;
+						cerr << setw(15) << " " << "ERROR, File Format is Incorrect or Incomplete." << endl;
 					}
 
 	    		fileStream.close();
@@ -62,21 +70,23 @@ int loginMenu () {
 				attempt = 0;
 
 				do {
-					cout << "Password: ";
+					cout << setw(15) << " " << "Password :  ";
 					passwordInput = hidePass(); // password obfuscation function
 
 					if (passwordInput == password) {
-						cout << "Welcome back, " << firstName << "! Press enter to continue..." << endl;
+						cout << endl << setw(15) << " " << "Welcome Back, " << firstName << "!" << endl << endl;
+						cout << setw(15) << " " << "Press Enter to Continue...";
 						leaving = true;
 						waitforenter();
 					}
 					if (passwordInput != password) {
 						log('b'); // logs a BAD PASSWORD
 						attempt++;
-						cout << "Incorrect password. Attempt " << attempt << "/3. Please try again." << endl;
+						cout << endl << endl << setw(15) << " " << "Incorrect Password. Attempt " << attempt << "/3." << "Please Try Again." << endl << endl;
 					}
 					if (attempt == 3) {
-						cout << "Too many failed attempts. Press enter to exit..." << endl;
+						cout << endl << setw(15) << " " << "Too Many Failed Attempts!" << endl;
+						cout << setw(15) << " " << "Press Enter to Exit...";
 						role = 0;
 						leaving = true;
 						waitforenter();
@@ -87,55 +97,79 @@ int loginMenu () {
 			// If account does not exist,
 			char acctChoice;
 			if (!userFound) {
-				cout << "Account not found or does not exist. Would you like to create one? (y/n)" << endl;
+				cout << endl << endl << endl;
+				cout << setw(15) << " " << "Account Not Found or Does Not Exist." << endl;
+				cout << setw(15) << " " << "Would You Like to Create An Account? (Y/N) : ";
 				cin >> acctChoice;
 
 				// Account creation
 				char usernameChoice;
 				if (acctChoice == 'y') {
-					cout << "You entered the username: " << username << " Is this correct? (y/n)" << endl;
+					cout << "\033c" << endl << endl;
+					cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+					cout << setw(15) << " " << "║" << setw(48) << "║" << endl;
+					cout << setw(15) << " " << "║" << setw(33) << "Barnett & Co. Banking" << setw(15) << "║" << endl;
+					cout << setw(15) << " " << "║" << setw(30) << "Account Creation" << setw(18) << "║" << endl;
+					cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl << endl;
+
+					cout << setw(15) << " " << "You Entered The Username    :  " << username << endl;
+					cout << setw(15) << " " << "Is This Correct? (y/n)      :  ";
+					cin.ignore();
 					getyn(usernameChoice);
 					if (usernameChoice == 'n') {
-						cout << "\nPlease enter a new username: ";
+						cout << endl <<  setw(15) << " " << "Please Enter a New Username :  ";
 						getline(cin, username);
 					}
 
 					// Password
-					cout << endl << "Please create a password: "; // Add password obfuscation to hide characters
-					cin.ignore();
+					cout << endl << setw(15) << " " << "Please Create a Password    :  "; // Add password obfuscation to hide characters
 					password = hidePass(); // password obfuscation function
 
 					attempt = 0;
 					string passwordCheck;
 
 					do {
-						cout << endl << "Confirm password: ";
+						cout << endl << setw(15) << " " << "Confirm Password            :  ";
 						passwordCheck = hidePass(); // password obfuscation function
 
 						if (passwordCheck != password) {
 							attempt++;
-							cout << "Password does not match. Attempt " << attempt << "/3. Please try again." << endl;
+							cout << endl << endl << setw(15) << " " << "Password Does Not Match. Attempt " << attempt << "/3. Please Try Again." << endl << endl;
 						}
 						if (attempt == 3) {
-							cout << "Too many failed attempts. Press enter to exit..." << endl;
+							cout << setw(15) << " " << "Too Many Failed Attempts!" << endl;
+							cout << setw(15) << " " << "Press Enter to Exit...";
 							leaving = true;
 							waitforenter();
 						}
 					} while (passwordCheck != password && attempt < 3);
 
+					cout << "\033c" << endl << endl;
+					cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+					cout << setw(15) << " " << "║" << setw(48) << "║" << endl;
+					cout << setw(15) << " " << "║" << setw(33) << "Barnett & Co. Banking" << setw(15) << "║" << endl;
+					cout << setw(15) << " " << "║" << setw(30) << "Account Creation" << setw(18) << "║" << endl;
+					cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl << endl;
+
+
 					// Name
-					cout << endl << "Please enter Last Name: ";
+					cout << endl << endl << setw(15) << " " << "Please Enter Last Name  :  ";
 					getline(cin, lastName);
-					cout << endl << "Please enter First Name: ";
+					cout << endl << setw(15) << " " << "Please Enter First Name :  ";
 					getline(cin, firstName);
 
 					// Role assignment
-					cout << "What type of account is this? Please enter the number value." << endl;
-					cout << "1. Client." << endl;
-					cout << "2. Clerk." << endl;
-					cout << "3. Manager." << endl;
-					cout << "4. Admin." << endl;
+					cout << endl << endl << endl << endl;
+					cout << setw(15) << " " << "What Type of Account is This?" << endl << endl;
+					cout << setw(15) << " " << "Please Enter The Number Value." << endl << endl << endl;
+					cout << setw(15) << " " << "        1. Client" << endl;
+					cout << setw(15) << " " << "        2. Clerk" << endl;
+					cout << setw(15) << " " << "        3. Manager" << endl;
+					cout << setw(15) << " " << "        4. Admin" << endl << endl << endl;
+
+					cout << setw(15) << " " << "Choice : ";
 					cin >> role;
+					cout << endl;
 
 					int pinMaster = 1234;
 					int pinInput = 0;
@@ -146,19 +180,19 @@ int loginMenu () {
 							break;
 						case 2: // Clerk
 							do {
-								cout << "Enter PIN for Clerk security clearance: ";
+								cout << setw(15) << " " << "Enter PIN For Clerk Security Clearance: ";
 								cin >> pinInput;
 								if (pinInput == pinMaster) {
-									cout << "PIN accepted. Role set to Clerk. Press enter to continue..." << endl;
+									cout << setw(15) << " " << "PIN Accepted. Role Set to Clerk. Press Enter to Continue..." << endl;
 									leaving = true;
 									waitforenter();
 									break;
 								} else {
 									attempt++;
-									cout << "Invalid PIN. Attempt " << attempt << "/3. Try again." << endl;
+									cout << setw(15) << " " << "Invalid PIN. Attempt " << attempt << "/3. Try Again." << endl << endl;
 								}
 								if (pinInput != pinMaster && attempt == 3) {
-									cout << "Access denied. Role set to Client. Press enter to continue..." << endl;
+									cout << setw(15) << " " << "Access Denied. Role Set to Client. Press Enter to Continue..." << endl;
 									role = 1;
 									leaving = true;
 									waitforenter();
@@ -168,19 +202,19 @@ int loginMenu () {
 							break;
 						case 3: // Manager
 							do {
-								cout << "Enter PIN for Manager security clearance: ";
+								cout << setw(15) << " " << "Enter PIN For Manager Security Clearance: ";
 								cin >> pinInput;
 								if (pinInput == pinMaster) {
-									cout << "PIN accepted. Role set to Manager. Press enter to continue..." << endl;
+									cout << setw(15) << " " << "PIN Accepted. Role Set to Manager. Press Enter to Continue..." << endl;
 									leaving = true;
 									waitforenter();
 									break;
 								} else {
 									attempt++;
-									cout << "Invalid PIN. Attempt " << attempt << "/3. Try again." << endl;
+									cout << setw(15) << " " << "Invalid PIN. Attempt " << attempt << "/3. Try Again." << endl << endl;
 								}
 								if (pinInput != pinMaster && attempt == 3) {
-									cout << "Access denied. Role set to Client. Press enter to continue..." << endl;
+									cout << setw(15) << " " << "Access Denied. Role Set to Client. Press Enter to Continue..." << endl;
 									role = 1;
 									leaving = true;
 									waitforenter();
@@ -190,19 +224,19 @@ int loginMenu () {
 							break;
 						case 4: // Admin
 							do {
-								cout << "Enter PIN for Admin security clearance: ";
+								cout << setw(15) << " " << "Enter PIN For Admin Security Clearance: ";
 								cin >> pinInput;
 								if (pinInput == pinMaster) {
-									cout << "PIN accepted. Role set to Admin. Press enter to continue..." << endl;
+									cout << "PIN Accepted. Role Set to Admin. Press Enter to Continue..." << endl;
 									leaving = true;
 									waitforenter();
 									break;
 								} else {
 									attempt++;
-									cout << "Invalid PIN. Attempt " << attempt << "/3. Try again." << endl;
+									cout << setw(15) << " " << "Invalid PIN. Attempt " << attempt << "/3. Try Again." << endl << endl;
 								}
 								if (pinInput != pinMaster && attempt == 3) {
-									cout << "Access denied. Role set to Client. Press enter to continue..." << endl;
+									cout << setw(15) << " " << "Access Denied. Role Set to Client. Press Enter to Continue..." << endl;
 									role = 1;
 									leaving = true;
 									waitforenter();
@@ -211,7 +245,7 @@ int loginMenu () {
 							} while (pinInput != pinMaster && attempt < 3);
 							break;
 						default:
-							cout << "Invalid choice. Role set to Client. Press enter to continue..." << endl;
+							cout << setw(15) << " " << "Invalid Choice. Role Set to Client. Press Enter to Continue..." << endl;
 							role = 1;
 							leaving = true;
 							waitforenter();
@@ -239,7 +273,7 @@ int loginMenu () {
 					log('C'); // logs user creations
 
 				} else if (acctChoice == 'n') {
-					cout << "Press enter to exit..." << endl;
+					cout << setw(15) << " " << "Press enter to exit...";
 					leaving = true;
 					waitforenter();
 				}
