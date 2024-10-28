@@ -6,6 +6,7 @@ void log(const char& log) {
 
 	string out;               // out is the ENTIRE string to output
 	time_t t = time(NULL);
+	bool bankAccountRelevant = false;
 
 
 
@@ -53,6 +54,7 @@ void log(const char& log) {
 			filePath += "Edits";
 			out += misc.bankAccount;
 			out += '\n';
+			bankAccountRelevant = true;
 			break;
 		}
 		case 'v': // bank account view
@@ -60,6 +62,7 @@ void log(const char& log) {
 			filePath += "Views";
 			out += misc.bankAccount;
 			out += '\n';
+			bankAccountRelevant = true;
 			break;
 		}
 		case 'd': // deposits
@@ -69,6 +72,7 @@ void log(const char& log) {
 			out += '\n';
 			out += misc.amount;
 			out += '\n';
+			bankAccountRelevant = true;
 			break;
 		}
 		case 'w': // withdraws
@@ -78,6 +82,7 @@ void log(const char& log) {
 			out += '\n';
 			out += misc.amount;
 			out += '\n';
+			bankAccountRelevant = true;
 			break;
 		}
 		case 't': // Transfers
@@ -89,6 +94,15 @@ void log(const char& log) {
 			out += '\n';
 			out += misc.amount;
 			out += '\n';
+			bankAccountRelevant = true;
+
+			fs::path filePathBankAccount2 = "./Data/Logs/Accounts/" + misc.bankAccount2;
+			// as there are TWO bank accounts, an extra action is needed to print log to the second
+			ofstream foutBankAccount2(filePathBankAccount2, ios::app);
+			foutBankAccount2 << out;
+			foutBankAccount2.flush();
+			foutBankAccount2.close();
+
 			break;
 		}
 		case 'o': // Overrides
@@ -98,6 +112,7 @@ void log(const char& log) {
 			out += '\n';
 			out += misc.bankAccount;
 			out += '\n';
+			bankAccountRelevant = true;
 			break;
 		}
 		default:
@@ -129,7 +144,15 @@ void log(const char& log) {
 	foutMaster.close();
 
 
+	if(bankAccountRelevant)
+	{
+		fs::path filePathAccounts = "./Data/Logs/Accounts" + misc.bankAccount;
 
+		ofstream foutAccounts(filePathAccounts, ios::app);
+		foutAccounts << out;
+		foutAccounts.flush();
+		foutAccounts.close();
+	}
 
 
 
@@ -140,3 +163,94 @@ void log(const char& log) {
 	misc.overriddenUser = "";
 	return;
 }
+
+
+
+void logMenu()
+{
+	bool leaving = false;
+	char choice;
+	fs::path filePath;
+
+	while(!leaving)
+	{
+		wipescreen();
+		cout << "\n\n";
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(15) << " " << "║                                             ║" << endl;
+		cout << setw(15) << " " << "║                  Log Menu                   ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << endl;
+		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
+		cout << setw(15) << " " << "│                                             │" << endl;
+		cout << setw(15) << " " << "│     1.  Master Log                          │" << endl;
+		cout << setw(15) << " " << "│     2.  User Logs         (Directory)       │" << endl;
+		cout << setw(15) << " " << "│      .  Bank Account Logs (Directory)       │" << endl;
+		cout << setw(15) << " " << "│     4.  Action Logs       (Directory)       │" << endl;
+		cout << setw(15) << " " << "│      .  Error Logs                          │" << endl;
+		cout << setw(15) << " " << "│     0.  Exit                                │" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
+		cout << "\n\n\n" <<        "               ";
+
+		getchar(choice);
+
+		switch(choice)
+		{
+			case '0':
+			{
+				leaving = true;
+				break;
+			}
+			case '1':
+			{
+				filePath = "./Data/Logs/Master"; // immediately call Master from here, later
+				logView(filePath);
+				break;
+			}
+			case '2':
+			{
+				leaving = true;
+				break;
+			}
+			case '3':
+			{
+				leaving = true;
+				break;
+			}
+			case '4':
+			{
+				leaving = true;
+				break;
+			}
+			case '5':
+			{
+				leaving = true;
+				break;
+			}
+		}// end main switch
+	}// end while(!leaving)
+}
+
+void logOutConstruct(const fs::path& path, vector<string>& out)
+{
+	// will create vector of strings based off of which file it finds
+	out[0] = "0th thing yay";
+	out[1] = "1st thing yayyyy";
+	out[2] = "2nd thing yayyyyyyyyy";
+}
+
+
+
+void logView(const fs::path& path) // calls something to make the strings in its vector, lists them
+{
+	vector<string> out;
+
+	logOutConstruct(path, out);
+
+	cout << out.size() << out[0] << out[1];
+
+	waitforenter();
+}
+
+

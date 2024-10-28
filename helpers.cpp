@@ -21,6 +21,19 @@ void lock(const string& filename)
 }
 
 
+string getTime(){
+
+	int buffer;
+	char date[80];
+	time_t rawtime;
+	struct tm *timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	strftime(date, 80, "%Y-%m-%d %H:%M:%S", timeinfo);
+	return date;
+}
+
 
 
 void encrypt(const string& filename) {
@@ -463,17 +476,4 @@ string timeString(int t) { // t in seconds, returns string for representation of
 		out = "0 seconds";
 
 	return out;
-}
-
-string getTime(){
-	
-	int buffer;
-	char date[80];
-	time_t rawtime;
-	struct tm *timeinfo;
-	
-	time(&rawtime);
-	timeinfo = localtime(&rawtime);
-	strftime(date, 80, "%Y-%m-%d %H:%M:%S", timeinfo);
-	return date;
 }

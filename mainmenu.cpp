@@ -100,6 +100,7 @@ int main(){
    			cout << setw(18) << "│" << setw(21) << "5.  Manage Login" << setw(27) << "│" << endl;
 				cout << setw(18) << "│" << setw(21) << "6.  Encrypt File" << setw(27) << "│" << endl;
 				cout << setw(18) << "│" << setw(21) << "7.  Decrypt File" << setw(27) << "│" << endl;
+				cout << setw(18) << "│" << setw(21) << "8.  View Logs   " << setw(27) << "│" << endl;
 				break;
 		}
 
@@ -304,6 +305,12 @@ int main(){
 						encrypt(tempstring2);
 						break;
 					}
+					case '8':
+					{
+						logMenu();
+						break;
+					}
+
      	   		case '0':
 
         	  			leaving = true;
