@@ -1,0 +1,11 @@
+
+					// Recursive Search
+					for (const auto& entry : fs::recursive_directory_iterator(dirParent)) {
+						if (fs::is_regular_file(entry.path())) {
+							if (entry.path().filename() == acctNumSearch;) {
+								cout << File found: " << entry.path() << endl; // Add list function for contents
+								accountFound = true;
+								break;
+							}
+						}
+					}

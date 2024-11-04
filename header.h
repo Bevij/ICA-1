@@ -92,8 +92,8 @@ void transfer();
 string randomNum();
 void log(const char&);
 void logMenu();
-void logView(const fs::path&);
-void logOutConstruct(const fs::path&, vector<string>&);
+void logView(const fs::path&, const string&);
+void logOutputConstruct(const fs::path&, vector<string>&);
 
 
 
