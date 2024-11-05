@@ -65,12 +65,14 @@ bool noServiceChargeCheckingType::verifyMinimumBalance(double amount)
 	return (balance - amount >= minimumBalance);
 }
 
-void noServiceChargeCheckingType::writeCheck(double amount)
+int noServiceChargeCheckingType::writeCheck(double amount)
 {
 	if(verifyMinimumBalance(amount))
 	{
 		balance = balance - amount;
 	}
+
+	return 0;
 }
 
 void noServiceChargeCheckingType::withdraw(double amount)

@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Werror -Wpedantic -std=c++20 -O0 -g
 CC = g++
 
-OBJECTS = mainmenu.cpp log.o update.o hidePass.o loginmenu.o viewmenu.o createmenu.o viewsubmenus.o editmenu.o helpers.o removemenu.o editsubmenus.o editLogin.o deposit.o withdraw.o transfer.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
+OBJECTS = mainmenu.cpp log.o update.o hidePass.o loginmenu.o depositMenu.o viewmenu.o createmenu.o viewsubmenus.o editmenu.o helpers.o removemenu.o editsubmenus.o editLogin.o deposit.o withdraw.o transfer.o bankAccountType.o savingsAccountType.o highInterestSavingsType.o certificateOfDepositType.o serviceChargeCheckingType.o checkingAccountType.o noServiceChargeCheckingType.o highInterestCheckingType.o 
 
 run: $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
@@ -33,6 +33,8 @@ randomnum.o: randomnum.cpp helpers.h
 helpers.o: helpers.cpp helpers.h header.h
 
 editLogin.o: editLogin.cpp header.h
+
+depositMenu.o: depositMenu.cpp header.h
 
 deposit.o: deposit.cpp header.h
 

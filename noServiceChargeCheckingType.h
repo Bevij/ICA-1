@@ -20,7 +20,7 @@ class noServiceChargeCheckingType: public checkingAccountType
 		double getInterestRate();
 		void setInterestRate(double intRate);
 		bool verifyMinimumBalance(double amount);
-		void writeCheck(double amount);
+		int writeCheck(double amount);
 		void withdraw(double amount);
 		virtual void createMonthlyStatement();
 		virtual void print();

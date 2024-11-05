@@ -23,7 +23,7 @@ class serviceChargeCheckingType: public checkingAccountType
 		int getNumberOfChecksWritten();
 		void setNumberOfChecksWritten(int num);
 		void postServiceCharge();
-		void writeCheck(double amount);
+		int writeCheck(double amount);
 		virtual void createMonthlyStatement();
 		virtual void print();
 

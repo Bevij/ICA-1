@@ -76,18 +76,32 @@ void serviceChargeCheckingType::postServiceCharge()
 	balance = balance - serviceChargeAmount;
 }
 
-void serviceChargeCheckingType::writeCheck(double amount)
+int serviceChargeCheckingType::writeCheck(double amount)
 {
+	char choice = ' ';
+
 	if(numberOfChecksWritten < MAXIMUM_NUM_OF_CHECKS)
 	{
 		balance = balance - amount;
+		numberOfChecksWritten++;
 	}
 	else
 	{
-		balance = balance - amount - serviceChargeCheck;
+		cout << setw(15) << " " << "Error, you have already written your maximum amount of Checks!" << endl;
+		cout << setw(15) << " " << "Do you Wish to Continue With An Additional $" << serviceChargeCheck << " fee? (Y/N) : ";
+		cin >> choice;
+		if(choice == 'Y')
+		{
+			balance = balance - amount - serviceChargeCheck;
+			numberOfChecksWritten++;
+		}
+		else
+		{
+			cout << setw(15) << " " << "Cancelling Withdraw..." << endl;
+			return 1;
+		}
 	}
-
-	numberOfChecksWritten++;
+	return 0;
 }
 
 void serviceChargeCheckingType::createMonthlyStatement()
