@@ -47,7 +47,7 @@ struct miscInfo
 	string userChanged;
 	string bankAccount;
 	string bankAccount2;
-	string amount;
+	int amount;
 	string overriddenUser;
 };
 extern miscInfo misc;
@@ -94,6 +94,8 @@ void log(const char&);
 void logMenu();
 void logView(const fs::path&, const string&);
 void logOutputConstruct(const fs::path&, vector<string>&);
+void getUserPath(fs::path&);
+void getActionPath(fs::path&);
 
 
 

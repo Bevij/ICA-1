@@ -31,14 +31,14 @@ void log(const char& log) {
 		}
 		case 'C': // user creations
 		{
-			filePath += "UserCreates";
+			filePath += "UserEdits";
 			out += misc.userChanged;
 			out += '\n';
 			break;
 		}
-		case 'D': // user deletions
+		case 'D': // user deletions, same location as user edits
 		{
-			filePath += "UserDeletes";
+			filePath += "UserEdits";
 			out += misc.userChanged;
 			out += '\n';
 			break;
@@ -66,8 +66,8 @@ void log(const char& log) {
 		}
 		case 'd': // deposits
 		{
-			filePath += "Deposits";
-			out += misc.amount;
+			filePath += "DepoWith";
+			out += to_string(misc.amount);
 			out += '\n';
 			out += misc.bankAccount;
 			out += '\n';
@@ -76,8 +76,8 @@ void log(const char& log) {
 		}
 		case 'w': // withdraws
 		{
-			filePath += "Withdraws";
-			out += misc.amount;
+			filePath += "DepoWith";
+			out += to_string(misc.amount);
 			out += '\n';
 			out += misc.bankAccount;
 			out += '\n';
@@ -87,7 +87,7 @@ void log(const char& log) {
 		case 't': // Transfers
 		{
 			filePath += "Transfers";
-			out += misc.amount;
+			out += to_string(misc.amount);
 			out += '\n';
 			out += misc.bankAccount; // FROM 1
 			out += '\n';
@@ -158,7 +158,7 @@ void log(const char& log) {
 	misc.userChanged = "";
 	misc.bankAccount = "";
 	misc.bankAccount2 = "";
-	misc.amount = "";
+	misc.amount = 0;
 	misc.overriddenUser = "";
 	return;
 }
@@ -175,24 +175,26 @@ void logMenu()
 	{
 		wipescreen();
 		cout << "\n\n";
-		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
-		cout << setw(15) << " " << "║                                             ║" << endl;
-		cout << setw(15) << " " << "║                  Log Menu                   ║" << endl;
-		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
-		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│" << endl;
-		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
-		cout << setw(15) << " " << "│                                             │" << endl;
-		cout << setw(15) << " " << "│     1.  Master Log                          │" << endl;
-		cout << setw(15) << " " << "│     2.  User Logs         (Directory)       │" << endl;
-		cout << setw(15) << " " << "│      .  Bank Account Logs (Directory)       │" << endl;
-		cout << setw(15) << " " << "│     4.  Action Logs       (Directory)       │" << endl;
-//		cout << setw(15) << " " << "│      .  Error Logs                          │" << endl;
-		cout << setw(15) << " " << "│     0.  Exit                                │" << endl;
-		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
-		cout << "\n\n\n" <<        "               ";
+		cout << "               ╔═════════════════════════════════════════════╗\n";
+		cout << "               ║                                             ║\n";
+		cout << "               ║                  Log Menu                   ║\n";
+		cout << "               ╚═════════════════════════════════════════════╝\n";
+		cout << "               ┌─────────────────────────────────────────────┐\n";
+		cout << "               │     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│\n";
+		cout << "               ├─────────────────────────────────────────────┤\n";
+		cout << "               │                                             │\n";
+		cout << "               │     1.  Master Log                          │\n";
+		cout << "               │     2.  User Logs         (Directory)       │\n";
+		cout << "               │      .  Bank Account Logs (Directory)       │\n";
+		cout << "               │     4.  Action Logs       (Directory)       │\n";
+		cout << "               │      .  Error Logs                          │\n";
+		cout << "               │     0.  Exit                                │\n";
+		cout << "               └─────────────────────────────────────────────┘\n";
+		cout << "\n\n\n" << "               ";
 
 		getchar(choice);
+
+
 
 		switch(choice)
 		{
@@ -203,14 +205,16 @@ void logMenu()
 			}
 			case '1':
 			{
-				filePath = "./Data/Logs/Master"; // immediately call Master from here, later
+				filePath = "./Data/Logs/Master";
 				logView(filePath, "MASTER");
 				break;
 			}
 			case '2':
 			{
-				filePath = "./Data/Logs/Users"; // NOT WORKING, NEED SEARCH FOR USERS AND STUFF
-				logView(filePath, "USER");
+				filePath = "./Data/Logs/Users/"; // NOT WORKING, NEED SEARCH FOR USERS AND STUFF
+				getUserPath(filePath);
+				if(filePath != "./Data/Logs/Users/")
+					logView(filePath, "USER");
 				break;
 			}
 			case '3':
@@ -220,8 +224,10 @@ void logMenu()
 			}
 			case '4':
 			{
-				filePath = "./Data/Logs/Actions";
-				logView(filePath, "ACTIONS");
+				filePath = "./Data/Logs/Actions/";
+				getActionPath(filePath);
+				if(filePath != "./Data/Logs/Actions/")
+					logView(filePath, "ACTIONS");
 				break;
 			}
 			case '5':
@@ -231,24 +237,269 @@ void logMenu()
 			}
 		}// end main switch
 	}// end while(!leaving)
+}
+
+void getActionPath(fs::path& filePath) // finds which user to view
+{
+	bool leaving = false;
+
+	while(!leaving)
+	{
+		wipescreen();
+		cout << "\n\n";
+		cout << "               ╔═════════════════════════════════════════════╗\n";
+		cout << "               ║                                             ║\n";
+		cout << "               ║             Action Log Selection            ║\n";
+		cout << "               ╚═════════════════════════════════════════════╝\n";
+		cout << "               ┌─────────────────────────────────────────────┐\n";
+		cout << "               │     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│\n";
+		cout << "               ├─────────────────────────────────────────────┤\n";
+		cout << "               │                                             │\n";
+		cout << "               │     1.  Logins                              │\n";
+		cout << "               │     2.  User Account Edits                  │\n";
+		cout << "               │     3.  Bad Passwords                       │\n";
+		cout << "               │     4.  Bank Account Edits                  │\n";
+		cout << "               │     5.  Bank Account Views                  │\n";
+		cout << "               │     6.  Deposits/Withdraws                  │\n";
+		cout << "               │     7.  Transfers                           │\n";
+	//	cout << "               │     8.  Overrides                    	    │\n";
+		cout << "               │     0.  Exit                                │\n";
+		cout << "               └─────────────────────────────────────────────┘\n";
+		cout << "\n\n\n" <<        "               ";
 
 
-/**************************************TEMPORARY!!! FIX LATER!!!!!******************************************************************
+		char choice;
+		getchar(choice);
 
-					// Recursive Search
-					for (const auto& entry : fs::recursive_directory_iterator(dirParent)) {
-						if (fs::is_regular_file(entry.path())) {
-							if (entry.path().filename() == acctNumSearch;) {
-								cout << File found: " << entry.path() << endl; // Add list function for contents
-								accountFound = true;
-								break;
-							}
-						}
-					}
-*/
+		leaving = true;
+		switch(choice)
+		{
+			case '0':
+			{
+				break;
+			}
+			case '1':
+			{
+				filePath += "Logins";
+				break;
+			}
+			case '2':
+			{
+				filePath += "UserEdits";
+				break;
+			}
+			case '3':
+			{
+				filePath += "BadPasswords";
+				break;
+			}
+			case '4':
+			{
+				filePath += "Edits";
+				break;
+			}
+			case '5':
+			{
+				filePath += "Views";
+				break;
+			}
+			case '6':
+			{
+				filePath += "DepoWith";
+				break;
+			}
+			case '7':
+			{
+				filePath += "Transfers";
+				break;
+			}
+			case '8':
+			{
+	//			filePath += "Overrides";
+				break;
+			}
+			default:
+				leaving = false;
+		};// end switch
+	}// end while(!leaving)
+}
 
+
+void getUserPath(fs::path& filePath)
+{
+	vector<string> users;
+	for (const auto& entry : fs::directory_iterator(filePath))
+	{
+		string temp = entry.path();
+		temp.erase(0, 18);
+		users.insert(users.begin(), temp);
+	}
+
+	int i;
+	char input;
+	bool nextPagePossible = false;
+	bool previousPagePossible = false;
+
+	int numPages = (users.size() / 10);
+	int pageCurrent = 0;
+
+	bool leaving = false;
+	bool fileSelected = false;
+
+	int extraSpaceToFill = (10 - (users.size() % 10));
+	if(extraSpaceToFill == 10)
+	{
+		extraSpaceToFill = 0;
+		numPages--;
+	}
+	for(extraSpaceToFill; extraSpaceToFill > 0; extraSpaceToFill--)
+		users.push_back("");
+
+
+	if(users.size() == 0)
+	{
+		leaving = true;
+		cout << "No logs exist, exiting log view...";
+		waitforenter();
+	}
+
+
+	while(!leaving)
+	{
+		fileSelected = false;
+		i = pageCurrent * 10;
+		int i2 = i;
+
+		nextPagePossible     = (pageCurrent < numPages);
+		previousPagePossible = (pageCurrent > 0);
+
+		wipescreen();
+		cout << "\n\n";
+		cout << "               ╔═════════════════════════════════════════════╗\n";
+		cout << "               ║                                             ║\n";
+		cout << "               ║              User Log Selection             ║\n";
+		cout << "               ╚═════════════════════════════════════════════╝\n";
+		cout << "               ┌─────────────────────────────────────────────┐\n";
+		cout << "               │     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│\n";
+		cout << "               ├─────────────────────────────────────────────┤\n";
+		cout << "               │                                             │\n";
+		for(int j = 0; j < 10; j++)
+		{
+			if(users[i] == "")
+				cout << "               │                                             │\n";
+			else
+				cout << "               │     " << j + 1 << ".  " << setw(36) << users[i] << "│\n";
+			i++;
+		}
+		cout << "               ├─────────────────────────────────────────────┤\n";
+		cout << "               │     PAGE:" << setw(3) << right << pageCurrent+1 << '/' << left << setw(31) << numPages+1 <<  "│\n";
+		if(nextPagePossible)
+			cout << "               │     {ENTER} to go to next page              │\n";
+		else
+			cout << "               │     {ENTER} to return to menu               │\n";
+		if(previousPagePossible)
+			cout << "               │     ' p '   to go to previous page          │\n";
+		cout << "               │     ' 0 '   to return to menu               │\n";
+		cout << "               └─────────────────────────────────────────────┘\n";
+
+		cin.get(input);
+		if(input != '\n')
+			cin.ignore(10000, '\n');
+
+		switch(input)
+		{
+			case 'p':
+				if(previousPagePossible)
+					pageCurrent -= 2;
+				else
+					pageCurrent--;
+				break;
+			case '0':
+				leaving = true;
+				break;
+
+			case '1':
+			{
+				fileSelected = true;
+				break;
+			}
+			case '2':
+			{
+				i2 += 1;
+				fileSelected = true;
+				break;
+			}
+			case '3':
+			{
+				i2 += 2;
+				fileSelected = true;
+				break;
+			}
+			case '4':
+			{
+				i2 += 3;
+				fileSelected = true;
+				break;
+			}
+			case '5':
+			{
+				i2 += 4;
+				fileSelected = true;
+				break;
+			}
+			case '6':
+			{
+				i2 += 5;
+				fileSelected = true;
+				break;
+			}
+			case '7':
+			{
+				i2 += 6;
+				fileSelected = true;
+				break;
+			}
+			case '8':
+			{
+				i2 += 7;
+				fileSelected = true;
+				break;
+			}
+			case '9':
+			{
+				i2 += 8;
+				fileSelected = true;
+				break;
+			}
+			default: // for newline
+				if(!nextPagePossible)
+					leaving = true;
+				break;
+		};// end switch
+
+
+		if(fileSelected)
+		{
+			if(users[i2] != "")
+			{
+				filePath += users[i2];
+				leaving = true;
+			}else
+				pageCurrent--;
+		}
+
+
+		pageCurrent++;
+	}// end main loop
 
 }
+
+
+
+
+
+
+
 
 
 void logView(const fs::path& path, const string& logName) // calls logOutputConstructor to make the strings in its vector, lists them
@@ -293,32 +544,32 @@ void logView(const fs::path& path, const string& logName) // calls logOutputCons
 
 		wipescreen();
 		cout << "\n\n" << left;
-		cout << "┌───────────────────────────────────────────────────────────────────────────────────────────────┐" << endl;
-		cout << "│     Logged in as : " << setw(75) << user.username    <<                                      "│" << endl;
-		cout << "│     Viewing Log  : " << setw(75) << logName + " LOG" <<                                      "│" << endl;
-		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤" << endl;
-		cout << "│ {  DATE  } { TIME }  {   USERNAME   } {                      ACTION                        }  │" << endl;
-		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│" << endl;
-		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤" << endl;
-		cout << "│     PAGE:" << setw(3) << right << pageCurrent+1 << '/' << left << setw(81) << numPages+1 <<  "│" << endl;
+		cout << "┌───────────────────────────────────────────────────────────────────────────────────────────────┐\n";
+		cout << "│     Logged in as : " << setw(75) << user.username    <<                                      "│\n";
+		cout << "│     Viewing Log  : " << setw(75) << logName + " LOG" <<                                      "│\n";
+		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
+		cout << "│ {  DATE  } { TIME } {   USERNAME   } {                       ACTION                        }  │\n";
+		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
+		cout << "│     PAGE:" << setw(3) << right << pageCurrent+1 << '/' << left << setw(81) << numPages+1 <<  "│\n";
 		if(nextPagePossible)
-			cout << "│     {ENTER} to go to next page                                                                │" << endl;
+			cout << "│     {ENTER} to go to next page                                                                │\n";
 		else
-			cout << "│     {ENTER} to return to menu                                                                 │" << endl;
+			cout << "│     {ENTER} to return to menu                                                                 │\n";
 		if(previousPagePossible)
-			cout << "│     ' p '   to go to previous page                                                            │" << endl;
-		cout << "│     ' 0 '   to return to menu                                                                 │" << endl;
-		cout << "└───────────────────────────────────────────────────────────────────────────────────────────────┘" << endl;
+			cout << "│     ' p '   to go to previous page                                                            │\n";
+		cout << "│     ' 0 '   to return to menu                                                                 │\n";
+		cout << "└───────────────────────────────────────────────────────────────────────────────────────────────┘\n";
 
 		cin.get(input);
 		if(input != '\n')
@@ -328,7 +579,8 @@ void logView(const fs::path& path, const string& logName) // calls logOutputCons
 				leaving = true;
 			else if(input == 'p' && previousPagePossible)
 				pageCurrent -= 2;
-		} else if(!nextPagePossible) // if enter was pressed and next page isnt possible, return to menu
+		}
+		else if(!nextPagePossible) // if enter was pressed and next page isnt possible, return to menu
 			leaving = true;
 		pageCurrent++;
 
@@ -411,7 +663,7 @@ void logOutputConstruct(const fs::path& path, vector<string>& out)
 					sout += temp;
 					break;
 				}
-				case 'd': // reorder
+				case 'd':
 				{
 					sout += "Deposited $";
 					fin >> temp;
@@ -421,7 +673,7 @@ void logOutputConstruct(const fs::path& path, vector<string>& out)
 					sout += temp;
 					break;
 				}
-				case 'w': // reorder
+				case 'w':
 				{
 					sout += "Withdrew $";
 					fin >> temp;
@@ -468,7 +720,7 @@ void logOutputConstruct(const fs::path& path, vector<string>& out)
 	}// end try
 	catch(stopConstructing e)
 	{
-		"Stopped constucting";
+		cout << "";
 	}
 
 }
