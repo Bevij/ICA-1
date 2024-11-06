@@ -185,9 +185,9 @@ void logMenu()
 		cout << "               │                                             │\n";
 		cout << "               │     1.  Master Log                          │\n";
 		cout << "               │     2.  User Logs         (Directory)       │\n";
-		cout << "               │      .  Bank Account Logs (Directory)       │\n";
+		cout << "               │     3.  Bank Account Logs (Directory)       │\n";
 		cout << "               │     4.  Action Logs       (Directory)       │\n";
-		cout << "               │      .  Error Logs                          │\n";
+//		cout << "               │      .  Error Logs                          │\n";
 		cout << "               │     0.  Exit                                │\n";
 		cout << "               └─────────────────────────────────────────────┘\n";
 		cout << "\n\n\n" << "               ";
@@ -330,11 +330,16 @@ void getActionPath(fs::path& filePath) // finds which user to view
 
 void getSubPath(fs::path& filePath)
 {
+	bool iamactuallyuserpath = (filePath == "./Data/Logs/Users/");
+
 	vector<string> users;
 	for (const auto& entry : fs::directory_iterator(filePath))
 	{
 		string temp = entry.path();
-		temp.erase(0, 18);
+		if(iamactuallyuserpath)
+			temp.erase(0, 18);
+		else
+			temp.erase(0, 21);
 		users.insert(users.begin(), temp);
 	}
 
@@ -694,7 +699,7 @@ void logOutputConstruct(const fs::path& path, vector<string>& out)
 					sout += " from bank account : ";
 					fin >> temp;
 					sout += temp;
-					sout += "to ";
+					sout += " to ";
 					fin >> temp;
 					sout += temp;
 					break;
