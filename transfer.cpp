@@ -23,7 +23,37 @@ void transfer()
 	cout << setw(18) << "║" << setw(43) << "║" << endl;
 	cout << setw(18) << "║" << setw(28) << "Transfer  Menu" << setw(15) << "║" << endl;
 	cout << setw(15) << " " << "╚════════════════════════════════════════╝" << endl;
-	cout << setw(15) << " " << "┌────────────────────────────────────────┐" << endl;
+	cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+	cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+	cout << setw(15) << " " << "│     User Role    : ";
+
+	// Switch for role selection
+
+	switch(user.role)
+	{
+		case 1:
+		{
+			cout << setw(25) << "Client" << "│" << endl;
+		}
+		case 2:
+		{
+			cout << setw(25) << "Clerk" << "│" << endl;
+		}
+		case 3:
+		{
+			cout << setw(25) << "Manager" << "│" << endl;
+		}
+		case 4:
+		{
+			cout << setw(25) << "Admin" << "│" << endl;
+		}
+		default:
+		{
+			cout << setw(25) << "ERROR" << "│" << endl;
+		}
+	}		// End Switch
+	cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
+
 	cout << setw(18) << "│" << setw(17) << "1.  Transfer" << setw(26) << "│" << endl;
 	cout << setw(18) << "│" << setw(13) << "0.  Exit" << setw(30) << "│" << endl;
 	cout << setw(15) << " " << "└────────────────────────────────────────┘" << endl;
@@ -51,7 +81,39 @@ void transfer()
 			cout << setw(15) << " " << "╔════════════════════════════════════════╗" << endl;
 			cout << setw(18) << "║" << setw(43) << "║" << endl;
 			cout << setw(18) << "║" << setw(28) << "Transfer  Menu" << setw(15) << "║" << endl;
-			cout << setw(15) << " " << "╚════════════════════════════════════════╝" << endl << endl;
+			cout << setw(15) << " " << "╚════════════════════════════════════════╝" << endl;
+			cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+			cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+			cout << setw(15) << " " << "│     User Role    : ";
+
+			// Switch for role selection
+
+			switch(user.role)
+			{
+				case 1:
+				{
+					cout << setw(25) << "Client" << "│" << endl;
+				}
+				case 2:
+				{
+					cout << setw(25) << "Clerk" << "│" << endl;
+				}
+				case 3:
+				{
+					cout << setw(25) << "Manager" << "│" << endl;
+				}
+				case 4:
+				{
+					cout << setw(25) << "Admin" << "│" << endl;
+				}
+				default:
+				{
+					cout << setw(25) << "ERROR" << "│" << endl;
+				}
+			}		// End Switch
+
+			cout << setw(15) << " " << "└────────────────────────────────────────┘" << endl << endl;
+
 
 			cout << setw(15) << " " << "Enter The Account Number You Want to Transfer From : ";
 
@@ -249,10 +311,12 @@ void transfer()
 					}
 				}		// End Nested Switch
 				encrypt(filename);
+				encrypt(filename2);
 
 				misc.bankAccount = filename;
+				misc.bankAccount2 = filename2;
 				misc.amount = amount;
-				log('w'); // logs WITHDRAWS
+				log('t'); // logs WITHDRAWS
 
 
 			}			// End Try Block

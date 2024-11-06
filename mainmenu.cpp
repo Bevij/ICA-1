@@ -130,7 +130,7 @@ int main(){
 
 					case '3':				// Deposit
 
-						deposit();
+						depositMenu();
 						break;
 
 					case '4':				// Withdraw
@@ -291,7 +291,7 @@ int main(){
 
 					case '6':
 					{
-						cout << "Encrypt which file? : ";
+						cout << setw(15) << " " << "Encrypt which file? : ";
 						string tempstring1;
 						getline(cin, tempstring1);
 						encrypt(tempstring1);
@@ -299,7 +299,7 @@ int main(){
 					}
 					case '7':
 					{
-						cout << "Decrypt which file? : ";
+						cout << setw(15) << " " << "Decrypt which file? : ";
 						string tempstring2;
 						getline(cin, tempstring2);
 						encrypt(tempstring2);
