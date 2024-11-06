@@ -20,7 +20,7 @@ void viewMenu()
 	cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 	cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 	cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-	cout << setw(15) << " " << "│     User Role    : ";
+	cout << setw(15) << " " << "│     User Role    : " << left;
 
 	// Switch for role selection
 
@@ -29,26 +29,31 @@ void viewMenu()
 		case 1:
 		{
 			cout << setw(25) << "Client" << "│" << endl;
+			break;
 		}
 		case 2:
 		{
 			cout << setw(25) << "Clerk" << "│" << endl;
+			break;
 		}
 		case 3:
 		{
 			cout << setw(25) << "Manager" << "│" << endl;
+			break;
 		}
 		case 4:
 		{
 			cout << setw(25) << "Admin" << "│" << endl;
+			break;
 		}
 		default:
 		{
 			cout << setw(25) << "ERROR" << "│" << endl;
+			break;
 		}
 	}		// End Switch
 
-	cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
+	cout << setw(15) << " " << right << "└─────────────────────────────────────────────┘" << endl;
 
 	cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
 	getline(cin, filename);

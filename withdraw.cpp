@@ -30,22 +30,27 @@ void withdraw()
 		case 1:
 		{
 			cout << setw(25) << "Client" << "│" << endl;
+			break;
 		}
 		case 2:
 		{
 			cout << setw(25) << "Clerk" << "│" << endl;
+			break;
 		}
 		case 3:
 		{
 			cout << setw(25) << "Manager" << "│" << endl;
+			break;
 		}
 		case 4:
 		{
 			cout << setw(25) << "Admin" << "│" << endl;
+			break;
 		}
 		default:
 		{
 			cout << setw(25) << "ERROR" << "│" << endl;
+			break;
 		}
 	}		// End Switch
 
@@ -90,22 +95,27 @@ void withdraw()
 				case 1:
 				{
 					cout << setw(25) << "Client" << "│" << endl;
+					break;
 				}
 				case 2:
 				{
 					cout << setw(25) << "Clerk" << "│" << endl;
+					break;
 				}
 				case 3:
 				{
 					cout << setw(25) << "Manager" << "│" << endl;
+					break;
 				}
 				case 4:
 				{
 					cout << setw(25) << "Admin" << "│" << endl;
+					break;
 				}
 				default:
 				{
 					cout << setw(25) << "ERROR" << "│" << endl;
+					break;
 				}
 			}		// End Switch
 

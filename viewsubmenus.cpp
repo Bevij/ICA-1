@@ -19,22 +19,58 @@ void serviceChargeCheckingType::viewMenu() // edits class, only called in editme
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "     SERVICE CHARGE CHECKING ACCOUNT VIEW    |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(28) << "Service Charge Check : " << left << setw(17) << serviceChargeCheck << "|" << endl << right;
-		cout << setw(16) << "|" << setw(28) << "Service Charge Amount: " << left << setw(17) << serviceChargeAmount << "|" << endl << right;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "Max # of Checks   : " << MAXIMUM_NUM_OF_CHECKS << setw(20) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Num Checks    : " << setw(20) << left << numberOfChecksWritten << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "     SERVICE CHARGE CHECKING ACCOUNT EDIT    ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+		cout << setw(15) << " " << "│     User Role    : ";
 
-		cout << endl << setw(33) << "'0' to exit: ";
+		// Switch for role selection
+
+		switch(user.role)
+		{
+			case 1:
+			{
+				cout << setw(25) << "Client" << "│" << endl;
+				break;
+			}
+			case 2:
+			{
+				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
+			}
+			case 3:
+			{
+				cout << setw(25) << "Manager" << "│" << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << setw(25) << "Admin" << "│" << endl;
+				break;
+			}
+			default:
+			{
+				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
+			}
+		}		// End Switch
+
+		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
+		cout << setw(18) << "│" << setw(28) << "Service Charge Check : " << left << setw(17) << serviceChargeCheck << "│" << endl << right;
+		cout << setw(18) << "│" << setw(28) << "Service Charge Amount: " << left << setw(17) << serviceChargeAmount << "│" << endl << right;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "Max # of Checks   : " << MAXIMUM_NUM_OF_CHECKS << setw(22) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Num Checks    : " << setw(20) << left << numberOfChecksWritten << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
+
+		cout << endl << setw(33) << "Number to change: ";
 		getchar(choice);
 
 		switch(choice)
@@ -46,9 +82,6 @@ void serviceChargeCheckingType::viewMenu() // edits class, only called in editme
 	}
 	return;
 }
-
-
-
 
 
 // NO SERVICE CHARGE CHECKING
@@ -61,18 +94,53 @@ void noServiceChargeCheckingType::viewMenu() // edits class, only called in edit
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "   NO SERVICE CHARGE CHECKING ACCOUNT VIEW   |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "4.  Minimum Bal   : " << setw(20) << left << minimumBalance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "   NO SERVICE CHARGE CHECKING ACCOUNT EDIT   ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+		cout << setw(15) << " " << "│     User Role    : ";
+
+		// Switch for role selection
+
+		switch(user.role)
+		{
+			case 1:
+			{
+				cout << setw(25) << "Client" << "│" << endl;
+				break;
+			}
+			case 2:
+			{
+				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
+			}
+			case 3:
+			{
+				cout << setw(25) << "Manager" << "│" << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << setw(25) << "Admin" << "│" << endl;
+				break;
+			}
+			default:
+			{
+				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
+			}
+		}		// End Switch
+
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "4.  Minimum Bal   : " << setw(20) << left << minimumBalance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
 
 		cout << endl << setw(33) << "'0' to exit: ";
 		getchar(choice);
@@ -87,9 +155,6 @@ void noServiceChargeCheckingType::viewMenu() // edits class, only called in edit
 	return;
 }
 
-
-
-
 // HIGH INTEREST CHECKING
 
 void highInterestCheckingType::viewMenu() // edits class, only called in editmenu.cpp
@@ -100,18 +165,53 @@ void highInterestCheckingType::viewMenu() // edits class, only called in editmen
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "     HIGH INTEREST CHECKING ACCOUNT VIEW     |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "4.  Minimum Bal   : " << setw(20) << left << minimumBalance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "     HIGH INTEREST CHECKING ACCOUNT EDIT     ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+		cout << setw(15) << " " << "│     User Role    : ";
+
+		// Switch for role selection
+
+		switch(user.role)
+		{
+			case 1:
+			{
+				cout << setw(25) << "Client" << "│" << endl;
+				break;
+			}
+			case 2:
+			{
+				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
+			}
+			case 3:
+			{
+				cout << setw(25) << "Manager" << "│" << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << setw(25) << "Admin" << "│" << endl;
+				break;
+			}
+			default:
+			{
+				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
+			}
+		}		// End Switch
+
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(27) << "1.  Name            : " << setw(18) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "2.  Balance         : " << setw(18) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "3.  Interest Rate   : " << setw(18) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "4.  Minimum Balance : " << setw(18) << left << minimumBalance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
 		getchar(choice);
@@ -125,38 +225,6 @@ void highInterestCheckingType::viewMenu() // edits class, only called in editmen
 	}
 	return;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // CERTIFICATE OF DEPOSIT
@@ -169,19 +237,54 @@ void certificateOfDepositType::viewMenu() // edits class, only called in editmen
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "     CERTIFICATE OF DEPOSIT ACCOUNT VIEW     |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "|" << endl << right;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(27) << "1.  Name            : " << setw(18) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(27) << "2.  Balance         : " << setw(18) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(27) << "3.  Interest Rate   : " << setw(18) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(27) << "3.  Maturity Months : " << setw(18) << left << maturityMonths << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "     CERTIFICATE OF DEPOSIT ACCOUNT EDIT     ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+		cout << setw(15) << " " << "│     User Role    : ";
+
+		// Switch for role selection
+
+		switch(user.role)
+		{
+			case 1:
+			{
+				cout << setw(25) << "Client" << "│" << endl;
+				break;
+			}
+			case 2:
+			{
+				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
+			}
+			case 3:
+			{
+				cout << setw(25) << "Manager" << "│" << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << setw(25) << "Admin" << "│" << endl;
+				break;
+			}
+			default:
+			{
+				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
+			}
+		}		// End Switch
+
+		cout << setw(18) << "│" << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "│" << endl << right;
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(27) << "1.  Name            : " << setw(18) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "2.  Balance         : " << setw(18) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "3.  Interest Rate   : " << setw(18) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(27) << "3.  Maturity Months : " << setw(18) << left << maturityMonths << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
 		getchar(choice);
@@ -196,25 +299,6 @@ void certificateOfDepositType::viewMenu() // edits class, only called in editmen
 	return;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // SAVINGS
 
 void savingsAccountType::viewMenu()
@@ -225,17 +309,52 @@ void savingsAccountType::viewMenu()
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(31) << "SAVINGS ACCOUNT VIEW" << setw(15) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << setw(33) << "SAVINGS ACCOUNT EDIT" << setw(15) << "║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+		cout << setw(15) << " " << "│     User Role    : ";
+
+		// Switch for role selection
+
+		switch(user.role)
+		{
+			case 1:
+			{
+				cout << setw(25) << "Client" << "│" << endl;
+				break;
+			}
+			case 2:
+			{
+				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
+			}
+			case 3:
+			{
+				cout << setw(25) << "Manager" << "│" << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << setw(25) << "Admin" << "│" << endl;
+				break;
+			}
+			default:
+			{
+				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
+			}
+		}		// End Switch
+
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
 		getchar(choice);
@@ -266,18 +385,53 @@ void highInterestSavingsType::viewMenu()
 	while(!leaving)
 	{
 		cout << "\033c" << right;
-		cout << setw(15) << " " << "_______________________________________________" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << "      HIGH INTEREST SAVINGS ACCOUNT VIEW     |" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl;
-		cout << setw(16) << "|" << setw(19) << " "                    << setw(27) << "|" << endl;
-		cout << setw(16) << "|" << setw(12) << "Acct # " << accountNumber << setw(29) << "|" << endl;
-		cout << setw(16) << "|" << setw(25) << "1.  Name          : " << setw(20) << left << name << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "|" << endl << right;
-		cout << setw(16) << "|" << setw(25) << "4.  Min Balance   : " << setw(20) << left << minimumBalance << "|" << endl << right;
-		cout << setw(16) << "|" << setw(22) << "0.  SAVE AND EXIT"    << setw(24) << "|" << endl;
-		cout << setw(15) << " " << "|_____________________________________________|" << endl << endl << endl;
+		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
+		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
+		cout << setw(18) << "║" << "      HIGH INTEREST SAVINGS ACCOUNT EDIT     ║" << endl;
+		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
+		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
+		cout << setw(15) << " " << "│     User Role    : ";
+
+		// Switch for role selection
+
+		switch(user.role)
+		{
+			case 1:
+			{
+				cout << setw(25) << "Client" << "│" << endl;
+				break;
+			}
+			case 2:
+			{
+				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
+			}
+			case 3:
+			{
+				cout << setw(25) << "Manager" << "│" << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << setw(25) << "Admin" << "│" << endl;
+				break;
+			}
+			default:
+			{
+				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
+			}
+		}		// End Switch
+
+		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
+		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "3.  Interest Rate : " << setw(20) << left << interestRate << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "4.  Min Balance   : " << setw(20) << left << minimumBalance << "│" << endl << right;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE AND EXIT"    << setw(26) << "│" << endl;
+		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 
 		cout << endl << setw(33) << "0 to exit: ";
 		getchar(choice);
