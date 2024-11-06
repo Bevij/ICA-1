@@ -50,8 +50,10 @@ void viewMenu()
 
 	cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
 
-	cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
-	getline(cin, filename);
+	/*cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
+	getline(cin, filename);*/
+
+	listAccounts();
 
 
 	try
