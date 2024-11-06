@@ -6,11 +6,11 @@ const double serviceChargeCheckingType::ACCOUNT_SERVICE_CHARGE = 10.00;
 const int serviceChargeCheckingType::MAXIMUM_NUM_OF_CHECKS = 5;
 const double serviceChargeCheckingType::SERVICE_CHARGE_EXCESS_NUM_OF_CHECKS = 5;
 
-serviceChargeCheckingType::serviceChargeCheckingType(string filename)
+serviceChargeCheckingType::serviceChargeCheckingType(fs::path filePath)
 {
-	decrypt(filename);
-	ifstream filein(filename);
-	encrypt(filename);
+//	decrypt(filename);
+	ifstream filein(filePath);
+//	encrypt(filename);
 
 	string temp;
 	filein >> temp;

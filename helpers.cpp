@@ -37,7 +37,7 @@ string getTime(){
 
 
 void encrypt(const string& filename) {
-	int key = stoi(filename);
+/*	int key = stoi(filename);
 
 	string tempfilename = filename + ".encrypt";
 
@@ -54,10 +54,10 @@ void encrypt(const string& filename) {
 	fs::remove(filename);
 	fs::rename(tempfilename, filename);
 
-	return;
+	return;*/
 }
 void decrypt(const string& filename) {
-	int key = stoi(filename);
+/*	int key = stoi(filename);
 
 	string tempfilename = filename + ".decrypt";
 
@@ -74,7 +74,7 @@ void decrypt(const string& filename) {
 	fs::remove(filename);
 	fs::rename(tempfilename, filename);
 
-	return;
+	return;*/
 }
 
 string randomNum() {

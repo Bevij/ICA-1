@@ -97,7 +97,10 @@ void logView(const fs::path&, const string&);
 void logOutputConstruct(const fs::path&, vector<string>&);
 void getSubPath(fs::path&);
 void getActionPath(fs::path&);
-void listAccounts();
+string listAccounts();
+void maturityMonths();
+fs::path searchbynum(const string&);
+string   searchbypath(const fs::path&);
 
 
 

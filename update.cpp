@@ -4,10 +4,11 @@
 void serviceChargeCheckingType::update()
 {
 	string filename = to_string(accountNumber);
-	string tempfilename = filename + ".temp";
-	fs::remove(tempfilename);
-	fs::remove(filename);
-	ofstream fout(filename);
+	fs::path filePath = searchbynum(filename);
+//	string tempfilename = filename + ".temp";
+//	fs::remove(tempfilename);
+	fs::remove(filePath);
+	ofstream fout(filePath);
 
 	fout << 'y';
 	fout << endl << accountNumber;
@@ -22,10 +23,11 @@ void serviceChargeCheckingType::update()
 void noServiceChargeCheckingType::update()
 {
 	string filename = to_string(accountNumber);
-	string tempfilename = filename + ".temp";
-	fs::remove(tempfilename);
-	fs::remove(filename);
-	ofstream fout(filename);
+	fs::path filePath = searchbynum(filename);
+//	string tempfilename = filename + ".temp";
+//	fs::remove(tempfilename);
+	fs::remove(filePath);
+	ofstream fout(filePath);
 
 	fout << 'n';
 	fout << endl << accountNumber;
@@ -41,10 +43,11 @@ void noServiceChargeCheckingType::update()
 void highInterestCheckingType::update()
 {
 	string filename = to_string(accountNumber);
-	string tempfilename = filename + ".temp";
-	fs::remove(tempfilename);
-	fs::remove(filename);
-	ofstream fout(filename);
+	fs::path filePath = searchbynum(filename);
+//	string tempfilename = filename + ".temp";
+//	fs::remove(tempfilename);
+	fs::remove(filePath);
+	ofstream fout(filePath);
 
 	fout << 'C';
 	fout << endl << accountNumber;
@@ -60,10 +63,11 @@ void highInterestCheckingType::update()
 void certificateOfDepositType::update()
 {
 	string filename = to_string(accountNumber);
-	string tempfilename = filename + ".temp";
-	fs::remove(tempfilename);
-	fs::remove(filename);
-	ofstream fout(filename);
+	fs::path filePath = searchbynum(filename);
+//	string tempfilename = filename + ".temp";
+//	fs::remove(tempfilename);
+	fs::remove(filePath);
+	ofstream fout(filePath);
 
 	fout << 'd';
 	fout << endl << accountNumber;
@@ -79,10 +83,11 @@ void certificateOfDepositType::update()
 void savingsAccountType::update()
 {
 	string filename = to_string(accountNumber);
-	string tempfilename = filename + ".temp";
-	fs::remove(tempfilename);
-	fs::remove(filename);
-	ofstream fout(filename);
+	fs::path filePath = searchbynum(filename);
+//	string tempfilename = filename + ".temp";
+//	fs::remove(tempfilename);
+	fs::remove(filePath);
+	ofstream fout(filePath);
 
 	fout << 's';
 	fout << endl << accountNumber;
@@ -97,10 +102,11 @@ void savingsAccountType::update()
 void highInterestSavingsType::update()
 {
 	string filename = to_string(accountNumber);
-	string tempfilename = filename + ".temp";
-	fs::remove(tempfilename);
-	fs::remove(filename);
-	ofstream fout(filename);
+	fs::path filePath = searchbynum(filename);
+//	string tempfilename = filename + ".temp";
+//	fs::remove(tempfilename);
+	fs::remove(filePath);
+	ofstream fout(filePath);
 
 	fout << 'S';
 	fout << endl << accountNumber;

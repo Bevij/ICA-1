@@ -60,22 +60,26 @@ void viewMenu()
 	getline(cin, filename);*/
 
 
-	string filePath = listAccounts();
+	fs::path filePath = listAccounts();
 
 	try
 	{
 
-		ifstream fileintemp(filename); // filein is now cin >> (stuff from filename)
+		ifstream fileintemp(filePath); // filein is now cin >> (stuff from filename)
 
 		if(!fileintemp)
 			throw cantFind();
 		fileintemp.close();
 
+		cout << "\n check number 1!!\n";
+
 		// decrypt(filename);
-		ifstream filein(filename);
+		ifstream filein(filePath);
 		// encrypt(filename);
 
-		tempfilename = filename + ".temp";
+		cout << "\n check number 2!!\n";
+
+/*		tempfilename = filename + ".temp";
 		if(fs::exists(tempfilename))
 		{
 			ifstream fileintemp(tempfilename);
@@ -91,45 +95,48 @@ void viewMenu()
 			getyn(yn);
 			if(yn == 'n')
 				throw abortView();
-		}// fi tempfilename deadlock check
+		}// fi tempfilename deadlock check*/
 
 		filein >> acctType; // first line will be string showing what account it is
+
+		cout << "\n check number 3!!\n";
+		cout << "\n\n the acctType should be " << acctType << endl;
 
 		switch(acctType)
 		{
 			case 'y':
 			{
-				serviceChargeCheckingType service(filename);
+				serviceChargeCheckingType service(filePath);
 				service.viewMenu();
 				break;
 			}
 			case 'n':
 			{
-				noServiceChargeCheckingType noService(filename);
+				noServiceChargeCheckingType noService(filePath);
 				noService.viewMenu();
 				break;
 			}
 			case 'C':
 			{
-				highInterestCheckingType highChecking(filename);
+				highInterestCheckingType highChecking(filePath);
 				highChecking.viewMenu();
 				break;
 			}
 			case 'd':
 			{
-				certificateOfDepositType deposit(filename);
+				certificateOfDepositType deposit(filePath);
 				deposit.viewMenu();
 				break;
 			}
 			case 's':
 			{
-				savingsAccountType savings(filename); // constructor with one string brings data in from file
+				savingsAccountType savings(filePath);
 				savings.viewMenu();
 				break;
 			}
 			case 'S':
 			{
-				highInterestSavingsType highSavings(filename);
+				highInterestSavingsType highSavings(filePath);
 				highSavings.viewMenu();
 				break;
 			}

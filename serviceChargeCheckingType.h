@@ -8,7 +8,7 @@
 class serviceChargeCheckingType: public checkingAccountType
 {
 	public:
-		serviceChargeCheckingType(string filename);
+		serviceChargeCheckingType(fs::path);
 
 		serviceChargeCheckingType(string n, int acctNumber, double bal);
 		serviceChargeCheckingType(string n, int acctNumber, double bal,
