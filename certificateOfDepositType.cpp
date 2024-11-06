@@ -18,6 +18,7 @@ certificateOfDepositType::certificateOfDepositType(string filename)
 	filein >> balance;
 	filein >> interestRate;
 	filein >> maturityMonths;
+	cdMonth = 0;
 }
 
 certificateOfDepositType::certificateOfDepositType(string n, int acctNumber, double bal)
@@ -93,7 +94,16 @@ void certificateOfDepositType::withdraw()
 void certificateOfDepositType::createMonthlyStatement()
 {
 	postInterest();
-	cdMonth++;
+	if(cdMonth < maturityMonths)
+	{
+		cdMonth++;
+	}
+	cout << left;
+	cout << setw(15) << " " << "│       Maturity Month : " << setw(2) << cdMonth << " / " << setw(16) << maturityMonths << "│" << endl;
+	cout << setw(15) << " " << "│       Interest Rate  : " << setw(21) << interestRate << "│" << endl;
+	cout << setw(15) << " " << "│       Balance        : " << setw(21) << balance << "│" << endl;
+	cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << right;
+
 }
 
 void certificateOfDepositType::print()

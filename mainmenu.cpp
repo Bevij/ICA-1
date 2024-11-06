@@ -101,6 +101,7 @@ int main(){
 				cout << setw(18) << "│" << setw(21) << "6.  Encrypt File" << setw(27) << "│" << endl;
 				cout << setw(18) << "│" << setw(21) << "7.  Decrypt File" << setw(27) << "│" << endl;
 				cout << setw(18) << "│" << setw(21) << "8.  View Logs   " << setw(27) << "│" << endl;
+				cout << setw(18) << "│" << setw(39) << "9.  Increase Maturity for Accounts" << setw(9) << "│" << endl;
 				break;
 		}
 
@@ -308,6 +309,11 @@ int main(){
 					case '8':
 					{
 						logMenu();
+						break;
+					}
+					case '9':
+					{
+						maturityMonths();
 						break;
 					}
 
