@@ -142,17 +142,24 @@ void createMenu()
 					account = to_string(tempNum);
 				}
 
-				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
-				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Last name of Account Holder          :  ";
+				getline(cin, lastName);
+				cout << endl << endl << setw(15) << " " << "First name of Account Holder          :  ";
+				getline(cin, firstName);
 				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 				getposdouble(balance);
 				numChecksWritten = 0; // it's a new account, after all
 
-				ofstream fileouty(account);// fileout is cout, but to file
-
+				// Account file creation
+				string newFilePath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + account;
+				fs::path newAcctPath = newFilePath
+				if (!fs::exists(newAcctPath)) {
+					ofstream fileouty(newAcctPath);// fileout is cout, but to file
+				}
 				fileouty << accountChar << endl;
 				fileouty << account << endl;
-				fileouty << name << endl;
+				fileouty << lastName << endl;
+				fileouty << firstName << endl;
 				fileouty << balance << endl;
 				fileouty << numChecksWritten << endl;
 
@@ -240,8 +247,10 @@ void createMenu()
 				{
 					account = to_string(tempNum);
 				}
-				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
-				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Last name of Account Holder          :  ";
+				getline(cin, lastName);
+				cout << endl << endl << setw(15) << " " << "First name of Account Holder          :  ";
+				getline(cin, firstName);
 				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 				getposdouble(balance);
 				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -340,8 +349,10 @@ void createMenu()
 				{
 					account = to_string(tempNum);
 				}
-				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
-				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Last name of Account Holder          :  ";
+				getline(cin, lastName);
+				cout << endl << endl << setw(15) << " " << "First name of Account Holder          :  ";
+				getline(cin, firstName);
 				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 				getposdouble(balance);
 				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -440,8 +451,10 @@ void createMenu()
 				{
 					account = to_string(tempNum);
 				}
-				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
-				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Last name of Account Holder          :  ";
+				getline(cin, lastName);
+				cout << endl << endl << setw(15) << " " << "First name of Account Holder          :  ";
+				getline(cin, firstName);
 				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 				getposdouble(balance);
 				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -540,8 +553,10 @@ void createMenu()
 				{
 					account = to_string(tempNum);
 				}
-				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
-				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Last name of Account Holder          :  ";
+				getline(cin, lastName);
+				cout << endl << endl << setw(15) << " " << "First name of Account Holder          :  ";
+				getline(cin, firstName);
 				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 				getposdouble(balance);
 				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -637,8 +652,10 @@ void createMenu()
 				{
 					account = to_string(tempNum);
 				}
-				cout << endl << endl << setw(15) << " " << "Name of Account Holder          :  ";
-				getline(cin, name);
+				cout << endl << endl << setw(15) << " " << "Last name of Account Holder          :  ";
+				getline(cin, lastName);
+				cout << endl << endl << setw(15) << " " << "First name of Account Holder          :  ";
+				getline(cin, firstName);
 				cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 				getposdouble(balance);
 				cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
