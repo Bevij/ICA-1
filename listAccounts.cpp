@@ -1,12 +1,14 @@
 #include "header.h"
 
-void listAccounts() {
+string listAccounts() {
 	// Retrieve user information from struct
 	string username = user.username;
 	string lastName = user.lastName;
 	string firstName = user.firstName;
 	int role = user.role;
 	string fullName = lastName + "/" + firstName;
+
+	string foundFilePath = "";
 
 	// Specify directory
 	/*fs::path dir = "./Data/Accounts/" + fullName + "/" + username;*/
@@ -106,6 +108,7 @@ void listAccounts() {
 							if (entry.path().filename() == acctNumSearch) {
 								cout << "File found: " << entry.path() << endl; // Add list function for contents
 								accountFound = true;
+								foundFilePath = entry.path();
 								break;
 							} // End nested if
 						} // End if
@@ -131,6 +134,5 @@ void listAccounts() {
 			break;
 		}
 	} // End switch
-
-	return;
+	return foundFilePath;
 }

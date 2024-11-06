@@ -59,8 +59,8 @@ void viewMenu()
 	/*cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
 	getline(cin, filename);*/
 
-	listAccounts();
 
+	string filePath = listAccounts();
 
 	try
 	{
@@ -71,9 +71,9 @@ void viewMenu()
 			throw cantFind();
 		fileintemp.close();
 
-		decrypt(filename);
+		// decrypt(filename);
 		ifstream filein(filename);
-		encrypt(filename);
+		// encrypt(filename);
 
 		tempfilename = filename + ".temp";
 		if(fs::exists(tempfilename))
@@ -165,4 +165,3 @@ void viewMenu()
 
 	return;
 }
-
