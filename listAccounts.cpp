@@ -6,7 +6,7 @@ void listAccounts() {
 	string lastName = user.lastName;
 	string firstName = user.firstName;
 	int role = user.role;
-	string fullName = lastName + ", " + firstName;
+	string fullName = lastName + "/" + firstName;
 
 	// Specify directory
 	fs::path dir = "./Data/Accounts/" + fullName + "/" + username;
@@ -19,6 +19,7 @@ void listAccounts() {
 
 		switch (role) {
 		case 1: // Client
+		{
 			cout << "You hold the following accounts: " << endl;
 
 			// Iterates over all files in the directory and lists them (maybe replace with list function)
@@ -26,26 +27,10 @@ void listAccounts() {
 				cout << entry.path().filename() << endl; // REPLACE WITH LIST FUNCTION THAT OUTPUTS FILE CONTENTS AS WELL
 			}
 			cout << endl;
-
-			// May conflict with file edit function
-
-			/* do {
-				// Input
-				cout << "Select an account to manage: ";
-				getline (cin, acctNameInput);
-				cout << endl;
-				// File path creation
-				fs::path filePath = fs::path(directory) / acctNameInput;
-				// Validation
-				if (!fs::exists(filePath) && !fs::is_regular_file(filePath)) {
-					cout << "Invalid account number. Account " << acctNameInput << " does not exist." << endl;
-				} else {
-					// OUTPUT FILE CONTENTS
-				}
-			} while (!fs::exists(filePath) && !fs::is_regular_file(filePath)) */
-
 			break;
+		}
 		case 2: case 3: case 4: // Clerk, Manager, Admin
+		{
 			int searchMethod = 0;
 			cout << "Please specify how you would like to search for an account." << endl;
 			cout << "\t1. Account Holder Name" << endl;
@@ -70,7 +55,7 @@ void listAccounts() {
 					getline (cin, firstName);
 					cout << endl;
 
-					fullName = lastName + ", " + firstName;
+					fullName = lastName + "/" + firstName;
 
 					// Search Criteria
 					fs::path dirParent = "./Data/Accounts";
