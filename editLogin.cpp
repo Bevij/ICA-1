@@ -3,13 +3,15 @@
 void editLogin()
 {
 	string username, passwordInput, password, lastName, firstName, roleString;
-	char choice,role;
+	string usernameTemp;
+	char choice;
+	int role;
 	bool leaving = false;
 	bool flag = false;
 	cout << "\033c" << right;
 		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
 		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
-		cout << setw(18) << "║" << "      User Edit 						      ║" << endl;
+		cout << setw(18) << "║" << "      User LOGIN EDIT"<<setw(27)<<"║" << endl;
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
@@ -20,23 +22,28 @@ void editLogin()
 		{
 			case 1:
 			{
-				cout << setw(25) << "Client" << "│" << endl;
+				cout <<  "Client" <<setw(23)<< "│" << endl;
+				break;
 			}
 			case 2:
 			{
-				cout << setw(25) << "Clerk" << "│" << endl;
+				cout << "Clerk" << setw(23) << "│" << endl;
+				break;
 			}
 			case 3:
 			{
-				cout << setw(25) << "Manager" << "│" << endl;
+				cout << "Manager" <<  setw(21) <<"│" << endl;
+				break;
 			}
 			case 4:
 			{
-				cout << setw(25) << "Admin" << "│" << endl;
+				cout << "Admin" <<  setw(23) <<"│" << endl;
+				break;
 			}
 			default:
 			{
-				cout << setw(25) << "ERROR" << "│" << endl;
+				cout << "ERROR" <<  setw(25) <<"│" << endl;
+				break;
 			}
 		}		// End Switch
 		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
@@ -92,7 +99,7 @@ void editLogin()
 			cout << "\033c" << right;
 		cout << setw(15) << " " << "╔═════════════════════════════════════════════╗" << endl;
 		cout << setw(18) << "║" << setw(19) << " " << setw(29) << "║" << endl;
-		cout << setw(18) << "║" << "      USER LOGIN EDIT     ║" << endl;
+		cout << setw(18) << "║" << "      User LOGIN EDIT"<<setw(27)<<"║" << endl;
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
@@ -103,52 +110,64 @@ void editLogin()
 		{
 			case 1:
 			{
-				cout << setw(25) << "Client" << "│" << endl;
+				cout <<  "Client" <<setw(23)<< "│" << endl;
+				break;
 			}
 			case 2:
 			{
-				cout << setw(25) << "Clerk" << "│" << endl;
+				cout << "Clerk" << setw(23) << "│" << endl;
+				break;
 			}
 			case 3:
 			{
-				cout << setw(25) << "Manager" << "│" << endl;
+				cout << "Manager" <<  setw(21) <<"│" << endl;
+				break;
 			}
 			case 4:
 			{
-				cout << setw(25) << "Admin" << "│" << endl;
+				cout << "Admin" <<  setw(23) <<"│" << endl;
+				break;
 			}
 			default:
 			{
-				cout << setw(25) << "ERROR" << "│" << endl;
+				cout << "ERROR" <<  setw(25) <<"│" << endl;
+				break;
 			}
 		}		// End Switch
-		
 		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;	
-		cout << setw(18) << "│" << setw(25) << "1.  User Name          : " << setw(20) << left << user.username << "│" << endl << right;
-		cout << setw(18) << "│" << setw(25) << "2.  Password      : " << setw(20) << left << "│" << endl << right;
+		cout << setw(18) << "│" << setw(31) << "1.  User Name          : " << setw(14) << left << user.username << "│" << endl << right;
+		cout << setw(18) << "│" << setw(25) << "2.  Password      : " << setw(22) << right<< "│" << endl << right;
 		cout << setw(18) << "│" << setw(25) << "3.  Last Name : " << setw(20) << left << user.lastName << "│" << endl << right;
 		cout << setw(18) << "│" << setw(25) << "4.  First Name    : " << setw(20) << left << user.firstName << "│" << endl << right;
-		cout << setw(18) << "│" << setw(22) << "5.  Role :"    << setw(26) << left<< user.role<<"│" << endl;
-		cout << setw(18) << "│" << setw(22) << "0.  SAVE & EXIT"    << setw(26) << left<<"│" << endl;
+		cout << setw(18) << "│" << setw(22) << "5.  Role :"    << setw(23) << left<< user.role<<"│" << endl;
+		cout << setw(18) << "│" << setw(22) << "0.  SAVE & EXIT"    << setw(26) << right<<"│" << endl;
 		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl << endl << endl;
 		cin>>choice;
 		cin.ignore();
 		switch(choice){
-			case'1':
-				{cout<<"What would you like to change the User Name to"<<endl;
-				getline(cin,username);
+			case'1':{
+				
+				/*{cout<<"What would you like to change the User Name to"<<endl;
+				getline(cin,usernameTemp);
+				user.username=usernameTemp;*/
+				cout<<"username has definetly been edited yep yep"<<endl;
+				cin>>choice;
 				break;}
 			case'2':
 				{cout<<"What would you like to change the Password to"<<endl;
 				password= hidePass();
 				break;}
 			case'3':{
-				cout<<"What would you like to change the Last Name to"<<endl;
-				getline(cin,lastName);
+				/*cout<<"What would you like to change the Last Name to"<<endl;
+				getline(cin,lastName);*/
+				cout<<"last name has been edited ype Yep"<<endl;
+				cin>>choice;
 				break;}
 			case'4':{
-				cout<<"What would you like to change the First Name to"<<endl;
-				getline(cin,firstName);
+				/*cout<<"What would you like to change the First Name to"<<endl;
+				getline(cin,firstName);*/
+				cout<<"first name has been edited yep Yep"<<endl;
+				cin>>choice;
 				break;}
 			case'5':{
 			
@@ -250,9 +269,14 @@ void editLogin()
 			default:
 			cout<<" Error Invalid Choice Please insert Correct Option"<<endl;
 		}
-		fs::path dirUserSearch = "./Data/Users";
-			fs::path filePath;
-		ofstream userFile(user.username);
+		//string newFilePath = "./Data/Users/" + usernameTemp;
+		//	fs::path newUserPath = newFilePath;
+		
+		/*if(username!= usernameTemp)
+		{
+			
+			fs::remove("./Data/Users/" + username);
+			ofstream userFile(newUserPath);
 					userFile << username << endl;
 					user.username = username;
 					userFile << password << endl;
@@ -263,6 +287,21 @@ void editLogin()
 					user.firstName = firstName;
 					userFile << role << endl;
 					user.role = role;
+		} */
+			string originalFilePath= "./Data/Users/" +username;	
+		fs::path originalUserPath = originalFilePath;
+		ofstream userFile(originalUserPath);
+					userFile << username << endl;
+					user.username = username;
+					userFile << password << endl;
+					user.password = password;
+					userFile << lastName << endl;
+					user.lastName = lastName;
+					userFile << firstName << endl;
+					user.firstName = firstName;
+					userFile << role << endl;
+					user.role = role;
+
 		}while(flag!=true);
 					
 
