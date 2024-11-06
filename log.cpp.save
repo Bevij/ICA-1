@@ -165,6 +165,10 @@ void log(const char& log) {
 
 
 
+
+
+
+
 void logMenu()
 {
 	bool leaving = false;
@@ -212,17 +216,14 @@ void logMenu()
 			case '2':
 			{
 				filePath = "./Data/Logs/Users/"; // NOT WORKING, NEED SEARCH FOR USERS AND STUFF
-				getSubPath(filePath);
+				getUserPath(filePath);
 				if(filePath != "./Data/Logs/Users/")
 					logView(filePath, "USER");
 				break;
 			}
 			case '3':
 			{
-				filePath = "./Data/Logs/Accounts/"; // NOT WORKING, NEED SEARCH FOR USERS AND STUFF
-				getSubPath(filePath);
-				if(filePath != "./Data/Logs/Accounts/")
-					logView(filePath, "ACCOUNTS");
+				leaving = true;
 				break;
 			}
 			case '4':
@@ -328,7 +329,7 @@ void getActionPath(fs::path& filePath) // finds which user to view
 }
 
 
-void getSubPath(fs::path& filePath)
+void getUserPath(fs::path& filePath)
 {
 	vector<string> users;
 	for (const auto& entry : fs::directory_iterator(filePath))
@@ -380,7 +381,7 @@ void getSubPath(fs::path& filePath)
 		cout << "\n\n";
 		cout << "               ╔═════════════════════════════════════════════╗\n";
 		cout << "               ║                                             ║\n";
-		cout << "               ║                Log Selection                ║\n";
+		cout << "               ║              User Log Selection             ║\n";
 		cout << "               ╚═════════════════════════════════════════════╝\n";
 		cout << "               ┌─────────────────────────────────────────────┐\n";
 		cout << "               │     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << "│\n";

@@ -95,7 +95,7 @@ void log(const char&);
 void logMenu();
 void logView(const fs::path&, const string&);
 void logOutputConstruct(const fs::path&, vector<string>&);
-void getUserPath(fs::path&);
+void getSubPath(fs::path&);
 void getActionPath(fs::path&);
 
 
