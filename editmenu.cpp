@@ -58,10 +58,11 @@ void editMenu()
 	cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
 	getline(cin, filename);
 
+	fs::path filePath = listAccounts();
 
 	try
 	{
-		ifstream fileintest(filename); // filein is now cin >> (stuff from file)
+		ifstream fileintest(filePath); // filein is now cin >> (stuff from file)
 
 		if(!fileintest)
 			throw cantFind();
@@ -69,10 +70,10 @@ void editMenu()
 
 
 		decrypt(filename);
-		ifstream filein(filename); // store and makes readable the decrypted file for editmenu.cpp
+		ifstream filein(filePath); // store and makes readable the decrypted file for editmenu.cpp
 		encrypt(filename);
 
-		tempfilename = filename + ".temp";
+/*		tempfilename = filename + ".temp";
 		if(fs::exists(tempfilename))
 		{
 			ifstream fileintemp(tempfilename);
@@ -90,53 +91,54 @@ void editMenu()
 			}
 			else
 				throw deadlock();
-		}// fi tempfilename deadlock check
+		}// fi tempfilename deadlock check*/
 
 
-		lock(filename);
+//		lock(filename);
 
-		filein >> acctType; // first line will be string showing what account it is
+		filein >> acctType;
+		filein >> filename;
 
 		switch(acctType)
 		{
 			case 'y':
 			{
-				serviceChargeCheckingType service(filename); // makes a temporary class to hold data, constructs from data in file
+				serviceChargeCheckingType service(filePath); // makes a temporary class to hold data, constructs from data in file
 				service.editMenu(); // calls editMenu from class
 				service.update(); // updates the file with new data
 				break;
 			}
 			case 'n':
 			{
-				noServiceChargeCheckingType noService(filename);
+				noServiceChargeCheckingType noService(filePath);
 				noService.editMenu();
 				noService.update();
 				break;
 			}
 			case 'C':
 			{
-				highInterestCheckingType highChecking(filename);
+				highInterestCheckingType highChecking(filePath);
 				highChecking.editMenu();
 				highChecking.update();
 				break;
 			}
 			case 'd':
 			{
-				certificateOfDepositType deposit(filename);
+				certificateOfDepositType deposit(filePath);
 				deposit.editMenu();
 				deposit.update();
 				break;
 			}
 			case 's':
 			{
-				savingsAccountType savings(filename);
+				savingsAccountType savings(filePath);
 				savings.editMenu();
 				savings.update();
 				break;
 			}
 			case 'S':
 			{
-				highInterestSavingsType highSavings(filename);
+				highInterestSavingsType highSavings(filePath);
 				highSavings.editMenu();
 				highSavings.update();
 				break;

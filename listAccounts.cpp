@@ -11,8 +11,8 @@ string listAccounts() {
 	string foundFilePath = "";
 
 	// Specify directory
-	/*fs::path dir = "./Data/Accounts/" + fullName + "/" + username;*/
-	fs::path dir = "./";
+	fs::path dir = "./Data/Accounts/";
+//	fs::path dir = ".";
 
 	// Check if directory exists
 	if (!fs::exists(dir) || !fs::is_directory(dir)) {

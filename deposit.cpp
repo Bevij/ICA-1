@@ -4,12 +4,14 @@ double deposit(char acctType, string filename, double amount)
 {
 	double balance = 0.0;
 
+	fs::path filePath = searchbynum(filename);
+
 	switch(acctType)
 	{
 		case 'y':
 		{
-			serviceChargeCheckingType service(filename);	// Create new class with file
-			fs::remove(filename);
+			serviceChargeCheckingType service(filePath);	// Create new class with file
+			fs::remove(filePath);
 
 			service.deposit(amount);							// Update balance of Account
 
@@ -26,8 +28,8 @@ double deposit(char acctType, string filename, double amount)
 		}
 		case 'n':
 		{
-			noServiceChargeCheckingType noService(filename);	// Create new class with file
-			fs::remove(filename);
+			noServiceChargeCheckingType noService(filePath);	// Create new class with file
+			fs::remove(filePath);
 
 			noService.deposit(amount);									// Update balance of Account
 
@@ -45,8 +47,8 @@ double deposit(char acctType, string filename, double amount)
 		}
 		case 'C':
 		{
-			highInterestCheckingType highChecking(filename);	// Create new class with file
-			fs::remove(filename);
+			highInterestCheckingType highChecking(filePath);	// Create new class with file
+			fs::remove(filePath);
 
 			highChecking.deposit(amount);									// Update balance of Account
 
@@ -64,8 +66,8 @@ double deposit(char acctType, string filename, double amount)
 		}
 		case 'd':
 		{
-			certificateOfDepositType deposit(filename);	// Create new class with file
-			fs::remove(filename);
+			certificateOfDepositType deposit(filePath);	// Create new class with file
+			fs::remove(filePath);
 
 			deposit.deposit(amount);									// Update balance of Account
 
@@ -83,8 +85,8 @@ double deposit(char acctType, string filename, double amount)
 		}
 		case 's':
 		{
-			savingsAccountType savings(filename);	// Create new class with file
-			fs::remove(filename);
+			savingsAccountType savings(filePath);	// Create new class with file
+			fs::remove(filePath);
 
 			savings.deposit(amount);									// Update balance of Account
 
@@ -101,8 +103,8 @@ double deposit(char acctType, string filename, double amount)
 		}
 		case 'S':
 		{
-			highInterestSavingsType highSavings(filename);	// Create new class with file
-			fs::remove(filename);
+			highInterestSavingsType highSavings(filePath);	// Create new class with file
+			fs::remove(filePath);
 
 			highSavings.deposit(amount);									// Update balance of Account
 

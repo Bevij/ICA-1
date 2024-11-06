@@ -150,7 +150,7 @@ void withdraw()
 				{
 					case 'y':
 					{
-						serviceChargeCheckingType service(filename);
+						serviceChargeCheckingType service(".");
 						fs::remove(filename);
 
 						service.withdraw(amount);

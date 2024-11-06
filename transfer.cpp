@@ -171,7 +171,7 @@ void transfer()
 				{
 					case 'y':
 					{
-						serviceChargeCheckingType service(filename);
+						serviceChargeCheckingType service(".");
 						fs::remove(filename);
 
 						checkWritten = service.writeCheck(amount);
