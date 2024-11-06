@@ -23,9 +23,9 @@ void transfer()
 	cout << setw(18) << "║" << setw(43) << "║" << endl;
 	cout << setw(18) << "║" << setw(28) << "Transfer  Menu" << setw(15) << "║" << endl;
 	cout << setw(15) << " " << "╚════════════════════════════════════════╝" << endl;
-	cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+	cout << setw(15) << " " << "┌────────────────────────────────────────┐" << endl;
 	cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-	cout << setw(15) << " " << "│     User Role    : ";
+	cout << setw(15) << " " << "│     User Role    : " << left;
 
 	// Switch for role selection
 
@@ -57,7 +57,7 @@ void transfer()
 			break;
 		}
 	}		// End Switch
-	cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
+	cout << setw(15) << " " << "├────────────────────────────────────────┤" << endl << right;
 
 	cout << setw(18) << "│" << setw(17) << "1.  Transfer" << setw(26) << "│" << endl;
 	cout << setw(18) << "│" << setw(13) << "0.  Exit" << setw(30) << "│" << endl;
