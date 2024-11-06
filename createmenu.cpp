@@ -147,7 +147,7 @@ void createMenu() {
 				// Account file creation
 				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
 				if (fs::exists(newAcctPath)) {
-					cout << "Account already exists!" << endl << "1. Generate a random account number" << "0. Exit the program" << endl << endl;
+					cout << "Account already exists!" << endl << "1. Generate a random account number" << endl << "0. Exit the program" << endl << endl;
 					getposint(exitChoice);
 					switch (exitChoice) {
 						case 1:
@@ -175,6 +175,9 @@ void createMenu() {
 						cout << endl << endl << setw(15) << " " << "Username of Account Holder          :  ";
 						getline(cin, username);
 					}
+					fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+					fs::create_directories(newAcctPath.parent_path());
+
 					cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 					getposdouble(balance);
 					numChecksWritten = 0; // it's a new account, after all
@@ -273,7 +276,7 @@ void createMenu() {
 				// Account file creation
 				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
 				if (fs::exists(newAcctPath)) {
-					cout << "Account already exists!" << endl << "1. Generate a random account number" << "0. Exit the program" << endl << endl;
+					cout << "Account already exists!" << endl << "1. Generate a random account number" << endl << "0. Exit the program" << endl << endl;
 					getposint(exitChoice);
 					switch (exitChoice) {
 						case 1:
@@ -301,6 +304,9 @@ void createMenu() {
 						cout << endl << endl << setw(15) << " " << "Username of Account Holder          :  ";
 						getline(cin, username);
 					}
+					fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+					fs::create_directories(newAcctPath.parent_path());
+
 					cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 					getposdouble(balance);
 					cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -402,7 +408,7 @@ void createMenu() {
 				// Account file creation
 				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
 				if (fs::exists(newAcctPath)) {
-					cout << "Account already exists!" << endl << "1. Generate a random account number" << "0. Exit the program" << endl << endl;
+					cout << "Account already exists!" << endl << "1. Generate a random account number" << endl << "0. Exit the program" << endl << endl;
 					getposint(exitChoice);
 					switch (exitChoice) {
 						case 1:
@@ -430,6 +436,9 @@ void createMenu() {
 						cout << endl << endl << setw(15) << " " << "Username of Account Holder          :  ";
 						getline(cin, username);
 					}
+					fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+					fs::create_directories(newAcctPath.parent_path());
+
 					cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 					getposdouble(balance);
 					cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -531,7 +540,7 @@ void createMenu() {
 				// Account file creation
 				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
 				if (fs::exists(newAcctPath)) {
-					cout << "Account already exists!" << endl << "1. Generate a random account number" << "0. Exit the program" << endl << endl;
+					cout << "Account already exists!" << endl << "1. Generate a random account number" << endl << "0. Exit the program" << endl << endl;
 					getposint(exitChoice);
 					switch (exitChoice) {
 						case 1:
@@ -559,6 +568,9 @@ void createMenu() {
 						cout << endl << endl << setw(15) << " " << "Username of Account Holder          :  ";
 						getline(cin, username);
 					}
+					fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+					fs::create_directories(newAcctPath.parent_path());
+
 					cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 					getposdouble(balance);
 					cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -660,7 +672,7 @@ void createMenu() {
 				// Account file creation
 				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
 				if (fs::exists(newAcctPath)) {
-					cout << "Account already exists!" << endl << "1. Generate a random account number" << "0. Exit the program" << endl << endl;
+					cout << "Account already exists!" << endl << "1. Generate a random account number" << endl << "0. Exit the program" << endl << endl;
 					getposint(exitChoice);
 					switch (exitChoice) {
 						case 1:
@@ -688,6 +700,9 @@ void createMenu() {
 						cout << endl << endl << setw(15) << " " << "Username of Account Holder          :  ";
 						getline(cin, username);
 					}
+					fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+					fs::create_directories(newAcctPath.parent_path());
+
 					cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 					getposdouble(balance);
 					cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
@@ -787,7 +802,7 @@ void createMenu() {
 				// Account file creation
 				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
 				if (fs::exists(newAcctPath)) {
-					cout << "Account already exists!" << endl << "1. Generate a random account number" << "0. Exit the program" << endl << endl;
+					cout << "Account already exists!" << endl << "1. Generate a random account number" << endl << "0. Exit the program" << endl << endl;
 					getposint(exitChoice);
 					switch (exitChoice) {
 						case 1:
@@ -815,6 +830,9 @@ void createMenu() {
 						cout << endl << endl << setw(15) << " " << "Username of Account Holder          :  ";
 						getline(cin, username);
 					}
+					fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+					fs::create_directories(newAcctPath.parent_path());
+
 					cout << endl << endl << setw(15) << " " << "Initial Deposit                 :  ";
 					getposdouble(balance);
 					cout << endl << endl << setw(15) << " " << "Interest Rate                   :  ";
