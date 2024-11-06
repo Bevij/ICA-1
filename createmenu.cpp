@@ -4,7 +4,9 @@ void createMenu()
 {
 	char choice;
 	char accountChar;
-	string name;
+	string lastName;
+	string firstName;
+	string username = user.username;
 	string account;
 	double balance;
 	double   intRate;
@@ -151,17 +153,20 @@ void createMenu()
 				numChecksWritten = 0; // it's a new account, after all
 
 				// Account file creation
-				string newFilePath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + account;
-				fs::path newAcctPath = newFilePath
-				if (!fs::exists(newAcctPath)) {
+				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+				if (fs::exists(newAcctPath)) {
+					cout << "Account already exists! Exiting..." << endl;
+					waitforenter();
+					break;
+				} else if (!fs::exists(newAcctPath)) {
 					ofstream fileouty(newAcctPath);// fileout is cout, but to file
+					fileouty << accountChar << endl;
+					fileouty << account << endl;
+					fileouty << lastName << endl;
+					fileouty << firstName << endl;
+					fileouty << balance << endl;
+					fileouty << numChecksWritten << endl;
 				}
-				fileouty << accountChar << endl;
-				fileouty << account << endl;
-				fileouty << lastName << endl;
-				fileouty << firstName << endl;
-				fileouty << balance << endl;
-				fileouty << numChecksWritten << endl;
 
 				cout << endl << endl;
 				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
@@ -262,7 +267,7 @@ void createMenu()
 
 				fileoutn << accountChar << endl;
 				fileoutn << account << endl;
-				fileoutn << name << endl;
+				fileoutn << lastName << endl;
 				fileoutn << balance << endl;
 				fileoutn << intRate<<endl;
 				fileoutn << minBalance<<endl;
@@ -360,14 +365,20 @@ void createMenu()
 				cout << endl << endl << setw(15) << " " << "Minimum Balance                 :  ";
 				getposdouble(minBalance);
 
-				ofstream fileoutC(account);// fileout is cout, but to file
-
-				fileoutC << accountChar << endl;
-				fileoutC << account << endl;
-				fileoutC << name << endl;
-				fileoutC << balance << endl;
-				fileoutC << intRate << endl;
-				fileoutC << minBalance << endl;
+				// Account file creation
+				fs::path newAcctPath = "./Data/Accounts/" + lastName + "/" + firstName + "/" + username + "/" + account;
+				if (!fs::exists(newAcctPath)) {
+					ofstream fileoutC(newAcctPath);// fileout is cout, but to file
+					fileoutC << accountChar << endl;
+					fileoutC << account << endl;
+					fileoutC << lastName << endl;
+					fileoutC << firstName << endl;
+					fileoutC << balance << endl;
+					fileoutC << numChecksWritten << endl;
+				} else {
+					cout << "Account already exists! Exiting..." << endl;
+					break;
+				}
 
 				cout << endl << endl;
 				cout << setw(15) << " " << "Bank Account Successfully Created!" << endl;
@@ -466,7 +477,7 @@ void createMenu()
 
 				fileoutd << accountChar << endl;
 				fileoutd << account << endl;
-				fileoutd << name << endl;
+				fileoutd << lastName << endl;
 				fileoutd << balance << endl;
 				fileoutd << intRate << endl;
 				fileoutd << maturityMon << endl;
@@ -566,7 +577,7 @@ void createMenu()
 
 				fileouts << accountChar << endl;
 				fileouts << account << endl;
-				fileouts << name << endl;
+				fileouts << lastName << endl;
 				fileouts << balance << endl;
 				fileouts << intRate << endl;
 
@@ -667,7 +678,7 @@ void createMenu()
 
 				fileoutS << accountChar << endl;
 				fileoutS << account << endl;
-				fileoutS << name << endl;
+				fileoutS << lastName << endl;
 				fileoutS << balance << endl;
 				fileoutS << intRate << endl;
 				fileoutS << minBalance << endl;
