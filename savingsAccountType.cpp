@@ -9,11 +9,11 @@ savingsAccountType::savingsAccountType()
 }
 
 // constructor FROM FILE
-savingsAccountType::savingsAccountType(string filename)
+savingsAccountType::savingsAccountType(fs::path filePath)
 {
-	decrypt(filename);
-	ifstream filein(filename);
-	encrypt(filename);
+//	decrypt(filename);
+	ifstream filein(filePath);
+//	encrypt(filename);
 
 	string temp;
 	filein >> temp;

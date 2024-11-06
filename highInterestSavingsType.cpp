@@ -5,11 +5,11 @@
 const double highInterestSavingsType::MINIMUM_BALANCE = 2500.00;
 const double highInterestSavingsType::INTEREST_RATE = 0.05;
 
-highInterestSavingsType::highInterestSavingsType(string filename)
+highInterestSavingsType::highInterestSavingsType(fs::path filePath)
 {
-	decrypt(filename);
-	ifstream filein(filename);
-	encrypt(filename);
+//	decrypt(filename);
+	ifstream filein(filePath);
+//	encrypt(filename);
 
 	string temp;
 	filein >> temp;

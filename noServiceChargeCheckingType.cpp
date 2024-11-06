@@ -8,11 +8,11 @@ noServiceChargeCheckingType::noServiceChargeCheckingType()
 {
 }
 
-noServiceChargeCheckingType::noServiceChargeCheckingType(string filename)
+noServiceChargeCheckingType::noServiceChargeCheckingType(fs::path filePath)
 {
-	decrypt(filename);
-	ifstream filein(filename);
-	encrypt(filename);
+//	decrypt(filename);
+	ifstream filein(filePath);
+//	encrypt(filename);
 
 	string temp;
 	filein >> temp;

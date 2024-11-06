@@ -8,7 +8,7 @@
 class highInterestSavingsType: public savingsAccountType
 {
 	public:
-		highInterestSavingsType(string filename);
+		highInterestSavingsType(fs::path);
 
 		highInterestSavingsType(string n, int acctNumber, double bal);
 		highInterestSavingsType(string n, int acctN, double balance, double intRate, double minbalance);

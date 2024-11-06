@@ -5,11 +5,11 @@
 const double highInterestCheckingType::INTEREST_RATE = 0.05;
 const double highInterestCheckingType::MIN_BALANCE = 5000.00;
 
-highInterestCheckingType::highInterestCheckingType(string filename)
+highInterestCheckingType::highInterestCheckingType(fs::path filePath)
 {
-	decrypt(filename);
-	ifstream filein(filename);
-	encrypt(filename);
+//	decrypt(filename);
+	ifstream filein(filePath);
+//	encrypt(filename);
 
 	string temp;
 	filein >> temp;

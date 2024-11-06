@@ -9,7 +9,7 @@ class noServiceChargeCheckingType: public checkingAccountType
 {
 	public:
 		noServiceChargeCheckingType();
-		noServiceChargeCheckingType(string filename);
+		noServiceChargeCheckingType(fs::path);
 
 		noServiceChargeCheckingType(string n, int acctNumber, double bal);
 		noServiceChargeCheckingType(string n, int acctNumber, double bal,

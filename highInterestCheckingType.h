@@ -8,7 +8,7 @@
 class highInterestCheckingType: public noServiceChargeCheckingType
 {
 	public:
-		highInterestCheckingType(string filename);
+		highInterestCheckingType(fs::path);
 
 		highInterestCheckingType(string n, int acctNumber, double bal);
 		highInterestCheckingType(string n, int acctNumber, double bal,

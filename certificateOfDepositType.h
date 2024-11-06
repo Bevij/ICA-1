@@ -8,7 +8,7 @@
 class certificateOfDepositType: public bankAccountType
 {
 	public:
-		certificateOfDepositType(string filename);
+		certificateOfDepositType(fs::path);
 
 		certificateOfDepositType(string n, int acctNumber, double bal);
 		certificateOfDepositType(string n, int acctNumber, double bal, double intRate, int maturityMon);

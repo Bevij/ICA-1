@@ -5,11 +5,11 @@
 const double certificateOfDepositType::INTEREST_RATE = 0.05;
 const int certificateOfDepositType::NUMBER_OF_MATURITY_MONTHS = 6;
 
-certificateOfDepositType::certificateOfDepositType(string filename)
+certificateOfDepositType::certificateOfDepositType(fs::path filePath)
 {
-	decrypt(filename);
-	ifstream filein(filename);
-	encrypt(filename);
+//	decrypt(filename);
+	ifstream filein(filePath);
+//	encrypt(filename);
 
 	string temp;
 	filein >> temp;
