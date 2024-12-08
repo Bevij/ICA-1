@@ -10,7 +10,7 @@ int main(){
 
 	// Login
 
-	int menuSelection = loginMenu();
+	int menuSelection = user.role;
 	char choice;
 	bool leaving = false;
 
@@ -61,9 +61,38 @@ int main(){
 		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
 		cout << setw(18) << "│" << setw(48) << "│" << endl;
 
+		/*
+		cout << "\n\n" << left;
+		cout << "┌───────────────────────────────────────────────────────────────────────────────────────────────┐\n";
+		cout << "│     Logged in as : " << setw(75) << user.username    <<                                      "│\n";
+		cout << "│     Viewing Log  : " << setw(75) << logName + " LOG" <<                                      "│\n";
+		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
+		cout << "│ {  DATE  } { TIME } {   USERNAME   } {                       ACTION                        }  │\n";
+		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
+		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
+		cout << "│     PAGE:" << setw(3) << right << pageCurrent+1 << '/' << left << setw(81) << numPages+1 <<  "│\n";
+		if(nextPagePossible)
+			cout << "│     {ENTER} to go to next page                                                                │\n";
+		else
+			cout << "│     {ENTER} to return to menu                                                                 │\n";
+		if(previousPagePossible)
+			cout << "│     ' p '   to go to previous page                                                            │\n";
+		cout << "│     ' 0 '   to return to menu                                                                 │\n";
+		cout << "└───────────────────────────────────────────────────────────────────────────────────────────────┘\n";
+		*/
+
 		switch(menuSelection)
 		{
-
 			case 1:							// Client Menu
 
 	   		cout << setw(18) << "│" << setw(27) << "1.  Create New Account" << setw(21) << "│" << endl;
@@ -107,6 +136,8 @@ int main(){
 
    	cout << setw(18) << "│" << setw(16) << "0.  Log Out" << setw(32) << "│" << endl;
 		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
+
+// CLIENT ACCOUNT LISTED HERE
 
 
    	cout << endl << endl << endl << setw(15) << " ";
