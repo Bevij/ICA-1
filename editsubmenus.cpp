@@ -25,7 +25,7 @@ void serviceChargeCheckingType::editMenu() // edits class, only called in editme
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-		cout << setw(15) << " " << "│     User Role    : ";
+		cout << setw(15) << " " << "│     User Role    : " << left;
 
 		// Switch for role selection
 
@@ -34,26 +34,31 @@ void serviceChargeCheckingType::editMenu() // edits class, only called in editme
 			case 1:
 			{
 				cout << setw(25) << "Client" << "│" << endl;
+				break;
 			}
 			case 2:
 			{
 				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
 			}
 			case 3:
 			{
 				cout << setw(25) << "Manager" << "│" << endl;
+				break;
 			}
 			case 4:
 			{
 				cout << setw(25) << "Admin" << "│" << endl;
+				break;
 			}
 			default:
 			{
 				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
 			}
 		}		// End Switch
 
-		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
+		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl << right;
 		cout << setw(18) << "│" << setw(28) << "Service Charge Check : " << left << setw(17) << serviceChargeCheck << "│" << endl << right;
 		cout << setw(18) << "│" << setw(28) << "Service Charge Amount: " << left << setw(17) << serviceChargeAmount << "│" << endl << right;
 		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
@@ -110,7 +115,7 @@ void noServiceChargeCheckingType::editMenu() // edits class, only called in edit
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-		cout << setw(15) << " " << "│     User Role    : ";
+		cout << setw(15) << " " << "│     User Role    : " << left;
 
 		// Switch for role selection
 
@@ -119,26 +124,31 @@ void noServiceChargeCheckingType::editMenu() // edits class, only called in edit
 			case 1:
 			{
 				cout << setw(25) << "Client" << "│" << endl;
+				break;
 			}
 			case 2:
 			{
 				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
 			}
 			case 3:
 			{
 				cout << setw(25) << "Manager" << "│" << endl;
+				break;
 			}
 			case 4:
 			{
 				cout << setw(25) << "Admin" << "│" << endl;
+				break;
 			}
 			default:
 			{
 				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
 			}
 		}		// End Switch
 
-		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(19) << right <<  " "                    << setw(29) << "│" << endl;
 		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
 		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
 		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
@@ -195,7 +205,7 @@ void highInterestCheckingType::editMenu() // edits class, only called in editmen
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-		cout << setw(15) << " " << "│     User Role    : ";
+		cout << setw(15) << " " << "│     User Role    : " << left;
 
 		// Switch for role selection
 
@@ -204,26 +214,31 @@ void highInterestCheckingType::editMenu() // edits class, only called in editmen
 			case 1:
 			{
 				cout << setw(25) << "Client" << "│" << endl;
+				break;
 			}
 			case 2:
 			{
 				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
 			}
 			case 3:
 			{
 				cout << setw(25) << "Manager" << "│" << endl;
+				break;
 			}
 			case 4:
 			{
 				cout << setw(25) << "Admin" << "│" << endl;
+				break;
 			}
 			default:
 			{
 				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
 			}
 		}		// End Switch
 
-		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(19) << right <<  " "                    << setw(29) << "│" << endl;
 		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
 		cout << setw(18) << "│" << setw(27) << "1.  Name            : " << setw(18) << left << name << "│" << endl << right;
 		cout << setw(18) << "│" << setw(27) << "2.  Balance         : " << setw(18) << left << balance << "│" << endl << right;
@@ -277,7 +292,7 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-		cout << setw(15) << " " << "│     User Role    : ";
+		cout << setw(15) << " " << "│     User Role    : " << left;
 
 		// Switch for role selection
 
@@ -286,26 +301,31 @@ void certificateOfDepositType::editMenu() // edits class, only called in editmen
 			case 1:
 			{
 				cout << setw(25) << "Client" << "│" << endl;
+				break;
 			}
 			case 2:
 			{
 				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
 			}
 			case 3:
 			{
 				cout << setw(25) << "Manager" << "│" << endl;
+				break;
 			}
 			case 4:
 			{
 				cout << setw(25) << "Admin" << "│" << endl;
+				break;
 			}
 			default:
 			{
 				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
 			}
 		}		// End Switch
 
-		cout << setw(18) << "│" << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "│" << endl << right;
+		cout << setw(18) << "│" << right << "     Certificate of Deposit Months: " << left << setw(9) << NUMBER_OF_MATURITY_MONTHS << "│" << endl << right;
 		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
 		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
 		cout << setw(18) << "│" << setw(27) << "1.  Name            : " << setw(18) << left << name << "│" << endl << right;
@@ -361,7 +381,7 @@ void savingsAccountType::editMenu()
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-		cout << setw(15) << " " << "│     User Role    : ";
+		cout << setw(15) << " " << "│     User Role    : " << left;
 
 		// Switch for role selection
 
@@ -370,26 +390,31 @@ void savingsAccountType::editMenu()
 			case 1:
 			{
 				cout << setw(25) << "Client" << "│" << endl;
+				break;
 			}
 			case 2:
 			{
 				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
 			}
 			case 3:
 			{
 				cout << setw(25) << "Manager" << "│" << endl;
+				break;
 			}
 			case 4:
 			{
 				cout << setw(25) << "Admin" << "│" << endl;
+				break;
 			}
 			default:
 			{
 				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
 			}
 		}		// End Switch
 
-		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << setw(19) << " "                    << right << setw(29) << "│" << endl;
 		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
 		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
 		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
@@ -438,7 +463,7 @@ void highInterestSavingsType::editMenu()
 		cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 		cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 		cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-		cout << setw(15) << " " << "│     User Role    : ";
+		cout << setw(15) << " " << "│     User Role    : " << left;
 
 		// Switch for role selection
 
@@ -447,26 +472,31 @@ void highInterestSavingsType::editMenu()
 			case 1:
 			{
 				cout << setw(25) << "Client" << "│" << endl;
+				break;
 			}
 			case 2:
 			{
 				cout << setw(25) << "Clerk" << "│" << endl;
+				break;
 			}
 			case 3:
 			{
 				cout << setw(25) << "Manager" << "│" << endl;
+				break;
 			}
 			case 4:
 			{
 				cout << setw(25) << "Admin" << "│" << endl;
+				break;
 			}
 			default:
 			{
 				cout << setw(25) << "ERROR" << "│" << endl;
+				break;
 			}
 		}		// End Switch
 
-		cout << setw(18) << "│" << setw(19) << " "                    << setw(29) << "│" << endl;
+		cout << setw(18) << "│" << right << setw(19) << " "                    << setw(29) << "│" << endl;
 		cout << setw(18) << "│" << setw(12) << "Acct # " << accountNumber << setw(31) << "│" << endl;
 		cout << setw(18) << "│" << setw(25) << "1.  Name          : " << setw(20) << left << name << "│" << endl << right;
 		cout << setw(18) << "│" << setw(25) << "2.  Balance       : " << setw(20) << left << balance << "│" << endl << right;
