@@ -110,7 +110,7 @@ int main(){
 // CLIENT ACCOUNT LISTED HERE
 		if (menuSelection == 1) {
 			cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-			cout << setw(15) << " " << "│     You hold the following accounts : " << setw(18) << left << "│" << right << endl;
+			cout << setw(15) << " " << "│     You hold the following accounts" << setw(12) << right << "│" << endl;
 			cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
 			cout << endl;
 
@@ -118,7 +118,7 @@ int main(){
 		}
 
 
-   	cout << endl << endl << endl << setw(15) << " ";
+   	cout << endl << endl << endl << setw(15) << " " << "Selection : ";
 		getchar(choice);
 
 

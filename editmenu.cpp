@@ -21,7 +21,7 @@ void editMenu()
 	cout << setw(15) << " " << "╚═════════════════════════════════════════════╝" << endl;
 	cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
 	cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24) << right << "│" << endl;
-	cout << setw(15) << " " << "│     User Role    : ";
+	cout << setw(15) << " " << "│     User Role    : " << left;
 
 	// Switch for role selection
 
@@ -54,9 +54,9 @@ void editMenu()
 		}
 	}		// End Switch
 
-	cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
-	cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
-	getline(cin, filename);
+	cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << right << endl;
+	//cout << endl << endl << endl << endl << setw(15) << " " << "Enter account number: ";
+	//getline(cin, filename);
 
 	fs::path filePath = listAccounts();
 
