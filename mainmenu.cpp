@@ -62,46 +62,15 @@ int main(){
 		cout << setw(15) << " " << "├─────────────────────────────────────────────┤" << endl;
 		cout << setw(18) << "│" << setw(48) << "│" << endl;
 
-		/*
-		cout << "\n\n" << left;
-		cout << "┌───────────────────────────────────────────────────────────────────────────────────────────────┐\n";
-		cout << "│     Logged in as : " << setw(75) << user.username    <<                                      "│\n";
-		cout << "│     Viewing Log  : " << setw(75) << logName + " LOG" <<                                      "│\n";
-		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
-		cout << "│ {  DATE  } { TIME } {   USERNAME   } {                       ACTION                        }  │\n";
-		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "│ " << setw(94) << out[i++].substr(0, 92) <<                                                   "│\n";
-		cout << "├───────────────────────────────────────────────────────────────────────────────────────────────┤\n";
-		cout << "│     PAGE:" << setw(3) << right << pageCurrent+1 << '/' << left << setw(81) << numPages+1 <<  "│\n";
-		if(nextPagePossible)
-			cout << "│     {ENTER} to go to next page                                                                │\n";
-		else
-			cout << "│     {ENTER} to return to menu                                                                 │\n";
-		if(previousPagePossible)
-			cout << "│     ' p '   to go to previous page                                                            │\n";
-		cout << "│     ' 0 '   to return to menu                                                                 │\n";
-		cout << "└───────────────────────────────────────────────────────────────────────────────────────────────┘\n";
-		*/
-
 		switch(menuSelection)
 		{
 			case 1:							// Client Menu
 
 	   		cout << setw(18) << "│" << setw(27) << "1.  Create New Account" << setw(21) << "│" << endl;
-   			cout << setw(18) << "│" << setw(21) << "2.  View Account" << setw(27) << "│" << endl;
-   			cout << setw(18) << "│" << setw(16) << "3.  Deposit" << setw(32) << "│" << endl;
-   			cout << setw(18) << "│" << setw(17) << "4.  Withdraw" << setw(31) << "│" << endl;
-   			cout << setw(18) << "│" << setw(23) << "5.  Transfer Money" << setw(25) << "│" << endl;
-   			cout << setw(18) << "│" << setw(22) << "6.  Close Account" << setw(26) << "│" << endl;
+   			cout << setw(18) << "│" << setw(16) << "2.  Deposit" << setw(32) << "│" << endl;
+   			cout << setw(18) << "│" << setw(17) << "3.  Withdraw" << setw(31) << "│" << endl;
+   			cout << setw(18) << "│" << setw(23) << "4.  Transfer Money" << setw(25) << "│" << endl;
+   			cout << setw(18) << "│" << setw(22) << "5.  Close Account" << setw(26) << "│" << endl;
 				break;
 
 			case 2:							// Clerk Menu
@@ -141,8 +110,9 @@ int main(){
 // CLIENT ACCOUNT LISTED HERE
 		if (menuSelection == 1) {
 			cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-			cout << setw(15) << " " << "│     You hold the following accounts : " << setw(15) << left << "│" << right << endl;
+			cout << setw(15) << " " << "│     You hold the following accounts : " << setw(18) << left << "│" << right << endl;
 			cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
+			cout << endl;
 
 			listAccounts();
 		}
@@ -163,27 +133,22 @@ int main(){
 						createMenu();
 						break;
 
-					case '2':				// View Accounts (Only the Clients, could be 1 account)
-
-						viewMenu();
-						break;
-
-					case '3':				// Deposit
+					case '2':				// Deposit
 
 						depositMenu();
 						break;
 
-					case '4':				// Withdraw
+					case '3':				// Withdraw
 
 						withdraw();
 						break;
 
-					case '5':				// Transfer
+					case '4':				// Transfer
 
 						transfer();
 						break;
 
-					case '6':				// Delete Account
+					case '5':				// Delete Account
 
 						removeMenu();
 						break;

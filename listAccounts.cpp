@@ -42,6 +42,8 @@ string listAccounts() {
 					} else {
 						cerr << "Unable to open file: " << entry.path() << endl;
 					}
+					// Blank line between files
+					cout << endl;
 				}
 			}
 			cout << endl;
