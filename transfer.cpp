@@ -7,19 +7,22 @@ void transfer()
 	// This is Transfer, this is only for clients unless changed and will transfer money between 2 accounts
 	// This function will ask for 2 accounts, 1 to transfer from and 1 to transfer to, and an amount to transfer
 
-	string filename;
-	string filename2;
 	double amount = 0;
 	double balance = 0;
-	char choice = ' ';
+	char choice = '1';
 	char acctType = ' ';
 	char acctType2 = ' ';
 	bool invalid = true;
 	int checkWritten = 0;
+	string filename;
+	string filename2;
+	string num1;
+	string num2;
+	string temp;
 
 	cout << "\033c" << endl << endl;
 
-	cout << setw(15) << " " << "╔════════════════════════════════════════╗" << endl;
+/*	cout << setw(15) << " " << "╔════════════════════════════════════════╗" << endl;
 	cout << setw(18) << "║" << setw(43) << "║" << endl;
 	cout << setw(18) << "║" << setw(28) << "Transfer  Menu" << setw(15) << "║" << endl;
 	cout << setw(15) << " " << "╚════════════════════════════════════════╝" << endl;
@@ -57,29 +60,10 @@ void transfer()
 			break;
 		}
 	}		// End Switch
-	cout << setw(15) << " " << "├────────────────────────────────────────┤" << endl << right;
-
-	cout << setw(18) << "│" << setw(17) << "1.  Transfer" << setw(26) << "│" << endl;
-	cout << setw(18) << "│" << setw(13) << "0.  Exit" << setw(30) << "│" << endl;
 	cout << setw(15) << " " << "└────────────────────────────────────────┘" << endl;
-	cout << setw(15) << " " << "Selection : ";
 
-	// Input Validation for selection
+	// Input Validation for selection*/
 
-	do {
-
-		getchar(choice);
-
-		invalid = (!(choice == '1' || choice == '0'));
-		if(invalid)
-		{
-			cout << endl << endl << setw(15) << " " << "Invalid Choice, Enter Either 1 or 0 to Continue : " << endl;
-		}
-	}while(invalid);
-
-	switch(choice)
-	{
-		case '1':
 
 			cout << "\033c" << endl << endl;
 
@@ -87,9 +71,9 @@ void transfer()
 			cout << setw(18) << "║" << setw(43) << "║" << endl;
 			cout << setw(18) << "║" << setw(28) << "Transfer  Menu" << setw(15) << "║" << endl;
 			cout << setw(15) << " " << "╚════════════════════════════════════════╝" << endl;
-			cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
-			cout << setw(15) << " " << "│     Logged in as : " << setw(25) << left << user.username.substr(0, 24)<< "│" << right << endl;
-			cout << setw(15) << " " << "│     User Role    : ";
+			cout << setw(15) << " " << "┌────────────────────────────────────────┐" << endl;
+			cout << setw(15) << " " << "│     Logged in as : " << setw(20) << left << user.username.substr(0, 24)<< "│" << right << endl;
+			cout << setw(15) << " " << "│     User Role    : " << left;
 
 			// Switch for role selection
 
@@ -97,42 +81,45 @@ void transfer()
 			{
 				case 1:
 				{
-					cout << setw(25) << "Client" << "│" << endl;
+					cout << setw(20) << "Client" << "│" << endl;
 					break;
 				}
 				case 2:
 				{
-					cout << setw(25) << "Clerk" << "│" << endl;
+					cout << setw(20) << "Clerk" << "│" << endl;
 					break;
 				}
 				case 3:
 				{
-					cout << setw(25) << "Manager" << "│" << endl;
+					cout << setw(20) << "Manager" << "│" << endl;
 					break;
 				}
 				case 4:
 				{
-					cout << setw(25) << "Admin" << "│" << endl;
+					cout << setw(20) << "Admin" << "│" << endl;
 					break;
 				}
 				default:
 				{
-					cout << setw(25) << "ERROR" << "│" << endl;
+					cout << setw(20) << "ERROR" << "│" << endl;
 					break;
 				}
 			}		// End Switch
 
-			cout << setw(15) << " " << "└────────────────────────────────────────┘" << endl << endl;
+			cout << setw(15) << " " << right << "└────────────────────────────────────────┘" << endl << endl;
 
-
-			cout << setw(15) << " " << "Enter The Account Number You Want to Transfer From : ";
-
-			getline(cin, filename);
-
+			cout << setw(15) << " " << "Enter The First Account Number To Transfer From : ";
+			getline(cin, num1);
 			cout << endl << endl;
-			cout << setw(15) << " " << "Enter The Account Number You Want to Transfer to   : ";
 
-			getline(cin, filename2);
+			cout << setw(15) << " " << "Enter The Second Account Number To Transfer To  : ";
+			getline(cin, num2);
+
+
+			temp = searchbynum(num1);
+			filename = temp.substr(0, temp.length() - 5);
+			temp = searchbynum(num2);
+			filename2 = temp.substr(0, temp.length() - 5);
 
 			try
 			{
@@ -150,13 +137,13 @@ void transfer()
 				}
 				fileintemp2.close();
 
-				decrypt(filename);
+				//decrypt(filename);
 				ifstream filein(filename);
-				encrypt(filename);
+				//encrypt(filename);
 
-				decrypt(filename2);
+				//decrypt(filename2);
 				ifstream filein2(filename2);
-				encrypt(filename2);
+				//encrypt(filename2);
 
 
 				cout << endl << endl << endl;
@@ -171,6 +158,7 @@ void transfer()
 				{
 					case 'y':
 					{
+						cout << endl << endl;
 						serviceChargeCheckingType service(".");
 						fs::remove(filename);
 
@@ -187,11 +175,9 @@ void transfer()
 
 						balance = deposit(acctType2, filename2, amount);
 
-						if(checkWritten == 0)
-						{
-							cout << setw(15) << " " << "Sucsess! Your balance is now " << service.getBalance() << "$!" << endl << endl;
-						}
+						cout << setw(15) << " " << "Sucsess! Your balance is now " << service.getBalance() << "$!" << endl << endl;
 						cout << setw(15) << " " << "Press Enter to continue : ";
+						waitforenter();
 						waitforenter();
 						break;
 					}
@@ -351,12 +337,6 @@ void transfer()
 				cout << setw(15) << " " << "Press Enter to continue : ";
 				waitforenter();
 			}
-
-			break;
-
-		case '0':
-			break;
-	}		// End Switch
 
 	return;
 }
