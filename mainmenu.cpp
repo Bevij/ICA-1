@@ -9,6 +9,7 @@ int main(){
 						 // user.fname = "Steve";
 
 	// Login
+	loginMenu();
 
 	int menuSelection = user.role;
 	char choice;
@@ -138,6 +139,13 @@ int main(){
 		cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
 
 // CLIENT ACCOUNT LISTED HERE
+		if (menuSelection == 1) {
+			cout << setw(15) << " " << "┌─────────────────────────────────────────────┐" << endl;
+			cout << setw(15) << " " << "│     You hold the following accounts : " << setw(15) << left << "│" << right << endl;
+			cout << setw(15) << " " << "└─────────────────────────────────────────────┘" << endl;
+
+			listAccounts();
+		}
 
 
    	cout << endl << endl << endl << setw(15) << " ";

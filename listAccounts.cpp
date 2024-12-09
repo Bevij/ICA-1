@@ -25,11 +25,24 @@ string listAccounts() {
 	switch (role) {
 		case 1: // Client
 		{
-			cout << "You hold the following accounts: " << endl;
+			dir = "./Data/Accounts/" + fullName + "/" + username + "/";
 
 			// Iterates over all files in the directory and lists them (maybe replace with list function)
 			for (const auto& entry : fs::recursive_directory_iterator(dir)) {
-				cout << entry.path().filename() << endl; // REPLACE WITH LIST FUNCTION THAT OUTPUTS FILE CONTENTS AS WELL
+				if (fs::is_regular_file(entry.path())) {
+					cout << setw(15) << " " << entry.path().filename() << endl;
+
+					ifstream file(entry.path());
+					if (file.is_open()) {
+						string line;
+						while (getline(file, line)) {
+							cout << setw(15) << " " << line << endl;
+						}
+						file.close();
+					} else {
+						cerr << "Unable to open file: " << entry.path() << endl;
+					}
+				}
 			}
 			cout << endl;
 			break;
