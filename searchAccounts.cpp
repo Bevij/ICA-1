@@ -11,7 +11,7 @@ fs::path searchbynum(const string& acctNumSearch) {
 		if (fs::is_regular_file(entry.path())) {
 			if (entry.path().filename() == acctNumSearch) {
 				acctPath = entry.path();
-				acctPath += acctNumSearch;
+				//acctPath += acctNumSearch;
 				break;
 			}
 		}

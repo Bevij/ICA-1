@@ -117,9 +117,9 @@ void transfer()
 
 
 			temp = searchbynum(num1);
-			filename = temp.substr(0, temp.length() - 5);
+			filename = temp.substr(0, temp.length());
 			temp = searchbynum(num2);
-			filename2 = temp.substr(0, temp.length() - 5);
+			filename2 = temp.substr(0, temp.length());
 
 			try
 			{
